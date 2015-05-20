@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device.width, initial-scale=1.0">
+    <meta name="author" content="Sean Francis N. Ballais">
+    <meta name="title" content="SA Elections (2015-2016)">
+    <meta name="description" content="Vote now for your next set of SA officers for S.Y. 2015-2016">
+    <title>{% block title %}PSHS-EVC Student Alliance Elections S.Y. 2015-2016{% endblock %}</title>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frameworks/bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'frameworks/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% block custom_css %}{% endblock %}">
+</head>
+<body>
+    {% block main %}{% endblock %}
+</body>
+</html>

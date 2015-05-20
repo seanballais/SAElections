@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{# {% block custom_css %}{% static %}{% endblock %}{% endblock %} #}
+
+{% block main %}
+    {% if user and not user.is_anonymous %}
+        Hello {{  user.get_full_name | default:user.username }}!
+    {% else %}
+        Did we meet before?
+    {% endif %}
+{% endblock %}
