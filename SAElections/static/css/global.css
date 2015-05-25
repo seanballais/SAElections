@@ -1,4 +1,21 @@
 /* Global CSS file for all templates */
+/* Vendor prefixes */
+html,
 body {
-    background: url('img/global/bg.jpg') center center fixed 0;
-}
+  background: url("/static/img/global/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+footer {
+  color: #fff;
+  text-align: center; }
+  footer a:hover {
+    color: #1b60dc;
+    text-decoration: none; }
+  footer a:link {
+    color: #545ee3; }
+
+/*# sourceMappingURL=global.css.map */

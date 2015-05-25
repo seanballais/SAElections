@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content="PSHS-EVC Student Alliance Elections (2015 - 2016)">
+        <meta name="description" content="Vote now for your new set of Student Alliance officers for S.Y. 2015 - 2016!">
+        <meta name="tags" content="elections, student alliance, pshs-evc, pshs">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="/static/frameworks/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/frameworks/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/frameworks/bootstrap-social/bootstrap-social.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/global.css">
+        <link rel="stylesheet" type="text/css" href="{% block custom_css %}{% endblock %}">
+    </head>
+    <body>
+        {% block main %}{% endblock %}
+        <footer class="navbar-fixed-bottom">
+            <p>
+                Copyright &copy; 2015 Sean Francis N. Ballais and PSHS-EVC Student Alliance. All rights reserved.
+                <br>
+                Built and powered by <a href="http://www.djangoproject.com">Django</a>, <a href="http://www.sass-lang.com">Sass</a>, and <a href="http://www.getbootstrap.com">Bootstrap</a>.
+            </p>
+        </footer>
+        <script type="text/javascript" src="/static/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="/static/frameworks/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{% block custom_js %}{% endblock%}"></script>
+    </body>
+</html>

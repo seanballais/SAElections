@@ -56,8 +56,8 @@ docs/_build/
 # PyBuilder
 target/
 
-# Not including config.py from the repo as this contains sensitive information
-SAElections/SAElections/config.py
-
 # Not including the db.sqlite3 too because of security reasons
 SAElections/db.sqlite3
+
+# Do not include the SASS map file
+SAElections/static/css/*.map

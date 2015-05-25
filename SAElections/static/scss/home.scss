@@ -1,0 +1,30 @@
+/* Home CSS file */
+@import '_graduate-font';
+
+/* Extend Bootstrap 3 classes/identifiers */
+.img-responsive { margin: 0 auto; }
+
+article {
+    height: 100%;
+    width: 100%;
+
+    > div#heading {
+    color: #fff;
+    height: 100%;
+    margin-top: 10%; /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
+    text-align: center;
+
+        > h1#banner-title {
+            font-family: 'Graduate', serif;
+            font-size: 8.5em;
+            font-weight: bold;
+        }
+
+        > a {
+            margin-top: 2%;
+            margin-left: 42.5%;
+            margin-right: 42.5%; 
+            width: 15%;
+        }
+    }
+}
