@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from SAElections.auth_keys import SOCIAL_AUTH_FACEBOOK_KEY, SOCIAL_AUTH_FACEBOOK_SECRET
+from SAElections.auth_info import SOCIAL_AUTH_LOGIN_REDIRECT_URL, SOCIAL_AUTH_FACEBOOK_KEY, SOCIAL_AUTH_FACEBOOK_SECRET
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -81,9 +81,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'SAElections.wsgi.application'
-
-# Redirect to this URL to prevent the default /account/profile from raising a 404
-LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases

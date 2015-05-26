@@ -12,3 +12,6 @@ def home(request):
             }
         )
     )
+
+def auth_successful(self):
+    return render_to_response('auth-successful.html')

@@ -23,5 +23,6 @@ urlpatterns = [
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^$', 'voting.views.home', name='home'),
+    url(r'^auth-successful/', 'voting.views.auth_successful', name='auth-successful'),
     url(r'^admin/', include(admin.site.urls)),
 ] + staticfiles_urlpatterns()
