@@ -1,30 +1,41 @@
 /* Home CSS file */
 @import '_graduate-font';
+@import '_vendorprefixes';
 
 /* Extend Bootstrap 3 classes/identifiers */
 .img-responsive { margin: 0 auto; }
 
 article {
-    height: 100%;
-    width: 100%;
-
-    > div#heading {
     color: #fff;
     height: 100%;
-    margin-top: 10%; /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
+    width: 100%;
     text-align: center;
+    
+    > div#no-auth, div#has-auth {
+        height: 100%;
+    }
 
-        > h1#banner-title {
-            font-family: 'Graduate', serif;
-            font-size: 8.5em;
-            font-weight: bold;
-        }
+    > div#no-auth {
+        margin-top: 10%; /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
 
-        > a {
-            margin-top: 2%;
-            margin-left: 42.5%;
-            margin-right: 42.5%; 
-            width: 15%;
+        > div#heading {
+            > h1#banner-title {
+                font-family: 'Graduate', serif;
+                font-size: 8.5em;
+                font-weight: bold;
+            }
+
+            > a {
+                margin: 0 auto;
+                margin-top: 3%;
+                max-width: 100%;
+                width: 197px;
+            }
         }
+    }
+
+    > div#has-auth {
+        margin-top: 3%; /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
+        max-width: 422px;
     }
 }

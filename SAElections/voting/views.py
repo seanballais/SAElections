@@ -4,6 +4,7 @@ from django.template.context import RequestContext
 def home(request):
     return render_to_response(
         'home.html',
+        { 'add_custom_css': 'true', 'add_custom_js': 'true' },
         RequestContext(
             request,
             {

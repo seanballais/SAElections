@@ -1,27 +1,33 @@
 /* Home CSS file */
 /* Graduate SCSS Partial */
 @import url(http://fonts.googleapis.com/css?family=Graduate);
+/* Vendor prefixes */
 /* Extend Bootstrap 3 classes/identifiers */
 .img-responsive {
   margin: 0 auto; }
 
 article {
+  color: #fff;
   height: 100%;
-  width: 100%; }
-  article > div#heading {
-    color: #fff;
-    height: 100%;
+  width: 100%;
+  text-align: center; }
+  article > div#no-auth, article div#has-auth {
+    height: 100%; }
+  article > div#no-auth {
     margin-top: 10%;
-    /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
-    text-align: center; }
-    article > div#heading > h1#banner-title {
+    /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/ }
+    article > div#no-auth > div#heading > h1#banner-title {
       font-family: 'Graduate', serif;
       font-size: 8.5em;
       font-weight: bold; }
-    article > div#heading > a {
-      margin-top: 2%;
-      margin-left: 42.5%;
-      margin-right: 42.5%;
-      width: 15%; }
+    article > div#no-auth > div#heading > a {
+      margin: 0 auto;
+      margin-top: 3%;
+      max-width: 100%;
+      width: 197px; }
+  article > div#has-auth {
+    margin-top: 3%;
+    /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
+    max-width: 422px; }
 
 /*# sourceMappingURL=home.css.map */

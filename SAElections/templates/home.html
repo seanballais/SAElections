@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
+
 {% block title %}PSHS-EVC Student Alliance Elections 2015-2016 | Vote now for your new set of officers!{% endblock %}
 {% block custom_css %}/static/css/home.css{% endblock %}
+{% block custom_js %}/static/js/home.js{% endblock %}
 
 {% block main %}
     <article class="container-fluid">
         {% if user and not user.is_anonymous %}
-            <h1>Ola {{ user.get_full_name | default:user.username }}!</h1>
-            <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+            <div id="has-auth">
+                <img id="banner" class="img-responsive" src="/static/img/home/banner.png" height="80" width="422">
+                <h1>Ola {{ user.get_full_name | default:user.username }}!</h1>
+                <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+            </div>
         {% else %}
-            <div id="heading" class="row-fluid">
-                <img id="banner" class="img-responsive" src="/static/img/home/banner.png" height="80" width="422">      
-                <h1 id="banner-title">Vote now!</h1>
-                <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
-                <a href="" class="btn btn-block btn-social btn-facebook" onclick="window.open('{% url 'social:begin' 'facebook' %}?next=/auth-successful', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
-                    <i class="fa fa-facebook"></i>
-                    Sign in with Facebook
-                </a>
+            <div id="no-auth">
+                <div id="heading" class="row-fluid">
+                    <img id="banner" class="img-responsive" src="/static/img/home/banner.png" height="80" width="422">
+                    <h1 id="banner-title">Vote now!</h1>
+                    <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
+                    <a href="" class="btn btn-block btn-social btn-facebook" onclick="window.open('{% url 'social:begin' 'facebook' %}?next=/auth-successful', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                        <i class="fa fa-facebook"></i>
+                        Sign in with Facebook
+                    </a>
+                </div>
             </div>
         {% endif %}
     </article>
