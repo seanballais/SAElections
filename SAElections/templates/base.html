@@ -13,13 +13,13 @@
         <link rel="stylesheet" type="text/css" href="/static/frameworks/bootstrap-social/bootstrap-social.css">
         <link rel="stylesheet" type="text/css" href="/static/css/global.css">
         <link rel="stylesheet" type="text/css" href="{% block custom_css %}{% endblock %}">
-        <script type="text/javascript" src="/static/js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="/static/frameworks/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="{% block custom_js %}{% endblock%}"></script>
     </head>
     <body>
         {% block main %}{% endblock %}
-        <footer class="navbar-fixed-bottom">
+        <script type="text/javascript" src="/static/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.color.plus-names-2.1.2.min.js"></script>
+        <script type="text/javascript" src="{% block custom_js %}{% endblock%}"></script>
+        <footer>
             <p>
                 Copyright &copy; 2015 Sean Francis N. Ballais and PSHS-EVC Student Alliance. All rights reserved.
                 <br>

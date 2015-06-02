@@ -9,25 +9,61 @@
 article {
   color: #fff;
   height: 100%;
-  width: 100%;
-  text-align: center; }
-  article > div#no-auth, article div#has-auth {
-    height: 100%; }
+  width: 100%; }
+  article > div#no-auth,
+  article > div#has-auth {
+    height: 100%;
+    text-align: center; }
   article > div#no-auth {
-    margin-top: 10%;
-    /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/ }
-    article > div#no-auth > div#heading > h1#banner-title {
+    margin-top: 10%; }
+    article > div#no-auth > h1#banner-title {
       font-family: 'Graduate', serif;
       font-size: 8.5em;
       font-weight: bold; }
-    article > div#no-auth > div#heading > a {
+    article > div#no-auth > a {
       margin: 0 auto;
-      margin-top: 3%;
+      margin-top: 4%;
+      margin-bottom: 5%;
       max-width: 100%;
       width: 197px; }
   article > div#has-auth {
-    margin-top: 3%;
-    /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
-    max-width: 422px; }
+    text-align: center; }
+    article > div#has-auth > div#header > div#internal-header img#banner {
+      margin-top: 2%;
+      margin-bottom: 1%;
+      max-width: 422px;
+      height: 100%;
+      width: 100%; }
+    article > div#has-auth > div#voting-area {
+      margin: auto;
+      margin-top: 2.5%;
+      margin-bottom: 2.5%;
+      max-width: 790px; }
+      article > div#has-auth > div#voting-area > div#candidates div {
+        display: none; }
+        article > div#has-auth > div#voting-area > div#candidates div > img.profpic {
+          background: url("/static/img/home/candidates.png");
+          margin: 2%;
+          height: 128px;
+          width: 128px; }
+        article > div#has-auth > div#voting-area > div#candidates div > img#johan {
+          background-position: 0 0; }
+        article > div#has-auth > div#voting-area > div#candidates div > img#kobe {
+          background-position: -130px 0; }
+        article > div#has-auth > div#voting-area > div#candidates div > img#jeri {
+          background-position: -260px 0; }
+        article > div#has-auth > div#voting-area > div#candidates div > img#sophia {
+          background-position: -390px 0; }
+        article > div#has-auth > div#voting-area > div#candidates div > img#linette {
+          background-position: -520px 0; }
+        article > div#has-auth > div#voting-area > div#candidates div > img#ronel {
+          background-position: -650px 0; }
+      article > div#has-auth > div#voting-area > div#voting-button {
+        display: none;
+        margin-top: 5%;
+        margin-bottom: 2%; }
+
+footer {
+  margin-top: 2%; }
 
 /*# sourceMappingURL=home.css.map */
