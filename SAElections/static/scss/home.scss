@@ -53,14 +53,20 @@ article {
             margin: auto;
             margin-top: 2.5%;
             margin-bottom: 2.5%;
-            max-width: 790px;
+            max-width: 890px;
 
             > div#candidates {
                 div {
+                    @each $vendor in $prefix-list { 
+                        #{$vendor}-border-radius: 10px;
+                        @if $vendor == '-o' { border-radius: 10px; }
+                    }
                     display: none;
+                    margin-bottom: 2%;
 
                     > img.profpic {
                         background: url('/static/img/home/candidates.png');
+                        cursor: pointer;
                         margin: 2%;
                         height: 128px;
                         width: 128px;

@@ -38,11 +38,18 @@ article {
       margin: auto;
       margin-top: 2.5%;
       margin-bottom: 2.5%;
-      max-width: 790px; }
+      max-width: 890px; }
       article > div#has-auth > div#voting-area > div#candidates div {
-        display: none; }
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        border-radius: 10px;
+        display: none;
+        margin-bottom: 2%; }
         article > div#has-auth > div#voting-area > div#candidates div > img.profpic {
           background: url("/static/img/home/candidates.png");
+          cursor: pointer;
           margin: 2%;
           height: 128px;
           width: 128px; }
