@@ -66,7 +66,7 @@ function pageHovers() {
 
     $('#castillejos').hover( // Handles hover on Johan's div block
         function() { // Executes when mouse is over Johan's div block
-            $('#johan-click').text('Click the handsome Johan to vote him.');
+            $('#johan-click').text('Click Handsome Johan to vote him.');
             $('#johan-click').fadeIn('fast');
         },
         function() { // Executes when mouse is out of Johan's div block
@@ -78,7 +78,7 @@ function pageHovers() {
     // TODO: Search in the net why .hover doesn't accept a function as a parameter and why
     // a function suddenly runs inside .hover without function() {} in the .hover
     // parameters.
-    $('#johan').hover(
+    $('#johan').hover( // Handles hover on Johan's image
         function() {
             changeBackgroundPositionOnHover('#johan', 'mouseover', candidState, 0, '0 -128px', '0 -256px');
         },
