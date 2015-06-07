@@ -8,6 +8,7 @@
 
 article {
   color: #fff;
+  /* Set the height and width to 100% */
   height: 100%;
   width: 100%; }
   article > div#no-auth,
@@ -72,5 +73,9 @@ article {
 
 footer {
   margin-top: 2%; }
+  footer > div#advertisement {
+    float: none;
+    margin: auto;
+    max-width: 728px; }
 
 /*# sourceMappingURL=home.css.map */

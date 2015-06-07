@@ -7,6 +7,8 @@
 
 article {
     color: #fff;
+
+    /* Set the height and width to 100% */
     $property: height width;
     @each $prop in $property { #{$prop}: 100%; }
     
@@ -90,4 +92,12 @@ article {
     }
 }
 
-footer { margin-top: 2%; }
+footer { 
+    margin-top: 2%;
+
+    > div#advertisement {
+        float: none;
+        margin: auto;
+        max-width: 728px; 
+    }
+}
