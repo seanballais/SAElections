@@ -49,8 +49,7 @@ function pageInit() {
  * Handles everything regarding hover actions.
  */
 function pageHovers() {
-    // Generic candidate hover handler
-    $('.candid').hover(
+    $('.candid').hover( // Generic candidate hover handler
         function() { // When mouse is over the element
             $(this).animate({
                 backgroundColor: '#fff',
@@ -65,11 +64,21 @@ function pageHovers() {
         }
     );
 
+    $('#castillejos').hover( // Handles hover on Johan's div block
+        function() { // Executes when mouse is over Johan's div block
+            $('#johan-click').text('Click the handsome Johan to vote him.');
+            $('#johan-click').fadeIn('fast');
+        },
+        function() { // Executes when mouse is out of Johan's div block
+            $('#johan-click').text('...');
+            $('#johan-click').fadeOut('fast');
+        }
+    );
+
     // TODO: Search in the net why .hover doesn't accept a function as a parameter and why
     // a function suddenly runs inside .hover without function() {} in the .hover
     // parameters.
-    // Handles hover on an image
-    $('#johan').hover( // Executes when mouse is over or out of Johan's picture
+    $('#johan').hover(
         function() {
             changeBackgroundPositionOnHover('#johan', 'mouseover', candidState, 0, '0 -128px', '0 -256px');
         },
@@ -92,46 +101,4 @@ function pageClicks() {
             $(this).css('background-position', '0 0');
         }
     });
-}
-
-////////////////////////////////////////
-///                                  ///
-///   Helper functions for home.js   ///
-///                                  ///
-////////////////////////////////////////
-
-/**
- * Changes the background-position of an element
- * @param  string  elem                Element in which its *background-position* will be changed.
- * @param  string  hoverState          State of mouse whether it is over or out *elem*. *hoverState* may be **mouseover** or **mouseout**.
- * @param  Array   candidateArray      Array to be used
- * @param  int     candidateIndex      Index of the array that will point to the value inside of the array that will be used.
- * @param  string  backgroundPosition1 *background-position* when the image will be clicked. Example, '0 -128px'.
- * @param  string  backgroundPosition2 *background-position* when the image will be unclicked. Example, '0 0'.
- */
-function changeBackgroundPositionOnHover(elem, hoverState, candidateArray, candidateIndex, backgroundPosition1, backgroundPosition2) {
-    console.log('Hovered?');
-    console.log('Info: elem is ' + elem);
-    console.log('Info: hoverState is ' + hoverState);
-    console.log('Info: candidateArray is ' + candidateArray.toString());
-    console.log('Info: candidateIndex is ' + candidateIndex.toString());
-    console.log('Info: backgroundPosition1 is ' + backgroundPosition1);
-    console.log('Info: backgroundPosition2 is ' + backgroundPosition2);
-    var elem_to_be_modified = document.querySelector(elem);
-    console.log('Info: elem_to_be_modified is ' + elem_to_be_modified);
-    switch (hoverState) {
-        case 'mouseover':
-            if (!candidateArray[candidateIndex]) { // Image has not been clicked yet, or unclicked
-                $(elem_to_be_modified).css('background-position', backgroundPosition1);
-                console.log('Hi!');
-            } else { // Image has been clicked
-                $(elem_to_be_modified).css('background-position', backgroundPosition2);
-            }
-        case 'mouseout':
-            if (!candidateArray[candidateIndex]) { // Image has not been clicked yet, or unclicked
-                $(elem_to_be_modified).css('background-position', backgroundPosition1);
-            } else { // Image has been clicked
-                $(elem_to_be_modified).css('background-position', backgroundPosition2);
-            }
-    }
 }

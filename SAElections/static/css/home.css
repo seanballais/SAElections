@@ -66,6 +66,8 @@ article {
           background-position: -520px 0; }
         article > div#has-auth > div#voting-area > div#candidates div > img#ronel {
           background-position: -650px 0; }
+        article > div#has-auth > div#voting-area > div#candidates div > h6.click-label {
+          color: '#313131'; }
       article > div#has-auth > div#voting-area > div#voting-button {
         display: none;
         margin-top: 5%;
