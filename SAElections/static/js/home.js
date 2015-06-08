@@ -63,20 +63,131 @@ function pageHovers() {
         }
     );
 
+    // Handle hovers on candidate div blocks
     $('#castillejos').hover( // Handles hover on Johan's div block
         function() { // Executes when mouse is over Johan's div block
-            $('#johan-click').text('Click Handsome Johan to vote him.');
-            $('#johan-click').fadeIn('fast');
+            var voteState = votingStatus(candidState, 0);
+            changeTextOnHoverWithEffect(
+                '#johan-click', 
+                'Click Johan (of Arc) to '+ voteState +' him.',
+                'fadeIn',
+                'fast'
+            );
         },
         function() { // Executes when mouse is out of Johan's div block
-            $('#johan-click').text('...');
-            $('#johan-click').fadeOut('fast');
+            changeTextOnHoverWithEffect(
+                '#johan-click', 
+                '...',
+                'fadeOut',
+                'fast'
+            );
+        }
+    );
+
+    $('#bismark').hover( // Handles hover on Kobe's div block
+        function() { // Executes when mouse is over Kobe's div block
+            var voteState = votingStatus(candidState, 1);
+            changeTextOnHoverWithEffect(
+                '#kobe-click',
+                'Click Ormoc guy to ' + voteState + ' him.',
+                'fadeIn',
+                'fast'
+            );
+        },
+        function() { // Executes when mouse is out of Kobe's div block
+            changeTextOnHoverWithEffect(
+                '#kobe-click',
+                '...',
+                'fadeOut',
+                'fast'
+            );
+        }
+    );
+
+    $('#latorre').hover( // Handles hover on Jeri's div block
+        function() { // Executes when mouse is over Jeri's div block
+            var voteState = votingStatus(candidState, 2);
+            changeTextOnHoverWithEffect(
+                '#jeri-click',
+                'Click Pretty Lady to ' + voteState + ' her.',
+                'fadeIn',
+                'fast'
+            );
+        },
+        function() { // Executes when mouse is out of Jeri's div block
+            changeTextOnHoverWithEffect(
+                '#jeri-click',
+                '...',
+                'fadeOut',
+                'fast'
+            );
+        }
+    );
+
+    $('#sevilla').hover( // Handles hover on Sophia's div block
+        function() { // Executes when mouse is over Sophia's div block
+            var voteState = votingStatus(candidState, 3);
+            changeTextOnHoverWithEffect(
+                '#sophia-click',
+                'Click Smart Girl to ' + voteState + ' her.',
+                'fadeIn',
+                'fast'
+            );
+        },
+        function() { // Executes when mouse is out of Sophia's div block
+            changeTextOnHoverWithEffect(
+                '#sophia-click',
+                '...',
+                'fadeOut',
+                'fast'
+            );
+        }
+    );
+
+    $('#limsiaco').hover( // Handles hover on Linette's div block
+        function() { // Executes when mouse is over Linette's div block
+            var voteState = votingStatus(candidState, 4);
+            changeTextOnHoverWithEffect(
+                '#linette-click',
+                'Click Girlaloo to ' + voteState + ' her.',
+                'fadeIn',
+                'fast'
+            );
+        },
+        function() { // Executes when mouse is out of Linette's div block
+            changeTextOnHoverWithEffect(
+                '#linette-click',
+                '...',
+                'fadeOut',
+                'fast'
+            );
+        }
+    );
+
+    $('#latorre').hover( // Handles hover on Ronel's div block
+        function() { // Executes when mouse is over Ronel's div block
+            var voteState = votingStatus(candidState, 5);
+            changeTextOnHoverWithEffect(
+                '#ronel-click',
+                'Click Cool Guy to ' + voteState + ' him.',
+                'fadeIn',
+                'fast'
+            );
+        },
+        function() { // Executes when mouse is out of Ronel's div block
+            changeTextOnHoverWithEffect(
+                '#ronel-click',
+                '...',
+                'fadeOut',
+                'fast'
+            );
         }
     );
 
     // TODO: Search in the net why .hover doesn't accept a function as a parameter and why
     // a function suddenly runs inside .hover without function() {} in the .hover
     // parameters.
+    // Handle hover on candidate pictures
     $('#johan').hover( // Handles hover on Johan's image
         function() {
             changeBackgroundPositionOnHover('#johan', 'mouseover', candidState, 0, '0 -128px', '0 -256px');
@@ -92,7 +203,7 @@ function pageHovers() {
  */
 function pageClicks() {
     $('#johan').click(function() { // Executes when Johan's picture has been clicked
-        if (candidState[0] == false) { // Image has not been clicked, or has been unclicked
+        if (!candidState[0]) { // Image has not been clicked, or has been unclicked
             candidState[0] = true;
             $(this).css('background-position', '0 -128px');
         } else { // Image has been clicked already
