@@ -8,8 +8,7 @@
 ///                                       ///
 /////////////////////////////////////////////
 
-// Requires jQuery
-if (typeof jQuery === 'undefined') {
+if (typeof jQuery === 'undefined') { // Requiring jQuery
     throw new Error('This web app requires jQuery.');
 }
 
