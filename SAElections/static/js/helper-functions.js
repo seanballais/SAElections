@@ -101,12 +101,12 @@ String.prototype.getSurnameIndex =
         for (var index = 0; index < 6; index++) {
             var candidateVal = infoArray[0][index];
 
-            if (candidateVal == surname) {
+            if (candidateVal == this.toString()) {
                 return index;
-            } else {
-                throw new Error('Surname (' + surname + ') not found.');
             }
         }
+
+        throw new Error('Surname (' + this.toString() + ') not found.');
     }
 ;
 
@@ -123,16 +123,17 @@ String.prototype.getSurnameIndex =
 String.prototype.changeTextOnHover = 
     function(text, textColor, fadeEffect, effectSpeed) 
     {
-        var elemToBeModified = document.querySelector(elem);
+        var elemToBeModified = document.querySelector(this.toString());
 
         $(elemToBeModified).text(text);
-        $(elemToBeModified).animate({ color: textColor }, effectSpeed);
 
         if (fadeEffect == 'fadeIn') { 
             $(elemToBeModified).fadeIn(effectSpeed);
         } else if (fadeEffect == 'fadeOut') {
             $(elemToBeModified).fadeOut(effectSpeed); 
         }
+
+        $(elemToBeModified).animate({ color: textColor }, effectSpeed);
     }
 ;
 

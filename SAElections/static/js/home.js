@@ -70,25 +70,26 @@ function pageHovers()
 
     // Handle hovers on candidate div blocks
     $(candidates[0]).each(
-        function(index) 
+        function() 
         {
-            var firstName = this.toString().getCandidateFirstName(candidates);
+            var surname = this.toString();
+            var firstName = surname.getCandidateFirstName(candidates);
             var clickID = '#' + firstName + '-click';
 
             $('#' + this.toString()).hover( // Handles hover on each candidate's div block
                 function() // Executes when mouse is over a candidate's div block
                 {
-                    var voteState = this.toString().getCandidateReverseVoteState(candidates);
-                    var gender = this.toString().getCandidateGender(candidates);
+                    var voteState = surname.getCandidateReverseVoteState(candidates);
+                    var gender = surname.getCandidateGender(candidates);
 
                     firstName = firstName.capitalizeFirstLetter();
                     var text = 'Click ' + firstName + ' to ' + voteState + ' ' + gender + '.';
 
-                    clickID.changeTextOnHover(text, 'fadeIn', 'fast');
+                    clickID.changeTextOnHover(text, '#313131', 'fadeIn', 'fast');
                 },
                 function() // Executes when mouse is out of a candidate's div block
                 {
-                    clickID.changeTextOnHover('...', 'fadeOut', 'fast').
+                    clickID.changeTextOnHover('...', '#fff', 'fadeOut', 'fast');
                 }
             );
         }
@@ -98,14 +99,14 @@ function pageHovers()
     // a function suddenly runs inside .hover without function() {} in the .hover
     // parameters.
     // Handle hover on candidate pictures
-    $('#johan').hover( // Handles hover on Johan's image
+    /*$('#johan').hover( // Handles hover on Johan's image
         function() {
             changeBackgroundPositionOnHover('#johan', 'mouseover', candidState, 0, '0 -128px', '0 -256px');
         },
         function() {
             changeBackgroundPositionOnHover('#johan', 'mouseout', candidState, 0, '0 0', '0 -128px');
         }
-    );
+    );*/
 }
 
 /**
