@@ -120,7 +120,7 @@ String.prototype.getSurnameIndex =
  * @param  string      fadeEffect  Fade effect to be used when changing text. Can be *fadeIn* or *fadeOut*.
  * @param  string,int  effectSpeed Speed of the effect. If *effectSpeed* is a string, parameter can be *fast* or *slow*. Any positive number can be used if *effectSpeed* is an integer.
  */
-String.prototype.changeTextOnHoverWithEffect = 
+String.prototype.changeTextOnHover = 
     function(text, textColor, fadeEffect, effectSpeed) 
     {
         var elemToBeModified = document.querySelector(elem);

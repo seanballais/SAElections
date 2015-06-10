@@ -75,6 +75,8 @@ function pageHovers()
                     var voteState = this.toString().getCandidateReverseVoteState(candidates);
                     var gender = this.toString().getCandidateGender(candidates);
                     firstName = firstName.capitalizeFirstLetter();
+
+                    
                 }
             );
         }
