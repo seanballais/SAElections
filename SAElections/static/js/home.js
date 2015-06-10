@@ -88,7 +88,7 @@ function pageHovers()
                 },
                 function() // Executes when mouse is out of a candidate's div block
                 {
-                    clickID.changeTextOnHover('...', 'fadeOut', 'fast').
+                    clickID.changeTextOnHover('...', 'fadeOut', 'fast');
                 }
             );
         }
