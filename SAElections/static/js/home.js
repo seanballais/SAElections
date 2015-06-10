@@ -70,7 +70,11 @@ function pageHovers()
         function(index) {
             $('#' + this.toString()).hover( // Handles hover on each candidate's div block
                 function() { // Executes when mouse is over a candidate's div block
-                    var candidateFirstName = getCandidateFirstName(candidates, this.toString());
+                    var firstName = this.toString().getCandidateFirstName(candidates);
+                    var clickID = '#' + firstName + '-click';
+                    var voteState = this.toString().getCandidateReverseVoteState(candidates);
+                    var gender = this.toString().getCandidateGender(candidates);
+                    firstName = firstName.capitalizeFirstLetter();
                 }
             );
         }

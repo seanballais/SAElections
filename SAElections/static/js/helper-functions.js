@@ -17,110 +17,124 @@ if (typeof jQuery === 'undefined') { // Requiring jQuery
 
 /**
  * Gets the candidate's first name based on his/her family name.
+ * @param  string  String       Surname of the candidate.
  * @param  Array   surnameArray Array where the value possibly is.
- * @param  string  surname      Surname of the candidate.
  * @return string               The candidate's first name.
  */
-function getCandidateFirstName(surnameArray, surname)
-{
-    return getCandidateInfo(surnameArray, 1, surname);
-}
+String.prototype.getCandidateFirstName = 
+    function(surnameArray)
+    {
+        return this.getCandidateInfo(surnameArray, 1);
+    }
+;
 
 /**
  * Gets the candidate's reverse vote status.
+ * @param  string  String       Surname of the candidate.
  * @param  Array   surnameArray Array where the value possibly is.
- * @param  string  surname      Surname of the candidate.
  * @return string               The candidate's reverse vote status. It can either be *'voted'* or *'unvoted'*.
  */
-function getCandidateReverseVoteState(surnameArray, surname)
-{
-    return getCandidateState(surnameArray, 2, surname, ['vote', 'unvote']);
-}
+String.prototype.getCandidateReverseVoteState = 
+    function(surnameArray)
+    {
+        return this.getCandidateState(surnameArray, 2, ['vote', 'unvote']);
+    }
+;
 
 /**
  * Gets the candidate's gender.
+ * @param  string  String       Surname of the candidate.
  * @param  Array   surnameArray Array where the value possibly is.
- * @param  string  surname      Surname of the candidate.
  * @return string               The candidate's gender.
  */
-function getCandidateGender(surnameArray, surname)
-{
-    return getCandidateState(surnameArray, 3, surname, ['her', 'him']);
-}
+String.prototype.getCandidateGender = 
+    function(surnameArray)
+    {
+        return this.getCandidateState(surnameArray, 3, ['her', 'him']);
+    }
+;
 
 /**
  * Gets the candidate's info state whether it is 0 or false, etc.
+ * @param  string       String       Surname of the candidate.
  * @param  Array        surnameArray Array where the value possibly is.
  * @param  int          arrayIndex   The index where the information will be gathered from.
- * @param  string       surname      Surname of the candidate.
  * @param  Array        returnVal    Values that should be returned.
  * @return int/boolean               Values that should be returned depending on whether it is *true* or *false*.
  */
-function getCandidateState(surnameArray, arrayIndex, surname, returnVal)
-{
-    if (!getCandidateInfo(surnameArray, arrayIndex, surname)) { // Value received is either 0 or false
-        return returnVal[0];
-    } else { // Value received is either 1 or true
-        return returnVal[1];
+String.prototype.getCandidateState = 
+    function(surnameArray, arrayIndex, returnVal)
+    {
+        if (!this.getCandidateInfo(surnameArray, arrayIndex)) { // Value received is either 0 or false
+            return returnVal[0];
+        } else { // Value received is either 1 or true
+            return returnVal[1];
+        }
     }
-}
+;
 
 /**
  * Gets the candidate info (first name, gender, etc.)
+ * @param  string              String    Surname that will be used in getCandidateInfo().
  * @param  Array               infoArray Array where the value possibly is.
- * @param  int                 infoIndex The index where the information will be gathered from
- * @param  string              surname   Surname that will be used in getCandidateInfo().
+ * @param  int                 infoIndex The index where the information will be gathered from.
  * @return string/boolean/int            The information that wiil be used.
  */
-function getCandidateInfo(infoArray, infoIndex, surname)
-{
-    var candidateIndex = getSurnameIndex(infoArray, surname); // Get the index of the surname
+String.prototype.getCandidateInfo = 
+    function(infoArray, infoIndex)
+    {
+        var candidateIndex = this.getSurnameIndex(infoArray); // Get the index of the surname
 
-    return infoArray[infoIndex][candidateIndex]; // Returns candidate info
-}
+        return infoArray[infoIndex][candidateIndex]; // Returns candidate info
+    }
+;
 
 /**
  * Loops through each surname value until it finds a match to the given surname from the parameter.
+ * @param  string String    Surname where the index that will be gathered from the array will be based on.
  * @param  Array  infoArray Array where the value possibly is.
- * @param  string surname   Surname where the index that will be gathered from the array will be based on.
  * @return int              The index of the surname.
  */
-function getSurnameIndex(infoArray, surname) 
-{    
-    for (var index = 0; index < 6; index++) {
-        var candidateVal = infoArray[0][index];
+String.prototype.getSurnameIndex = 
+    function(infoArray) 
+    {  
+        for (var index = 0; index < 6; index++) {
+            var candidateVal = infoArray[0][index];
 
-        if (candidateVal == surname) {
-            return index;
-        } else {
-            throw new Error('Surname (' + surname + ') not found.');
+            if (candidateVal == surname) {
+                return index;
+            } else {
+                throw new Error('Surname (' + surname + ') not found.');
+            }
         }
     }
-}
+;
 
 /// Functions for website functionality
 
 /**
  * Changes text on hover with a fade effect.
- * @param  string      elem        Element that is holding the text.
- * @param  string      text        Text that will be replacing the old text in the specified element, *elem*.
+ * @param  string      String      Element that is holding the text.
+ * @param  string      text        Text that will be replacing the old text in the specified element.
  * @param  string      textColor   Color in which the text will be colored into.
  * @param  string      fadeEffect  Fade effect to be used when changing text. Can be *fadeIn* or *fadeOut*.
  * @param  string,int  effectSpeed Speed of the effect. If *effectSpeed* is a string, parameter can be *fast* or *slow*. Any positive number can be used if *effectSpeed* is an integer.
  */
-function changeTextOnHoverWithEffect(elem, text, textColor, fadeEffect, effectSpeed) 
-{
-    var elemToBeModified = document.querySelector(elem);
+String.prototype.changeTextOnHoverWithEffect = 
+    function(text, textColor, fadeEffect, effectSpeed) 
+    {
+        var elemToBeModified = document.querySelector(elem);
 
-    $(elemToBeModified).text(text);
-    $(elemToBeModified).animate({ color: textColor }, effectSpeed);
+        $(elemToBeModified).text(text);
+        $(elemToBeModified).animate({ color: textColor }, effectSpeed);
 
-    if (fadeEffect == 'fadeIn') { 
-        $(elemToBeModified).fadeIn(effectSpeed);
-    } else if (fadeEffect == 'fadeOut') {
-        $(elemToBeModified).fadeOut(effectSpeed); 
+        if (fadeEffect == 'fadeIn') { 
+            $(elemToBeModified).fadeIn(effectSpeed);
+        } else if (fadeEffect == 'fadeOut') {
+            $(elemToBeModified).fadeOut(effectSpeed); 
+        }
     }
-}
+;
 
 /**
  * Changes the background-position of an element on mouse hover.
@@ -149,3 +163,16 @@ function changeBackgroundPositionOnHover(elem, hoverState, candidateArray, candi
             }
     }
 }
+
+/// Miscellaneous functions/prototypes
+
+/**
+ * Capitalizes the first letter of a string
+ * @type string
+ */
+String.prototype.capitalizeFirstLetter =
+    function()
+    {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+;
