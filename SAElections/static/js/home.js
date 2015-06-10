@@ -13,41 +13,43 @@ if (typeof jQuery === 'undefined') { // Requiring jQuery
 }
 
 /**
- * Holds the state of the candidates to know
- * whether they have been voted or not.
+ * Contains the list of candidate by family name,
+ * their genders (0 for female (ladies first!), 1 for male),
+ * and nicknames.
  * @type Array
  */
-var candidState = [false, false, false, false, false, false]; // Contains selection status (voted or not).
-
-/**
- * The 'main' function.
- * @param function
- */
-$(document).ready(function() {
-    pageInit();
-    pageHovers();
-    pageClicks();
-});
+var candidates = [
+    ['castillejos', 'bismark', 'latorre', 'sevilla', 'limsiaco', 'ecaldre'], // Candidate surname
+    ['johan', 'kobe', 'jeri', 'sophia', 'linette', 'ronel'], // Candidate first name
+    [false, false, false, false, false, false], // Candidate state (voted or not)
+    [1, 1, 0, 0, 0, 1] // Candidate gender
+};
 
 /**
  * Initializes variables or effects that have to run
  * when the page is ready.
  */
-function pageInit() {
+function pageInit()
+{
     /* 
      * Fade in the candidates with Johan fading in first
      * then Kobe and so one then the voting buttons.
      */
-    $(['castillejos', 'bismark', 'latorre', 
-       'sevilla', 'limsiaco', 'ecaldre', 'voting-button']).each(function(index) {
-        $('#' + this.toString()).delay(((index++) * 1000) + 500).fadeIn(1000);
-    });
+    var elements = candidates[0].slice();
+    elements.push('voting-button');
+
+    $(elements).each(
+        function(index) {
+            $('#' + this.toString()).delay(((index++) * 1000) + 500).fadeIn(1000);
+        }
+    );
 }
 
 /**
  * Handles everything regarding hover actions.
  */
-function pageHovers() {
+function pageHovers() 
+{
     $('.candid').hover( // Generic candidate hover handler
         function() { // When mouse is over the element
             $(this).animate({
@@ -64,15 +66,25 @@ function pageHovers() {
     );
 
     // Handle hovers on candidate div blocks
+    $(candidates[0]).each(
+        function(index) {
+            $('#' + this.toString()).hover( // Handles hover on each candidate's div block
+                function() { // Executes when mouse is over a candidate's div block
+                    var candidateFirstName = getCandidateFirstName(candidates, this.toString());
+                }
+            );
+        }
+    ); 
     $('#castillejos').hover( // Handles hover on Johan's div block
         function() { // Executes when mouse is over Johan's div block
-            var voteState = votingStatus(candidState, 0);
+            var voteState = getVotingStatus(candidState, 0);
             changeTextOnHoverWithEffect(
                 '#johan-click', 
                 'Click Johan (of Arc) to '+ voteState +' him.',
                 'fadeIn',
                 'fast'
             );
+            $('#johan-click').animate({ color: '#313131' }, 'fast');
         },
         function() { // Executes when mouse is out of Johan's div block
             changeTextOnHoverWithEffect(
@@ -81,12 +93,13 @@ function pageHovers() {
                 'fadeOut',
                 'fast'
             );
+            $('#johan-click').animate({ color: '#fff' }, 'fast');
         }
     );
 
     $('#bismark').hover( // Handles hover on Kobe's div block
         function() { // Executes when mouse is over Kobe's div block
-            var voteState = votingStatus(candidState, 1);
+            var voteState = getVotingStatus(candidState, 1);
             changeTextOnHoverWithEffect(
                 '#kobe-click',
                 'Click Ormoc guy to ' + voteState + ' him.',
@@ -106,7 +119,7 @@ function pageHovers() {
 
     $('#latorre').hover( // Handles hover on Jeri's div block
         function() { // Executes when mouse is over Jeri's div block
-            var voteState = votingStatus(candidState, 2);
+            var voteState = getVotingStatus(candidState, 2);
             changeTextOnHoverWithEffect(
                 '#jeri-click',
                 'Click Pretty Lady to ' + voteState + ' her.',
@@ -126,7 +139,7 @@ function pageHovers() {
 
     $('#sevilla').hover( // Handles hover on Sophia's div block
         function() { // Executes when mouse is over Sophia's div block
-            var voteState = votingStatus(candidState, 3);
+            var voteState = getVotingStatus(candidState, 3);
             changeTextOnHoverWithEffect(
                 '#sophia-click',
                 'Click Smart Girl to ' + voteState + ' her.',
@@ -146,7 +159,7 @@ function pageHovers() {
 
     $('#limsiaco').hover( // Handles hover on Linette's div block
         function() { // Executes when mouse is over Linette's div block
-            var voteState = votingStatus(candidState, 4);
+            var voteState = getVotingStatus(candidState, 4);
             changeTextOnHoverWithEffect(
                 '#linette-click',
                 'Click Girlaloo to ' + voteState + ' her.',
@@ -164,9 +177,9 @@ function pageHovers() {
         }
     );
 
-    $('#latorre').hover( // Handles hover on Ronel's div block
+    $('#ecaldre').hover( // Handles hover on Ronel's div block
         function() { // Executes when mouse is over Ronel's div block
-            var voteState = votingStatus(candidState, 5);
+            var voteState = getVotingStatus(candidState, 5);
             changeTextOnHoverWithEffect(
                 '#ronel-click',
                 'Click Cool Guy to ' + voteState + ' him.',
@@ -201,7 +214,8 @@ function pageHovers() {
 /**
  * Handles everything regarding click actions.
  */
-function pageClicks() {
+function pageClicks()
+{
     $('#johan').click(function() { // Executes when Johan's picture has been clicked
         if (!candidState[0]) { // Image has not been clicked, or has been unclicked
             candidState[0] = true;
@@ -212,3 +226,15 @@ function pageClicks() {
         }
     });
 }
+
+/**
+ * The 'main' function.
+ * @param function
+ */
+$(document).ready(
+    function() {
+        pageInit();
+        pageHovers();
+        pageClicks();
+    }
+);
