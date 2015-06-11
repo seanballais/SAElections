@@ -85,30 +85,15 @@ String.prototype.getCandidateState =
 String.prototype.getCandidateInfo = 
     function(infoArray, infoIndex)
     {
-        var candidateIndex = this.getSurnameIndex(infoArray); // Get the index of the surname
-
-        return infoArray[infoIndex][candidateIndex]; // Returns candidate info
-    }
-;
-
-/**
- * Loops through each surname value until it finds a match to the given surname from the parameter.
- * @param  string String    Surname where the index that will be gathered from the array will be based on.
- * @param  Array  infoArray Array where the value possibly is.
- * @return int              The index of the surname.
- */
-String.prototype.getSurnameIndex = 
-    function(infoArray) 
-    {  
-        for (var index = 0; index < 6; index++) {
+        for (var index = 0; index < 6; index++) { // Get candidate index
             var candidateVal = infoArray[0][index];
 
             if (candidateVal == this.toString()) {
-                return index;
+                return infoArray[infoIndex][index]; // Returns candidate info
+            } else {
+                throw new Error('Surname (' + this.toString() + ') not found.');
             }
         }
-
-        throw new Error('Surname (' + this.toString() + ') not found.');
     }
 ;
 
