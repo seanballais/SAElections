@@ -54,6 +54,8 @@ String.prototype.getCandidateGender =
     }
 ;
 
+String.prototype.
+
 /**
  * Gets the candidate's info state whether it is 0 or false, etc.
  * @param  string       String       Surname of the candidate.
@@ -138,32 +140,33 @@ String.prototype.changeTextOnHover =
 ;
 
 /**
- * Changes the background-position of an element on mouse hover.
- * @param  string  elem                Element in which its *background-position* will be changed.
- * @param  string  hoverState          State of mouse whether it is over or out *elem*. *hoverState* may be **mouseover** or **mouseout**.
- * @param  Array   candidateArray      Array to be used. Must be a boolean array.
- * @param  int     candidateIndex      Index of the array that will point to the value inside of the array that will be used.
- * @param  string  backgroundPosition1 *background-position* when the image will be clicked. Example, '0 -128px'.
- * @param  string  backgroundPosition2 *background-position* when the image will be unclicked. Example, '0 0'.
+ * Changes the background position.
+ * @param  string   String              Element that will be modified.
+ * @param  Array    candidateArray      Array the element possible is.
+ * @param  int      candidateIndex      Index of the candidate.
+ * @param  string   backgroundPosition1 New background position of the mutated element if voting status is true.
+ * @param  string   backgroundPosition2 New background position of the mutated element if voting status is false.
+ * @param  boolean  reverseVotingStatus If *true*, the voting status will be reversed.
  */
-function changeBackgroundPositionOnHover(elem, hoverState, candidateArray, candidateIndex, backgroundPosition1, backgroundPosition2)
-{
-    var elemToBeModified = document.querySelector(elem);
-    switch (hoverState) {
-        case 'mouseover':
-            if (!candidateArray[candidateIndex]) { // Image has not been clicked yet, or unclicked
-                $(elemToBeModified).css('background-position', backgroundPosition1);
-            } else { // Image has been clicked
-                $(elemToBeModified).css('background-position', backgroundPosition2);
-            }
-        case 'mouseout':
-            if (!candidateArray[candidateIndex]) { // Image has not been clicked yet, or unclicked
-                $(elemToBeModified).css('background-position', backgroundPosition1);
-            } else { // Image has been clicked
-                $(elemToBeModified).css('background-position', backgroundPosition2);
-            }
+String.prototype.changeBackgroundPosition =
+    function(candidateArray, candidateIndex, backgroundPosition1, backgroundPosition2, reverseVotingStatus)
+    {
+        var elemToBeModified = document.querySelector(this.toString());
+        var reverseStatus = reverseVotingStatus && (reverseVotingStatus != 'undefined'); // Gets boolean if reverseVotingStatus is true or false.
+
+        if (!candidateArray[2][candidateIndex]) {
+            $(elemToBeModified).css('background-position', backgroundPosition1);
+        } else {
+            $(elemToBeModified).css('background-position', backgroundPosition2);
+        }
+
+        if (!candidateArray[2][candidateIndex] && reverseStatus) { // Image has not been clicked yet, or unclicked
+            candidateArray[2][candidateIndex] = true; // Set candidate voting status to voted
+        } else if (candidateArray[2][candidateIndex] && reverseStatus) { // Image has been clicked
+            candidateArray[2][candidateIndex] = false; // Set candidate voting status to not voted
+        }
     }
-}
+;
 
 /// Miscellaneous functions/prototypes
 
