@@ -24,7 +24,15 @@ var candidates = [
     [false, false, false, false, false, false], // Candidate state (voted or not)
     [1, 1, 0, 0, 0, 1], // Candidate gender
     [ // Background positions
-        [ // Background position 1
+        [ // Initial background position
+            '0 0',           // Johan's background position
+            '-130px 0',      // Kobe's background position
+            '-260px 0',      // Jeri's background position
+            '-390px 0',      // Sophia's background position
+            '-520px 0',      // Linette's background position
+            '-650px 0'       // Ronel's background position
+        ],
+        [ // Background position where a check mark is over the candidate's image
             '0 -128px',      // Johan's background position
             '-130px -128px', // Kobe's background position
             '-260px -128px', // Jeri's background position
@@ -32,21 +40,13 @@ var candidates = [
             '-520px -128px', // Linette's background position
             '-650px -128px'  // Ronel's background position
         ],
-        [ // Background position 2
+        [ // Background position where a cross mark is over the candidate's image
             '0 -256px',      // Johan's background position
             '-130px -256px', // Kobe's background position
             '-260px -256px', // Jeri's background position
             '-390px -256px', // Sophia's background position
             '-520px -256px', // Linette's background position
             '-650px -256px'  // Ronel's background position
-        ],
-        [ // Background position 3
-            '0 0',           // Johan's background position
-            '-130px 0',      // Kobe's background position
-            '-260px 0',      // Jeri's background position
-            '-390px 0',      // Sophia's background position
-            '-520px 0',      // Linette's background position
-            '-650px 0'       // Ronel's background position
         ]            
     ]
 ];

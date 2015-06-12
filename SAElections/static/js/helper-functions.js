@@ -54,10 +54,42 @@ String.prototype.getCandidateGender =
     }
 ;
 
+/**
+ * Gets the candidate's initial background position
+ * @param  string  String       Surname of the candidate
+ * @param  Array   surnameArray Array where the value possibly is.
+ * @return string               The initial background position of the candidate.
+ */
 String.prototype.getCandidateInitPos =
     function(surnameArray)
     {
-        return 
+        return this.getCandidateInfo(surnameArray[4], 0);
+    }
+;
+
+/**
+ * Gets the candidate's background position where a check mark is over the candidate's image.
+ * @param  string  String       Surname of the candidate
+ * @param  Array   surnameArray Array where the value possibly is.
+ * @return string               The candidate's background position where a check mark is over the candidate's image.
+ */
+String.prototype.getCandidateCheckPos = 
+    function(surnameArray)
+    {
+        return this.getCandidateInfo(surnameArray[4]. 1);
+    }
+;
+
+/**
+ * Gets the candidate's background position where a cross mark is over the candidate's image.
+ * @param  string  String       Surname of the candidate
+ * @param  Array   surnameArray Array where the value possibly is.
+ * @return string               The candidate's background position where a cross mark is over the candidate's image
+ */
+String.prototype.getCandidateCrossPos =
+    function(surnameArray)
+    {
+        return this.getCandidateInfo(surnameArray[4], 2);
     }
 ;
 
