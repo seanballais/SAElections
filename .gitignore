@@ -61,3 +61,6 @@ SAElections/db.sqlite3
 
 # Do not include the SASS map file
 SAElections/static/css/*.map
+
+# Do not include SASS cache
+.sass-cache*
