@@ -30,7 +30,8 @@ Contributing to SAElections is encouraged to create better software and help you
 To start contributing, follow the steps below. It is assumed that Git, pip, and virtualenv are already installed in your system.    
     
 **Linux**    
-For the time being, only instructions for contributing in a Linux system is available. This is a great contribution opportunity if you are contributing in a different platform.   
+For the time being, only instructions for contributing in a Linux system is available. This is a great contribution opportunity if you are contributing in a different platform.    
+
 1. Fork this repo.    
 2. Clone your repo in your system.    
 3. Make sure to `git checkout develop` to get the latest code.    
@@ -39,6 +40,7 @@ For the time being, only instructions for contributing in a Linux system is avai
 6. Make sure your code does not conflict with this repo's code and works properly.    
 7. Commit your changes and make a pull request.    
 8. You are done! Congratulations! Wait for responses regarding your pull request.    
+
     
 Your code will be subjected to tested and code review to make sure your code works, and is consistent with the coding style. The coding style document will still be written. Hey, another contribution opportunity!    
 
