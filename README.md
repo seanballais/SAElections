@@ -38,7 +38,7 @@ For the time being, only instructions for contributing in a Linux system is avai
 5. Rebase your code from this repo to get the latest changes.    
 6. Make sure your code does not conflict with this repo's code and works properly.    
 7. Commit your changes and make a pull request.    
-8. You are done! Congratulations! Wait for responses regarding your pull request. This might take a day or so depending on the response rate.    
+8. You are done! Congratulations! Wait for responses regarding your pull request.    
     
 Your code will be subjected to tested and code review to make sure your code works, and is consistent with the coding style. The coding style document will still be written. Hey, another contribution opportunity!    
 
