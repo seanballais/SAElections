@@ -1,7 +1,7 @@
 # Student Allance Elections System
 Student Alliance Elections System is a voting system for the Student Alliance elections of PSHS-EVC. The voting system is a web app built using Django.
 
-NOTE: SAElections uses Python 3.4.
+NOTE: SAElections uses Python 3.4 and Django 1.8.
 
 ## Setting Up SAElections In Your Local Machine
 At the moment, development in Linux is only supported. Should one find out that the methodology below works on other platforms, feel free to update this README and do a pull request (See *Contributing*).    
@@ -9,19 +9,19 @@ At the moment, development in Linux is only supported. Should one find out that 
 **Linux**    
 The instructions below assume that you already have Git, pip, and virtualenv installed. Please refer to your distribution's documentation for installing the required packages in your system.
 
-1. Download a zipped copy of SAElections or type the following command in the Terminal.
-    
+1. Download a zipped copy of SAElections or type the following command in the Terminal.    
+    ```
     git clone https://github.com/seanballais/SAElections.git
-    
-2. In the Terminal, extract the ZIP file if you downloaded a zipped copy and then go to the directory where you extracted or cloned `SAElections`.
-    
+    ```
+2. In the Terminal, extract the ZIP file if you downloaded a zipped copy and then go to the directory where you extracted or cloned *SAElections*.    
+    ```
     cd /path/to/extracted/directory
-     
-3. Once inside the directory, type the following commands.
-    
-    source venv/bin/activate
-    ./SAElections/manage.py runserver
-    
+    ```
+3. Once inside the directory, type the following commands.    
+    ```
+    source venv/bin/activate    
+    ./SAElections/manage.py runserver    
+    ```
 4. You are done! To access the web site, open your browser and go to `http://localhost:8000`. Have fun!
 
 ## Contributing
