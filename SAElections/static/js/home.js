@@ -123,11 +123,11 @@ function pageHovers()
             $(elemID).hover( // Handles hover on each candidate's image. Uses the first name.
                 function() // Executes when mouse is over a candidate's image
                 {
-                    changeBackgroundPosition(candidates, index, '0 -128px', '0 -256px');
+                    elemID.changeBackgroundPosition(candidates, index, '0 -128px', '0 -256px');
                 },
                 function() // Executes when mouse is out of a candidate's image
                 {
-                    changeBackgroundPosition(candidates, index, '0 0', '0 -128px');
+                    elemID.changeBackgroundPosition(candidates, index, '0 0', '0 -128px');
                 }
             );
         }

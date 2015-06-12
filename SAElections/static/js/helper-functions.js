@@ -54,8 +54,6 @@ String.prototype.getCandidateGender =
     }
 ;
 
-String.prototype.
-
 /**
  * Gets the candidate's info state whether it is 0 or false, etc.
  * @param  string       String       Surname of the candidate.
@@ -90,10 +88,10 @@ String.prototype.getCandidateInfo =
 
             if (candidateVal == this.toString()) {
                 return infoArray[infoIndex][index]; // Returns candidate info
-            } else {
-                throw new Error('Surname (' + this.toString() + ') not found.');
             }
         }
+
+        throw new Error('Surname (' + this.toString() + ') not found.');
     }
 ;
 
