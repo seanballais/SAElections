@@ -7,35 +7,99 @@
 
 article {
     color: #fff;
-    height: 100%;
-    width: 100%;
-    text-align: center;
+
+    /* Set the height and width to 100% */
+    $property: height width;
+    @each $prop in $property { #{$prop}: 100%; }
     
-    > div#no-auth, div#has-auth {
+    > div#no-auth,
+    > div#has-auth {
         height: 100%;
+        text-align: center;
     }
 
     > div#no-auth {
-        margin-top: 10%; /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
+        margin-top: 10%;
 
-        > div#heading {
-            > h1#banner-title {
-                font-family: 'Graduate', serif;
-                font-size: 8.5em;
-                font-weight: bold;
-            }
+        > h1#banner-title {
+            font-family: 'Graduate', serif;
+            font-size: 8.5em;
+            font-weight: bold;
+        }
 
-            > a {
-                margin: 0 auto;
-                margin-top: 3%;
-                max-width: 100%;
-                width: 197px;
-            }
+        > a {
+            margin: 0 auto;
+            margin-top: 4%;
+            margin-bottom: 5%;
+            max-width: 100%;
+            width: 200px;
         }
     }
 
     > div#has-auth {
-        margin-top: 3%; /* Workaround for desktop browsers. Mobile devices suppport will be added later.*/
-        max-width: 422px;
+        text-align: center;
+
+        > div#header {
+            > div#internal-header {
+                img#banner { 
+                    margin-top: 2%;
+                    margin-bottom: 1%;
+                    max-width: 422px;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        > div#voting-area {
+            margin: auto;
+            margin-top: 2.5%;
+            margin-bottom: 2.5%;
+            max-width: 890px;
+
+            > div#candidates {
+                div {
+                    @each $vendor in $prefix-list { 
+                        #{$vendor}-border-radius: 10px;
+                        @if $vendor == '-o' { border-radius: 10px; }
+                    }
+                    display: none;
+                    margin-bottom: 2%;
+
+                    > img.profpic {
+                        background: url('/static/img/home/candidates.png');
+                        cursor: pointer;
+                        margin: 2%;
+                        height: 128px;
+                        width: 128px;
+                    }
+        
+                    > img#johan { background-position: 0 0; }
+                    > img#kobe { background-position: -130px 0; }
+                    > img#jeri { background-position: -260px 0; }
+                    > img#sophia { background-position: -390px 0; }
+                    > img#linette { background-position: -520px 0; }
+                    > img#ronel { background-position: -650px 0; }
+
+                    > h6.click-label { display: block !important; }
+                }
+            }
+
+            > div#voting-button { 
+                display: none;
+                margin-top: 5%;
+                margin-bottom: 2%;
+            }
+        }
+    }
+}
+
+footer { 
+    margin-top: 2%;
+
+    > div#advertisement {
+        float: none;
+        margin: auto;
+        max-width: 728px; 
     }
 }

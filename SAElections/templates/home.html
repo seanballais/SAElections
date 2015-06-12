@@ -1,28 +1,79 @@
 {% extends 'base.html' %}
 
 {% block title %}PSHS-EVC Student Alliance Elections 2015-2016 | Vote now for your new set of officers!{% endblock %}
-{% block custom_css %}/static/css/home.css{% endblock %}
-{% block custom_js %}/static/js/home.js{% endblock %}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+{% endblock %}
+{% block custom_js %}
+    <script type="text/javascript" src="/static/js/helper-functions.js"></script>
+    <script type="text/javascript" src="/static/js/home.js"></script>
+{% endblock %}
 
 {% block main %}
-    <article class="container-fluid">
+    <article>
         {% if user and not user.is_anonymous %}
-            <div id="has-auth">
-                <img id="banner" class="img-responsive" src="/static/img/home/banner.png" height="80" width="422">
-                <h1>Ola {{ user.get_full_name | default:user.username }}!</h1>
-                <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+            <div id="has-auth" class="container-fluid">
+                <div id="header" class="row-fluid">
+                    <div id="internal-header" class="col-xs-12">
+                        <img id="banner" src="/static/img/global/banner.png" height="80" width="422">
+                        <h4>Time to vote, {{ user.get_full_name | default:user.username }}.</h4>
+                        <h5>Click/tap on a photo of a candidate if you want to see him/her as one of the Student Alliance officers for S.Y. 2015 - 2016.</h5>
+                        <noscript><h5>Javascript must be enabled in your browser.</h5></noscript>
+                    </div>
+                </div>
+                <div id="voting-area" class="row-fluid">
+                    <div id="candidates">
+                        <div id="castillejos" class="candid col-xs-6 col-sm-4">
+                            <img id="johan" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
+                            <h5>Johan Castillejos<br>for President</h5>
+                            <h6 id="johan-click" class="click-label">...</h6>
+                        </div>
+                        <div id="bismark" class="candid col-xs-6 col-sm-4">
+                            <img id="kobe" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
+                            <h5>Kobe Bismark<br>for Vice-President</h5>
+                            <h6 id="kobe-click" class="click-label">...</h6>
+                        </div>
+                        <div id="latorre" class="candid col-xs-6 col-sm-4">
+                            <img id="jeri" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
+                            <h5>Jeri Latorre<br>for Secretary</h5>
+                            <h6 id="jeri-click" class="click-label">...</h6>
+                        </div>
+                        <div id="sevilla" class="candid col-xs-6 col-sm-4">
+                            <img id="sophia" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
+                            <h5>Sophia Sevilla<br>for Treasurer</h5>
+                            <h6 id="sophia-click" class="click-label">...</h6>
+                        </div>
+                        <div id="limsiaco" class="candid col-xs-6 col-sm-4">
+                            <img id="linette" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
+                            <h5>Linette Limsiaco<br>for Auditor</h5>
+                            <h6 id="linette-click" class="click-label">...</h6>
+                        </div>
+                        <div id="ecaldre" class="candid col-xs-6 col-sm-4">
+                            <img id="ronel" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
+                            <h5>Ronel Ecaldre<br>for P.I.O.</h5>
+                            <h6 id="ronel-click" class="click-label">...</h6>
+                        </div>
+                    </div>
+                    <div id="voting-button" class="col-xs-12">
+                        <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                            <button class="btn btn-warning btn-block"> Finish Voting</button>                        
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-xs-12 col-sm-3 col-sm-pull-9">
+                            <a href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-danger btn-block">Logout</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         {% else %}
-            <div id="no-auth">
-                <div id="heading" class="row-fluid">
-                    <img id="banner" class="img-responsive" src="/static/img/home/banner.png" height="80" width="422">
-                    <h1 id="banner-title">Vote now!</h1>
-                    <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
-                    <a href="" class="btn btn-block btn-social btn-facebook" onclick="window.open('{% url 'social:begin' 'facebook' %}?next=/auth-successful', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
-                        <i class="fa fa-facebook"></i>
-                        Sign in with Facebook
-                    </a>
-                </div>
+            <div id="no-auth" class="row-fluid">
+                <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
+                <h1 id="banner-title">Vote now!</h1>
+                <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
+                <a href="" class="btn btn-block btn-social btn-facebook" onclick="window.open('{% url 'social:begin' 'facebook' %}?next=/auth-successful', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                    <i class="fa fa-facebook"></i>
+                    Sign in with Facebook
+                </a>
             </div>
         {% endif %}
     </article>
