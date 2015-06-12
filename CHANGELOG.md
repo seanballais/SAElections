@@ -7,3 +7,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - The full code of SAElections.
 - Home page.
 - Incomplete voting page.
+- Facebook authentication support.
