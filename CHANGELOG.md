@@ -8,3 +8,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Home page.
 - Incomplete voting page.
 - Facebook authentication support.
+- Updated README.
