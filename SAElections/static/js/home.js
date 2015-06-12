@@ -123,28 +123,25 @@ function pageHovers()
             $(elemID).hover( // Handles hover on each candidate's image. Uses the first name.
                 function() // Executes when mouse is over a candidate's image
                 {
-                    elemID.changeBackgroundPosition(candidates, index, '0 -128px', '0 -256px');
+                    elemID.changeBackgroundPosition(
+                        candidates,
+                        index,
+                        surname.getCandidateCheckBgPos(candidates),
+                        surname.getCandidateCrossBgPos(candidates)
+                    );
                 },
                 function() // Executes when mouse is out of a candidate's image
                 {
-                    elemID.changeBackgroundPosition(candidates, index, '0 0', '0 -128px');
+                    elemID.changeBackgroundPosition(
+                        candidates,
+                        index,
+                        surname.getCandidateInitBgPos(candidates),
+                        surname.getCandidateCheckBgPos(candidates)
+                    );
                 }
             );
         }
     );
-
-    // TODO: Search in the net why .hover doesn't accept a function as a parameter and why
-    // a function suddenly runs inside .hover without function() {} in the .hover
-    // parameters.
-    // Handle hover on candidate pictures
-    /*$('#johan').hover( // Handles hover on Johan's image
-        function() {
-            changeBackgroundPositionOnHover('#johan', 'mouseover', candidState, 0, '0 -128px', '0 -256px');
-        },
-        function() {
-            changeBackgroundPositionOnHover('#johan', 'mouseout', candidState, 0, '0 0', '0 -128px');
-        }
-    );*/
 }
 
 /**
@@ -152,15 +149,28 @@ function pageHovers()
  */
 function pageClicks()
 {
-    $('#johan').click(function() { // Executes when Johan's picture has been clicked
-        if (!candidState[0]) { // Image has not been clicked, or has been unclicked
-            candidState[0] = true;
-            $(this).css('background-position', '0 -128px');
-        } else { // Image has been clicked already
-            candidState[0] = false;
-            $(this).css('background-position', '0 0');
+    // Handle hovers on candidate div blocks
+    $(candidates[0]).each(
+        function(index) 
+        {
+            var surname = this.toString();
+            var firstName = surname.getCandidateFirstName(candidates);
+            var elemID = '#' + firstName;
+
+            $(elemID).click(
+                function()
+                {
+                    elemID.changeBackgroundPosition(
+                        candidates,
+                        index,
+                        surname.getCandidateCheckBgPos(candidates),
+                        surname.getCandidateInitBgPos(candidates),
+                        true
+                    );
+                }
+            );
         }
-    });
+    );
 }
 
 /**

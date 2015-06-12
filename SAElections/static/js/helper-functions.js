@@ -60,10 +60,10 @@ String.prototype.getCandidateGender =
  * @param  Array   surnameArray Array where the value possibly is.
  * @return string               The initial background position of the candidate.
  */
-String.prototype.getCandidateInitPos =
+String.prototype.getCandidateInitBgPos =
     function(surnameArray)
     {
-        return this.getCandidateInfo(surnameArray[4], 0);
+        return this.getCandidateInfo(surnameArray, 0, 4);
     }
 ;
 
@@ -73,10 +73,10 @@ String.prototype.getCandidateInitPos =
  * @param  Array   surnameArray Array where the value possibly is.
  * @return string               The candidate's background position where a check mark is over the candidate's image.
  */
-String.prototype.getCandidateCheckPos = 
+String.prototype.getCandidateCheckBgPos = 
     function(surnameArray)
     {
-        return this.getCandidateInfo(surnameArray[4]. 1);
+        return this.getCandidateInfo(surnameArray, 1, 4);
     }
 ;
 
@@ -86,10 +86,10 @@ String.prototype.getCandidateCheckPos =
  * @param  Array   surnameArray Array where the value possibly is.
  * @return string               The candidate's background position where a cross mark is over the candidate's image
  */
-String.prototype.getCandidateCrossPos =
+String.prototype.getCandidateCrossBgPos =
     function(surnameArray)
     {
-        return this.getCandidateInfo(surnameArray[4], 2);
+        return this.getCandidateInfo(surnameArray, 2, 4);
     }
 ;
 
@@ -114,19 +114,24 @@ String.prototype.getCandidateState =
 
 /**
  * Gets the candidate info (first name, gender, etc.)
- * @param  string              String    Surname that will be used in getCandidateInfo().
- * @param  Array               infoArray Array where the value possibly is.
- * @param  int                 infoIndex The index where the information will be gathered from.
- * @return string/boolean/int            The information that wiil be used.
+ * @param  string              String      Surname that will be used in getCandidateInfo().
+ * @param  Array               infoArray   Array where the value possibly is.
+ * @param  int                 infoIndex   The index where the information will be gathered from.
+ * @param  int                 infoMdIndex The index where the information will be gathered from if the data is in a multidimensional array.
+ * @return string/boolean/int              The information that wiil be used.
  */
 String.prototype.getCandidateInfo = 
-    function(infoArray, infoIndex)
+    function(infoArray, infoIndex, infoMdIndex)
     {
+        var isUsingThreeDimensions = (infoMdIndex > -1) ? true : false;
+
         for (var index = 0; index < 6; index++) { // Get candidate index
             var candidateVal = infoArray[0][index];
 
-            if (candidateVal == this.toString()) {
+            if (candidateVal == this.toString() && !isUsingThreeDimensions) {
                 return infoArray[infoIndex][index]; // Returns candidate info
+            } else if (candidateVal == this.toString() && isUsingThreeDimensions) {
+                return infoArray[infoMdIndex][infoIndex][index]; // Returns candidate info
             }
         }
 
