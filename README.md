@@ -10,18 +10,18 @@ At the moment, development in Linux is only supported. Should one find out that 
 The instructions below assume that you already have Git, pip, and virtualenv installed. Please refer to your distribution's documentation for installing the required packages in your system.
 
 1. Download a zipped copy of SAElections or type the following command in the Terminal.    
-    ```
-    git clone https://github.com/seanballais/SAElections.git
-    ```
+      
+        git clone https://github.com/seanballais/SAElections.git
+        
 2. In the Terminal, extract the ZIP file if you downloaded a zipped copy and then go to the directory where you extracted or cloned *SAElections*.    
-    ```
-    cd /path/to/extracted/directory
-    ```
+        
+        cd /path/to/extracted/directory
+        
 3. Once inside the directory, type the following commands.    
-    ```
-    source venv/bin/activate
-    ./SAElections/manage.py runserver
-    ```
+        
+        source venv/bin/activate
+        ./SAElections/manage.py runserver
+        
 4. You are done! To access the web site, open your browser and go to `http://localhost:8000`. Have fun!
 
 ## Contributing
