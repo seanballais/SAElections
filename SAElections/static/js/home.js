@@ -22,6 +22,7 @@ var candidates = [
     ['castillejos', 'bismark', 'latorre', 'sevilla', 'limsiaco', 'ecaldre'], // Candidate surname
     ['johan', 'kobe', 'jeri', 'sophia', 'linette', 'ronel'], // Candidate first name
     [false, false, false, false, false, false], // Candidate state (voted or not)
+    [1, 1, 0, 0, 0, 1], // Candidate gender
     [ // Background positions
         [ // Background position 1
             '0 -128px',      // Johan's background position
@@ -47,8 +48,7 @@ var candidates = [
             '-520px 0',      // Linette's background position
             '-650px 0'       // Ronel's background position
         ]            
-    ],
-    [1, 1, 0, 0, 0, 1] // Candidate gender
+    ]
 ];
 
 /**

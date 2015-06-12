@@ -54,6 +54,13 @@ String.prototype.getCandidateGender =
     }
 ;
 
+String.prototype.getCandidateInitPos =
+    function(surnameArray)
+    {
+        return 
+    }
+;
+
 /**
  * Gets the candidate's info state whether it is 0 or false, etc.
  * @param  string       String       Surname of the candidate.
