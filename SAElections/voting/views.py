@@ -20,3 +20,4 @@ def auth_successful(self): # Reloads the home page to access the voting area or 
 def save_to_db(request, votes): # Update records in the database
     user = UserProfile(people_voted=votes, has_voted=True)
     user.save()
+    return HttpResponseRedirect('/')

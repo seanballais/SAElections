@@ -171,6 +171,8 @@ function pageClicks()
             );
         }
     );
+
+    // Handles clicks on logout
 }
 
 /**
