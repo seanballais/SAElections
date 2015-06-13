@@ -15,5 +15,5 @@ class UserProfile(models.Model):
 
     """
     people_voted = models.CharField(max_length=128)
-    user_has_voted = models.BooleanField()
+    user_has_voted = models.BooleanField(default=False)
     user = models.ForeignKey(User, unique=False)
