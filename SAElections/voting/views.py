@@ -1,10 +1,10 @@
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
+from voting.models import UserProfile
 
 def home(request):
     return render_to_response(
         'home.html',
-        { 'add_custom_css': 'true', 'add_custom_js': 'true' },
         RequestContext(
             request,
             {
@@ -14,7 +14,9 @@ def home(request):
         )
     )
 
-def auth_successful(self):
+def auth_successful(self): # Reloads the home page to access the voting area or thank you page
     return render_to_response('auth-successful.html')
 
-def thank_you(request):
+def save_to_db(request, votes): # Update records in the database
+    user = UserProfile(people_voted=votes, has_voted=True)
+    user.save()

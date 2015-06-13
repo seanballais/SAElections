@@ -14,6 +14,7 @@ class UserProfile(models.Model):
         Vp - votes supporting the candidate
 
     """
-    people_voted = models.CharField(max_length=128)
-    user_has_voted = models.BooleanField(default=False)
+    User.add_to_class('people_voted', models.CharField(max_length=128, default=''))
+    User.add_to_class('has_voted', models.BooleanField(default=False))
+
     user = models.ForeignKey(User, unique=False)
