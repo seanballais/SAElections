@@ -172,8 +172,26 @@ function pageClicks()
         }
     );
 
-    // Handles clicks on logout
-    
+    // Handles click on the 'Finish Voting' button
+    $('#finish-voting').click(
+        function()
+        {
+            var rawURL = window.location.protocol + '//' + window.location.host + '/' + 'save-votes/';
+            var votedCandidates = "";
+
+            for (var index = 0; index < 6; index++) { // Check each state and add it to a string if the candidate is voted
+                var isCandidateVoted = candidates[2][index];
+
+                if (isCandidateVoted == true) { // Checks if the candidate has been voted and adds it to the list of voted candidates
+                    votedCandidates += candidates[0][index].toString() + ',';
+                }
+            }
+
+            votedCandidates = votedCandidates.substring(0, votedCandidates.length - 1);
+
+            window.location.replace(rawURL + '?votes=' + votedCandidates);
+        }
+    );
 }
 
 /**
