@@ -189,7 +189,7 @@ function pageClicks()
 
             votedCandidates = votedCandidates.substring(0, votedCandidates.length - 1);
 
-            window.location.replace(rawURL + '?votes=' + votedCandidates);
+            window.location.replace(rawURL + votedCandidates + '/');
         }
     );
 }
