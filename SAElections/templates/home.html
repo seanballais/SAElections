@@ -5,18 +5,20 @@
     <link rel="stylesheet" type="text/css" href="/static/css/home.css">
 {% endblock %}
 {% block custom_js %}
-    <script type="text/javascript" src="/static/js/helper-functions.js"></script>
-    <script type="text/javascript" src="/static/js/home.js"></script>
+    <script type="text/javascript" src="/static/js/user/helper-functions.js"></script>
+    <script type="text/javascript" src="/static/js/user/home.js"></script>
 {% endblock %}
 
 {% block main %}
     <article>
         {% if user and not user.is_anonymous and not user.has_voted %}
+            <script type="text/javascript">var pageState = 'voting-area';</script>
             <div id="has-auth" class="container-fluid">
                 <div id="header" class="row-fluid">
                     <div id="internal-header" class="col-xs-12">
+                        <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
                         <img id="banner" src="/static/img/global/banner.png" height="80" width="422">
-                        <h4>Time to vote, {{ user.get_full_name | default:user.username }}.</h4>
+                        <h4 id="vote-start">Time to vote, {{ user.get_full_name | default:user.username }}.</h4>
                         <h5>Click/tap on a photo of a candidate if you want to see him/her as one of the Student Alliance officers for S.Y. 2015 - 2016.</h5>
                         <noscript><h5>Javascript must be enabled in your browser.</h5></noscript>
                     </div>
@@ -66,14 +68,17 @@
                 </div>
             </div>
         {% elif user and not user.is_anonymous and user.has_voted %}
+            <script type="text/javascript">var pageState = 'tally-area';</script>
             <div id="has-voted" class="row-fluid">
+                <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
                 <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
                 <h3 class="banner-title">Thanks for voting!</h3>
-                <h4>Return at a later date to find out the latest tally.</h4>
+                <h4>Final results will be announced soon.</h4>
                 <a id="logout" href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-danger btn-block">Logout</a>
             </div>
         {% else %}
             <div id="no-auth" class="row-fluid">
+                <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
                 <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
                 <h1 class="banner-title">Vote now!</h1>
                 <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
@@ -81,6 +86,7 @@
                     <i class="fa fa-facebook"></i>
                     Sign in with Facebook
                 </a>
+                <h6>Sign in to vote and see the current tally.</h6>
             </div>
         {% endif %}
     </article>

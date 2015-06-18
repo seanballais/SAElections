@@ -22,19 +22,23 @@ article {
     height: 100%;
     text-align: center; }
   article > div#no-auth {
-    margin-top: 5%; }
+    margin-top: 0.5%; }
     article > div#no-auth > h1.banner-title {
       font-size: 8.5em; }
     article > div#no-auth > a {
       margin: 0 auto;
-      margin-top: 4%;
-      margin-bottom: 5%;
+      margin-top: 2%;
+      margin-bottom: 1%;
       max-width: 100%;
       width: 200px; }
+    article > div#no-auth > h6 {
+      margin-bottom: 6%; }
   article > div#has-auth {
     text-align: center; }
-    article > div#has-auth > div#header > div#internal-header img#banner {
+    article > div#has-auth > div#header > div#internal-header > img#logo {
       margin-top: 2%;
+      margin-bottom: 0.5%; }
+    article > div#has-auth > div#header > div#internal-header > img#banner {
       margin-bottom: 1%;
       max-width: 422px;
       height: 100%;
@@ -77,7 +81,7 @@ article {
         margin-top: 5%;
         margin-bottom: 2%; }
   article > div#has-voted {
-    margin-top: 5%; }
+    margin-top: 3%; }
     article > div#has-voted > h3.banner-title {
       font-size: 4em; }
     article > div#has-voted > a#logout {

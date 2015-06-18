@@ -26,17 +26,19 @@ article {
     }
 
     > div#no-auth {
-        margin-top: 5%;
+        margin-top: 0.5%;
 
         > h1.banner-title { font-size: 8.5em; }
 
         > a {
             margin: 0 auto;
-            margin-top: 4%;
-            margin-bottom: 5%;
+            margin-top: 2%;
+            margin-bottom: 1%;
             max-width: 100%;
             width: 200px;
         }
+
+        > h6 { margin-bottom: 6%; }
     }
 
     > div#has-auth {
@@ -44,8 +46,12 @@ article {
 
         > div#header {
             > div#internal-header {
-                img#banner { 
+                > img#logo {
                     margin-top: 2%;
+                    margin-bottom: 0.5%;
+                }
+
+                > img#banner { 
                     margin-bottom: 1%;
                     max-width: 422px;
                     height: 100%;
@@ -97,7 +103,7 @@ article {
     }
 
     > div#has-voted {
-        margin-top: 5%;
+        margin-top: 3%;
 
         > h3.banner-title { font-size: 4em; }
         > a#logout {
