@@ -53,7 +53,7 @@ var candidates = [
 
 var globalURL = window.location.protocol + '//' + window.location.host + '/'
 
-if (page == 'auth-user-school' && page != 'undefined') {
+if (page == 'auth-user-school') {
     var passcodeInputField = document.querySelector('#passcode');
     var btnContinue = document.querySelector('#continue-btn');
 }
@@ -101,7 +101,7 @@ function pageInit()
         }
     );
 
-    if (page == 'auth-user-school' && page != 'undefined') {
+    if (page == 'auth-user-school') {
         passcodeInputField.value = '';
         btnContinue.disabled = true;
     }
@@ -136,24 +136,6 @@ function pageHovers()
             var surname = this.toString();
             var firstName = surname.getCandidateFirstName(candidates);
             var elemID = '#' + firstName;
-            var clickID = elemID + '-click';
-
-            $('#' + this.toString()).hover( // Handles hover on each candidate's div block. Uses the surname.
-                function() // Executes when mouse is over a candidate's div block
-                {
-                    var voteState = surname.getCandidateReverseVoteState(candidates);
-                    var gender = surname.getCandidateGender(candidates);
-
-                    var newFirstName = firstName.capitalizeFirstLetter();
-                    var text = 'Click ' + newFirstName + ' to ' + voteState + ' ' + gender + '.';
-
-                    clickID.changeTextOnHover(text, '#313131', 'fadeIn', 'fast');
-                },
-                function() // Executes when mouse is out of a candidate's div block
-                {
-                    clickID.changeTextOnHover('...', '#fff', 'fadeOut', 'fast');
-                }
-            );
 
             $(elemID).hover( // Handles hover on each candidate's image. Uses the first name.
                 function() // Executes when mouse is over a candidate's image

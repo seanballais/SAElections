@@ -11,6 +11,9 @@
 
 {% block main %}
     <article>
+        <script type="text/javascript">
+            var page = '';
+        </script>
         {% if user and user.is_pshsevc and not user.is_anonymous and not user.has_voted %}
             <div id="has-auth" class="container-fluid">
                 <div id="header" class="row-fluid">
@@ -27,32 +30,26 @@
                         <div id="castillejos" class="candid col-xs-6 col-sm-4">
                             <img id="johan" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
                             <h5>Johan Castillejos<br>for President</h5>
-                            <h6 id="johan-click" class="click-label">...</h6>
                         </div>
                         <div id="bismark" class="candid col-xs-6 col-sm-4">
                             <img id="kobe" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
                             <h5>Kobe Bismark<br>for Vice-President</h5>
-                            <h6 id="kobe-click" class="click-label">...</h6>
                         </div>
                         <div id="latorre" class="candid col-xs-6 col-sm-4">
                             <img id="jeri" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
                             <h5>Jeri Latorre<br>for Secretary</h5>
-                            <h6 id="jeri-click" class="click-label">...</h6>
                         </div>
                         <div id="sevilla" class="candid col-xs-6 col-sm-4">
                             <img id="sophia" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
                             <h5>Sophia Sevilla<br>for Treasurer</h5>
-                            <h6 id="sophia-click" class="click-label">...</h6>
                         </div>
                         <div id="limsiaco" class="candid col-xs-6 col-sm-4">
                             <img id="linette" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
                             <h5>Linette Limsiaco<br>for Auditor</h5>
-                            <h6 id="linette-click" class="click-label">...</h6>
                         </div>
                         <div id="ecaldre" class="candid col-xs-6 col-sm-4">
                             <img id="ronel" class="profpic" src="/static/img/home/trans.gif" height="128" width="128">
                             <h5>Ronel Ecaldre<br>for P.I.O.</h5>
-                            <h6 id="ronel-click" class="click-label">...</h6>
                         </div>
                     </div>
                     <div id="voting-button" class="col-xs-12">
@@ -69,7 +66,7 @@
         {% elif user and not user.is_pshsevc and not user.is_anonymous %}
             <script type="text/javascript">
                 var csrf_token = '{{ csrf_token }}';
-                var page = 'auth-user-school';
+                page = 'auth-user-school';
             </script>
             <div id="pisay-check" class="row-fluid">
                 <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
