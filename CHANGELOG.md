@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## v0.1.1 - 2015-06-19
+## v0.2.0 - 2015-06-19
 ### Added
 - The 'Thank you' page that shows up after voting.
 - A school authentication page to verify that the user is from PSHS-EVC. A passcode is required to be entered in the page to continue. Uses AJAX if the passcode entered is correct.
