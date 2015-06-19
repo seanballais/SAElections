@@ -125,8 +125,10 @@ article {
 
         > h6#incorrect-passcode-msg { 
             color: #c84848;
-            display: none;
+            visibility: hidden;
         }
+
+        > a#logout { margin-top: 0.2% !important; }
     }
 }
 

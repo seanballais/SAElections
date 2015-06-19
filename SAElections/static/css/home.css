@@ -97,7 +97,9 @@ article {
     width: 342px; }
   article > div#pisay-check > h6#incorrect-passcode-msg {
     color: #c84848;
-    display: none; }
+    visibility: hidden; }
+  article > div#pisay-check > a#logout {
+    margin-top: 0.2% !important; }
 
 footer {
   margin-top: 2%; }
