@@ -46,7 +46,7 @@ def confirm_entry(request): # Confirms that the user wants to vote
     userID = request.user.id
     userObj = User.objects.get(id=userID)
 
-    if (userObj.successful_auth):
+    if userObj.successful_auth:
         try:
             userObj.is_pshsevc = True
 
