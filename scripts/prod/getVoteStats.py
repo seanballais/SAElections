@@ -18,6 +18,7 @@ cursor.execute('''SELECT is_pshsevc, people_voted FROM auth_user''')
 for row in cursor:
     if row[0] == True:
         numberOfVoters += 1
+        print(row)
 
         logging.info('[{0}] Row No. {1} Data: {2}'.format(currentDateTime, numberOfVoters, row[1].title()))
 
@@ -25,9 +26,12 @@ for row in cursor:
             if person in row[1]:
                 index = candidates.index(person)
                 proVotes[index] += 1
-    
 
-numberOfVoters -= 1 # Reduced by 1 to exclude the administrator
+# Do not set the admin's record's is_pshsevc to true to prevent miscalculations.
+# Admins are not supposed to be included in the vote count.
+# In the case that the admin's record's is_pshsevc is set to true, set it
+# to false immediately, or decrement the numberOfVoters value by 1
+# as a temporary fix.
 
 db.close()
 
