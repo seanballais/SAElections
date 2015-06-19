@@ -67,4 +67,4 @@ SAElections/static/css/*.map
 
 # Ignore the test log and stat file
 log.txt
-stat.txt
+stats.txt
