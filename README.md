@@ -1,4 +1,6 @@
 # Student Alliance Elections System
+Latest Version: v0.2.0-beta    
+    
 Student Alliance Elections System is a voting system for the Student Alliance elections of PSHS-EVC. The voting system is a web app built using Django.
 
 NOTE: SAElections uses Python 3.4 and Django 1.8.
