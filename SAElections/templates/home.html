@@ -11,8 +11,7 @@
 
 {% block main %}
     <article>
-        {% if user and not user.is_anonymous and not user.has_voted %}
-            <script type="text/javascript">var pageState = 'voting-area';</script>
+        {% if user and user.is_pshsevc and not user.is_anonymous and not user.has_voted %}
             <div id="has-auth" class="container-fluid">
                 <div id="header" class="row-fluid">
                     <div id="internal-header" class="col-xs-12">
@@ -67,13 +66,32 @@
                     </div>
                 </div>
             </div>
-        {% elif user and not user.is_anonymous and user.has_voted %}
-            <script type="text/javascript">var pageState = 'tally-area';</script>
+        {% elif user and not user.is_pshsevc and not user.is_anonymous %}
+            <script type="text/javascript">
+                var csrf_token = '{{ csrf_token }}';
+                var page = 'auth-user-school';
+            </script>
+            <div id="pisay-check" class="row-fluid">
+                <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
+                <img id="banner" src="/static/img/global/banner.png" height="80" width="422">
+                <h4>Are you from PSHS-EVC, {{ user.get_full_name | default:user.username }}?</h4>
+                <h5>Before continuing, you must first authenticate yourself as a legitimate PSHS-EVC student.</h5>
+                <div id="passcode-auth" class="input-group">
+                    <input id="passcode" type="text" class="form-control" placeholder="Enter the passcode" oninput="checkPasscode()">
+                    <span class="input-group-btn">
+                        <button id="continue-btn" class="btn btn-primary" type="button">Continue</button>
+                    </span>
+                </div>
+                <h6 id="incorrect-passcode-msg">Incorrect passcode, imposter!</h6>
+                <a id="logout" href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-danger btn-block">Logout</a>
+                <noscript><h5>Javascript must be enabled in your browser.</h5></noscript>
+            </div>
+        {% elif user and user.is_pshsevc and not user.is_anonymous and user.has_voted%}
             <div id="has-voted" class="row-fluid">
                 <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
                 <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
                 <h3 class="banner-title">Thanks for voting!</h3>
-                <h4>Final results will be announced soon.</h4>
+                <h4>Final results will be announced at a later date.</h4>
                 <a id="logout" href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-danger btn-block">Logout</a>
             </div>
         {% else %}

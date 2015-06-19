@@ -18,7 +18,8 @@ article {
   width: 100%; }
   article > div#no-auth,
   article > div#has-auth,
-  article > div#has-voted {
+  article > div#has-voted,
+  article > div#pisay-check {
     height: 100%;
     text-align: center; }
   article > div#no-auth {
@@ -80,15 +81,23 @@ article {
         display: none;
         margin-top: 5%;
         margin-bottom: 2%; }
-  article > div#has-voted {
+  article > div#has-voted, article div#pisay-check {
     margin-top: 3%; }
-    article > div#has-voted > h3.banner-title {
+    article > div#has-voted > h3.banner-title, article div#pisay-check > h3.banner-title {
       font-size: 4em; }
-    article > div#has-voted > a#logout {
+    article > div#has-voted > a#logout, article div#pisay-check > a#logout {
       margin: 0 auto;
       margin-top: 2%;
       max-width: 100%;
       width: 200px; }
+  article > div#pisay-check > div#passcode-auth {
+    margin: 0 auto;
+    margin-top: 2%;
+    max-width: 100%;
+    width: 342px; }
+  article > div#pisay-check > h6#incorrect-passcode-msg {
+    color: #c84848;
+    display: none; }
 
 footer {
   margin-top: 2%; }
