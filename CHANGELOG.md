@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## v0.2.0 - 2015-06-19
+## v0.2.0-beta - 2015-06-19
 ### Added
 - The 'Thank you' page that shows up after voting.
 - A school authentication page to verify that the user is from PSHS-EVC. A passcode is required to be entered in the page to continue. Uses AJAX if the passcode entered is correct.
@@ -19,7 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - A tally chart of the votes was to be added but was decided that it will be removed because it might cause cheating or bribery among voters.
 - The obstacles here were trying to figure out how to save data to the database, adding custom user attributes, using the custom attributes in the templates to have a different view depending on the user's attributes (view the templates in the source code to know the different conditions for each view), and working with AJAX POST using jQuery.
 
-## v0.1.0 - 2015-06-12
+## v0.1.0-alpha - 2015-06-12
 ### Added
 - The full code of SAElections.
 - Home page.
