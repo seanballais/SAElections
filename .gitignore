@@ -64,3 +64,7 @@ SAElections/static/css/*.map
 
 # Do not include SASS cache
 .sass-cache*
+
+# Ignore the test log and stat file
+log.txt
+stat.txt

@@ -29,32 +29,6 @@ String.prototype.getCandidateFirstName =
 ;
 
 /**
- * Gets the candidate's reverse vote status.
- * @param  string  String       Surname of the candidate.
- * @param  Array   surnameArray Array where the value possibly is.
- * @return string               The candidate's reverse vote status. It can either be *'voted'* or *'unvoted'*.
- */
-String.prototype.getCandidateReverseVoteState = 
-    function(surnameArray)
-    {
-        return this.getCandidateState(surnameArray, 2, ['vote', 'unvote']);
-    }
-;
-
-/**
- * Gets the candidate's gender.
- * @param  string  String       Surname of the candidate.
- * @param  Array   surnameArray Array where the value possibly is.
- * @return string               The candidate's gender.
- */
-String.prototype.getCandidateGender = 
-    function(surnameArray)
-    {
-        return this.getCandidateState(surnameArray, 3, ['her', 'him']);
-    }
-;
-
-/**
  * Gets the candidate's initial background position
  * @param  string  String       Surname of the candidate
  * @param  Array   surnameArray Array where the value possibly is.
@@ -142,31 +116,6 @@ String.prototype.getCandidateInfo =
 /// Functions for website functionality
 
 /**
- * Changes text on hover with a fade effect.
- * @param  string      String      Element that is holding the text.
- * @param  string      text        Text that will be replacing the old text in the specified element.
- * @param  string      textColor   Color in which the text will be colored into.
- * @param  string      fadeEffect  Fade effect to be used when changing text. Can be *fadeIn* or *fadeOut*.
- * @param  string,int  effectSpeed Speed of the effect. If *effectSpeed* is a string, parameter can be *fast* or *slow*. Any positive number can be used if *effectSpeed* is an integer.
- */
-String.prototype.changeTextOnHover = 
-    function(text, textColor, fadeEffect, effectSpeed) 
-    {
-        var elemToBeModified = document.querySelector(this.toString());
-
-        $(elemToBeModified).text(text);
-
-        if (fadeEffect == 'fadeIn') { 
-            $(elemToBeModified).fadeIn(effectSpeed);
-        } else if (fadeEffect == 'fadeOut') {
-            $(elemToBeModified).fadeOut(effectSpeed); 
-        }
-
-        $(elemToBeModified).animate({ color: textColor }, effectSpeed);
-    }
-;
-
-/**
  * Changes the background position.
  * @param  string   String              Element that will be modified.
  * @param  Array    candidateArray      Array the element possible is.
@@ -207,3 +156,15 @@ String.prototype.capitalizeFirstLetter =
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
 ;
+
+/**
+ * Goes to a link to confirm the user wants to vote
+ * @param  HTMLObject  btn_to_check  Button that will be checked if the passcode has been entered correctly already
+ * @param  string      globalURL        Base url (e.g. https://www.facebook.com)
+ */
+function confirmUser(btn_to_check, globalURL)
+{
+    if (btn_to_check.disabled == false) {
+        window.location.replace(globalURL + 'confirm/');
+    }
+}

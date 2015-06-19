@@ -8,7 +8,7 @@
 ///                                       ///
 /////////////////////////////////////////////
 
-if (typeof jQuery === 'undefined') { // Requiring jQuery
+if (typeof jQuery === 'undefined') { // Requires jQuery
     throw new Error('This web app requires jQuery.');
 }
 
@@ -51,6 +51,36 @@ var candidates = [
     ]
 ];
 
+var globalURL = window.location.protocol + '//' + window.location.host + '/'
+
+if (page == 'auth-user-school') {
+    var passcodeInputField = document.querySelector('#passcode');
+    var btnContinue = document.querySelector('#continue-btn');
+}
+
+function checkPasscode()
+{
+    var data = {
+        'passcode': passcodeInputField.value,
+        csrfmiddlewaretoken: csrf_token
+    };
+            
+    $.post('/check-passcode/', data,
+        function(response)
+        {
+            var incorrect_pass_msg = document.querySelector('h6#incorrect-passcode-msg');
+
+            if (response === 'success') {
+                $(incorrect_pass_msg).css('visibility', 'hidden');
+                btnContinue.disabled = false;
+            } else {
+                $(incorrect_pass_msg).css('visibility', 'visible');
+                btnContinue.disabled = true;
+            }
+        }
+    );
+}
+
 /**
  * Initializes variables or effects that have to run
  * when the page is ready.
@@ -70,6 +100,11 @@ function pageInit()
             $('#' + this.toString()).delay(((index++) * 1000) + 500).fadeIn(1000);
         }
     );
+
+    if (page == 'auth-user-school') {
+        passcodeInputField.value = '';
+        btnContinue.disabled = true;
+    }
 }
 
 /**
@@ -101,24 +136,6 @@ function pageHovers()
             var surname = this.toString();
             var firstName = surname.getCandidateFirstName(candidates);
             var elemID = '#' + firstName;
-            var clickID = elemID + '-click';
-
-            $('#' + this.toString()).hover( // Handles hover on each candidate's div block. Uses the surname.
-                function() // Executes when mouse is over a candidate's div block
-                {
-                    var voteState = surname.getCandidateReverseVoteState(candidates);
-                    var gender = surname.getCandidateGender(candidates);
-
-                    var newFirstName = firstName.capitalizeFirstLetter();
-                    var text = 'Click ' + newFirstName + ' to ' + voteState + ' ' + gender + '.';
-
-                    clickID.changeTextOnHover(text, '#313131', 'fadeIn', 'fast');
-                },
-                function() // Executes when mouse is out of a candidate's div block
-                {
-                    clickID.changeTextOnHover('...', '#fff', 'fadeOut', 'fast');
-                }
-            );
 
             $(elemID).hover( // Handles hover on each candidate's image. Uses the first name.
                 function() // Executes when mouse is over a candidate's image
@@ -157,7 +174,7 @@ function pageClicks()
             var firstName = surname.getCandidateFirstName(candidates);
             var elemID = '#' + firstName;
 
-            $(elemID).click(
+                $(elemID).click(
                 function()
                 {
                     elemID.changeBackgroundPosition(
@@ -172,11 +189,19 @@ function pageClicks()
         }
     );
 
+    // Handles click on the 'Continue' button
+    $('#continue-btn').click(
+        function()
+        {
+            confirmUser(btnContinue, globalURL);
+        }
+    );
+
     // Handles click on the 'Finish Voting' button
     $('#finish-voting').click(
         function()
         {
-            var rawURL = window.location.protocol + '//' + window.location.host + '/' + 'save-votes/';
+            var rawURL = globalURL + 'save-votes/';
             var votedCandidates = "";
 
             for (var index = 0; index < 6; index++) { // Check each state and add it to a string if the candidate is voted
@@ -194,14 +219,28 @@ function pageClicks()
     );
 }
 
+function pageKeyPresses()
+{
+    $('#passcode').keydown(
+        function(event)
+        {
+            if (event.keyCode == 13) {
+                confirmUser(btnContinue, globalURL);
+            }
+        }
+    );
+}
+
 /**
  * The 'main' function.
  * @param function
  */
 $(document).ready(
-    function() {
+    function()
+    {
         pageInit();
         pageHovers();
         pageClicks();
+        pageKeyPresses();
     }
 );
