@@ -38,7 +38,7 @@ def check_passcode(request): # Authenticates if the user is from PSHS-EVC
                 except User.DoesNotExist:
                     return HttpResponse('failed')
 
-                return HttpResponse('success')
+                return HttpResponse('success', status=400)
 
     return HttpResponse('failed')
 
