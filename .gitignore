@@ -65,6 +65,9 @@ SAElections/static/css/*.map
 # Do not include SASS cache
 .sass-cache*
 
+# Do not include rvm-related stuff
+.rvmrc
+
 # Ignore the test log and stat file
 log.txt
 stats.txt
