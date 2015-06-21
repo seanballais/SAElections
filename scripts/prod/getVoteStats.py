@@ -18,7 +18,6 @@ cursor.execute('''SELECT is_pshsevc, people_voted FROM auth_user''')
 for row in cursor:
     if row[0] == True:
         numberOfVoters += 1
-        print(row)
 
         logging.info('[{0}] Row No. {1} Data: {2}'.format(currentDateTime, numberOfVoters, row[1].title()))
 
