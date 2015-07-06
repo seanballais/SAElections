@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## v0.2.0-rc1 - 2015-07-06
+## v0.2.0-rc0 - 2015-07-06
 ### Updated
 - The background image has been edited to include two more people. The other person cannot be seen in the website unless the image file itself is opened by the user.
 - Set debugging to false.
