@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.2.0 - 2015-07-06
+### Updated
+- The background image has been edited to include two more people. The other person cannot be seen in the website unless the image file itself is opened by the user.
+- Set debugging to false.
+
+### Removed
+- The advertisement that shows up on the bottom of the page has been removed.
+
 ## v0.2.0-beta - 2015-06-19
 ### Added
 - The 'Thank you' page that shows up after voting.
