@@ -2,9 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.contrib.auth.models import User
-import hashlib
 
-hashedPasscode = 'deda002bcc2b28921ec34847ee2c0e73ac7e1d164f7d2c4f75531aba8e2ee625'
+from time import strftime
 
 def home(request):
     return render_to_response(
@@ -21,25 +20,28 @@ def home(request):
 def auth_successful(self): # Reloads the home page to access the voting area or thank you page
     return render_to_response('auth-successful.html')
 
-def check_passcode(request): # Authenticates if the user is from PSHS-EVC
+def authentication(request): # Authenticates if the user entered the a valid student ID number
     if request.method == 'POST':
-        if 'passcode' in request.POST:
-            passcode = request.POST['passcode']
+        if 'studentID' in request.POST and 'password' in request.POST:
+            studentID = request.POST['studentID']
+            password = request.POST['password']
 
-            enteredCode = bytes(passcode, 'utf-8')
-            userID = request.user.id
-            userObj = User.objects.get(id=userID)
-
-            if (hashlib.sha256(enteredCode).hexdigest() == hashedPasscode):
+            # Check if Student ID exists
+            userCount = User.objects.filter(student_id = studentID)
+            if (userCount != 0 and userCount == 1): # Student ID Number exists
                 try:
-                    userObj.successful_auth = True
+                    userObj = User.objects.get(student_id = studentID)
 
-                    userObj.save()
+                    if (userObj.password == password):
+                        userObj.successful_auth = True
+                        userObj.last_login = strftime('%Y-%m-%d %H:%M:%S')
+                        userObj.save()
+                    else:
+                        return HttpResponse('success')
                 except User.DoesNotExist:
                     return HttpResponse('failed')
-
-                return HttpResponse('success')
-
+            else:
+                return HttpResponse('failed')
     return HttpResponse('failed')
 
 def confirm_entry(request): # Confirms that the user wants to vote

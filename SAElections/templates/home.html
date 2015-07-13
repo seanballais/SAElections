@@ -1,26 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title %}PSHS-EVC Student Alliance Elections 2015-2016 | Vote now for your new set of officers!{% endblock %}
-{% block custom_css %}
-    <link rel="stylesheet" type="text/css" href="/static/css/home.css">
-{% endblock %}
-{% block custom_js %}
-    <script type="text/javascript" src="/static/js/user/helper-functions.js"></script>
-    <script type="text/javascript" src="/static/js/user/home.js"></script>
-{% endblock %}
 
 {% block main %}
     <article>
         <script type="text/javascript">
             var page = '';
         </script>
-        {% if user and user.is_pshsevc and not user.is_anonymous and not user.has_voted %}
+        {% if user.successful_auth and not user.is_anonymous and not user.has_voted %}
             <div id="has-auth" class="container-fluid">
                 <div id="header" class="row-fluid">
                     <div id="internal-header" class="col-xs-12">
                         <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
                         <img id="banner" src="/static/img/global/banner.png" height="80" width="422">
-                        <h4 id="vote-start">Time to vote, {{ user.get_full_name | default:user.username }}.</h4>
+                        <h4 id="vote-start">Time to vote, {{ user.first_name }}.</h4>
                         <h5>Click/tap on a photo of a candidate if you want to see him/her as one of the Student Alliance officers for S.Y. 2015 - 2016.</h5>
                         <noscript><h5>Javascript must be enabled in your browser.</h5></noscript>
                     </div>
@@ -63,7 +56,7 @@
                     </div>
                 </div>
             </div>
-        {% elif user and user.is_pshsevc and not user.is_anonymous and user.has_voted%}
+        {% elif user.successful_auth and not user.is_anonymous and user.has_voted%}
             <div id="has-voted" class="row-fluid">
                 <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
                 <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
@@ -72,13 +65,26 @@
                 <a id="logout" href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-danger btn-block">Logout</a>
             </div>
         {% else %}
+            <script type="text/javascript">
+                page = 'homepage';
+            </script>
             <div id="no-auth" class="row-fluid">
                 <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
                 <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
                 <h1 class="banner-title">Vote now!</h1>
                 <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
-                
-                <h6>Sign in to vote.</h6>
+                <div id="login-form" role="form">
+                    <div class="form-group">
+                        <input id="student-id" type="text" class="form-control" placeholder="Student ID No.">
+                    </div>
+                    <div class="input-group">
+                        <input id="password" type="text" class="form-control" placeholder="Password">
+                        <span class="input-group-btn">
+                            <button id="login-btn" class="btn btn-primary" type="button">Login</button>
+                        </span>
+                    </div>
+                </div>
+                <h5 id="login-incorrect">Incorrect Student ID No.</h5>
             </div>
         {% endif %}
     </article>

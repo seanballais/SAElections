@@ -1,0 +1,185 @@
+/* Home CSS file */
+@import 'graduate-font';
+@import 'vendorprefixes';
+
+/* Extend Bootstrap 3 classes/identifiers */
+.img-responsive { margin: 0 auto; }
+
+/* Classes */
+.banner-title {
+    font-family: 'Graduate', serif;
+    font-weight: bold;
+}
+
+article {
+    color: #fff;
+
+    /* Set the height and width to 100% */
+    $property: height width;
+    @each $prop in $property { #{$prop}: 100%; }
+    
+    > div#no-auth,
+    > div#has-auth,
+    > div#has-voted,
+    > div#pisay-check {
+        height: 100%;
+        text-align: center;
+    }
+
+    > div#no-auth {
+        margin-top: 0.5%;
+
+        > h1.banner-title { font-size: 8.5em; }
+
+        > div#login-form {
+            margin: 0 auto;
+            margin-top: 2%;
+            margin-bottom: 1.5%;
+            max-width: 100%;
+            width: 320px;
+
+            $border-radius-px: 7px;
+            > div.form-group {
+                margin-bottom: 0;
+
+                > input#student-id {
+                    @each $vendor-prefix in $prefix-list {
+                        #{$vendor-prefix}-border-bottom-left-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-right-radius: 0px;
+                        #{$vendor-prefix}-border-top-left-radius: $border-radius-px;
+                        #{$vendor-prefix}-border-top-right-radius: $border-radius-px;
+                        @if $vendor-prefix == '-o' {
+                            border-bottom-left-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                            border-top-left-radius: $border-radius-px;
+                            border-top-right-radius: $border-radius-px;
+                        }
+                    }
+                }
+            }
+
+            > div.input-group {
+                margin-top: 0;
+
+                > input#password {
+                    @each $vendor-prefix in $prefix-list {
+                        #{$vendor-prefix}-border-top-left-radius: 0px;
+                        #{$vendor-prefix}-border-top-right-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-right-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-left-radius: $border-radius-px;
+                        @if $vendor-prefix == '-o' {
+                            border-top-left-radius: 0px;
+                            border-top-right-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                            border-bottom-left-radius: $border-radius-px;
+                        }
+                    }
+                }
+
+                > span.input-group-btn {
+                    > button#login-btn {
+                        @each $vendor-prefix in $prefix-list {
+                            #{$vendor-prefix}-border-top-left-radius: 0px;
+                            #{$vendor-prefix}-border-top-right-radius: 0px;
+                            #{$vendor-prefix}-border-bottom-left-radius: 0px;
+                            #{$vendor-prefix}-border-bottom-right-radius: $border-radius-px;
+                            @if $vendor-prefix == '-o' {
+                                border-top-left-radius: 0px;
+                                border-top-right-radius: 0px;
+                                border-bottom-left-radius: 0px;
+                                border-bottom-right-radius: $border-radius-px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > h5 {
+            color: #db5252;
+            margin-bottom: 6%;
+            visibility: hidden;
+        }
+    }
+
+    > div#has-auth {
+        text-align: center;
+
+        > div#header {
+            > div#internal-header {
+                > img#logo {
+                    margin-top: 2%;
+                    margin-bottom: 0.5%;
+                }
+
+                > img#banner { 
+                    margin-bottom: 1%;
+                    max-width: 422px;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        > div#voting-area {
+            margin: auto;
+            margin-top: 2.5%;
+            margin-bottom: 2.5%;
+            max-width: 890px;
+
+            > div#candidates {
+                div {
+                    @each $vendor in $prefix-list { 
+                        #{$vendor}-border-radius: 10px;
+                        @if $vendor == '-o' { border-radius: 10px; }
+                    }
+                    display: none;
+                    margin-bottom: 2%;
+
+                    > img.profpic {
+                        background: url('/static/img/home/candidates.png');
+                        cursor: pointer;
+                        margin: 2%;
+                        height: 128px;
+                        width: 128px;
+                    }
+        
+                    > img#johan { background-position: 0 0; }
+                    > img#kobe { background-position: -130px 0; }
+                    > img#jeri { background-position: -260px 0; }
+                    > img#sophia { background-position: -390px 0; }
+                    > img#linette { background-position: -520px 0; }
+                    > img#ronel { background-position: -650px 0; }
+                }
+            }
+
+            > div#voting-button { 
+                display: none;
+                margin-top: 5%;
+                margin-bottom: 2%;
+            }
+        }
+    }
+
+    > div#has-voted {
+        margin-top: 3%;
+
+        > h3.banner-title { font-size: 4em; }
+        > a#logout {
+            margin: 0 auto;
+            margin-top: 2%;
+            max-width: 100%;
+            width: 200px;
+        }
+    }
+}
+
+footer { 
+    margin-top: 2%;
+
+    > div#advertisement {
+        float: none;
+        margin: auto;
+        max-width: 728px; 
+    }
+}

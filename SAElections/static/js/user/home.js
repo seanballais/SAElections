@@ -53,19 +53,21 @@ var candidates = [
 
 var globalURL = window.location.protocol + '//' + window.location.host + '/'
 
-if (page == 'auth-user-school') {
-    var passcodeInputField = document.querySelector('#passcode');
-    var btnContinue = document.querySelector('#continue-btn');
+if (page == 'homepage') {
+    var studentIDInputField = document.querySelector('#student-id');
+    var passwordInputField = document.querySelector('#password');
+    var btnLogin = document.querySelector('#login-btn');
 }
 
-function checkPasscode()
+function checkStudentID()
 {
     var data = {
-        'passcode': passcodeInputField.value,
+        'studentID': studentIDInputField.value,
+        'password': passwordInputField,
         csrfmiddlewaretoken: csrf_token
     };
             
-    $.post('/check-passcode/', data,
+    $.post('/authentication/', data,
         function(response)
         {
             var incorrect_pass_msg = document.querySelector('h6#incorrect-passcode-msg');

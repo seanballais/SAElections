@@ -20,11 +20,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
 urlpatterns = [
-    url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^$', 'voting.views.home', name='home'),
     url(r'^auth-successful/', 'voting.views.auth_successful', name='auth-successful'),
-    url(r'^check-passcode/$', 'voting.views.check_passcode', name='check-passcode'),
+    url(r'^authentication/$', 'voting.views.check_studentID', name='check-studentID'),
     url(r'^confirm/$', 'voting.views.confirm_entry', name='confirm-entry'),
     url(r'^save-votes/(?P<votes>.+)/$', 'voting.views.save_to_db', name='save-to-db'),
     url(r'^admin/', include(admin.site.urls)),

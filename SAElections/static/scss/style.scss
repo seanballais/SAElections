@@ -1,5 +1,5 @@
 /* Global CSS file for all templates */
-@import '_vendorprefixes';
+@import 'vendorprefixes';
 
 html,
 body {
@@ -9,6 +9,8 @@ body {
         @if $vendor-prefix == '-o' { background-size: cover; }
     }
 }
+
+@import 'home';
 
 footer {
     color: #fff;
