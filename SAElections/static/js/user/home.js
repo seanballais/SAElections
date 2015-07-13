@@ -62,7 +62,7 @@ function checkStudentID()
     var data = {
         'studentID': studentIDInputField.value,
         'password': passwordInputField.value,
-        csrfmiddlewaretoken: csrf_token
+        'csrfmiddlewaretoken': csrf_token
     };
             
     $.post('/authentication/', data,
@@ -194,7 +194,9 @@ function pageClicks()
     $('#login-btn').click(
         function()
         {
-            reloadPage();
+            if (btnLogin.disabled == false) {
+                reloadPage();
+            }
         }
     );
 
@@ -225,7 +227,7 @@ function pageKeyPresses()
     $('#student-id, #password').keydown(
         function(event)
         {
-            if (event.keyCode == 13) {
+            if (event.keyCode == 13 && btnLogin.disabled == false) {
                 reloadPage();
             }
         }

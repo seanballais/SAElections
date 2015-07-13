@@ -16,6 +16,10 @@
     <script type="text/javascript" src="/static/js/user/home.js" defer></script>
     </head>
     <body>
+        <script type="text/javascript">
+            var page = '';
+            var csrf_token = '{{ csrf_token }}';
+        </script>
         {% block main %}{% endblock %}
         <footer>
             <p>

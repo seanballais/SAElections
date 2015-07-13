@@ -2,8 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.contrib.auth.models import User
-
-from time import strftime
+from django.utils.timezone import now
 
 def home(request):
     return render_to_response(
@@ -24,17 +23,19 @@ def authentication(request): # Authenticates if the user entered the a valid stu
             password = request.POST['password']
 
             # Check if Student ID exists
-            userCount = User.objects.filter(student_id = studentID)
+            userCount = User.objects.filter(student_id = studentID).count()
             if (userCount != 0 and userCount == 1): # Student ID Number exists
                 try:
                     userObj = User.objects.get(student_id = studentID)
-
                     if (userObj.password == password):
                         userObj.successful_auth = True
-                        userObj.last_login = strftime('%Y-%m-%d %H:%M:%S')
+                        userObj.last_login = now()
+                        
                         userObj.save()
-                    else:
+
                         return HttpResponse('success')
+                    else:
+                        return HttpResponse('failed')
                 except User.DoesNotExist:
                     return HttpResponse('failed')
             else:
