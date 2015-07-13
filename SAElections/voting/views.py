@@ -17,9 +17,6 @@ def home(request):
         )
     )
 
-def auth_successful(self): # Reloads the home page to access the voting area or thank you page
-    return render_to_response('auth-successful.html')
-
 def authentication(request): # Authenticates if the user entered the a valid student ID number
     if request.method == 'POST':
         if 'studentID' in request.POST and 'password' in request.POST:
@@ -44,21 +41,7 @@ def authentication(request): # Authenticates if the user entered the a valid stu
                 return HttpResponse('failed')
     return HttpResponse('failed')
 
-def confirm_entry(request): # Confirms that the user wants to vote
-    userID = request.user.id
-    userObj = User.objects.get(id=userID)
-
-    if userObj.successful_auth:
-        try:
-            userObj.is_pshsevc = True
-
-            userObj.save()
-        except User.DoesNotExist:
-            return HttpResponseBadRequest
-
-    return HttpResponseRedirect('/')
-
-def save_to_db(request, votes): # Update records in the database
+def save_votes(request, votes): # Update records in the database
     try:
         userID = request.user.id
         userObj = User.objects.get(id=userID)

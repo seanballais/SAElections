@@ -75,10 +75,10 @@
                 <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
                 <div id="login-form" role="form">
                     <div class="form-group">
-                        <input id="student-id" type="text" class="form-control" placeholder="Student ID No.">
+                        <input id="student-id" type="text" class="form-control" placeholder="Student ID No." oninput="checkStudentID()">
                     </div>
                     <div class="input-group">
-                        <input id="password" type="text" class="form-control" placeholder="Password">
+                        <input id="password" type="password" class="form-control" placeholder="Password" oninput="checkStudentID()">
                         <span class="input-group-btn">
                             <button id="login-btn" class="btn btn-primary" type="button">Login</button>
                         </span>

@@ -51,8 +51,6 @@ var candidates = [
     ]
 ];
 
-var globalURL = window.location.protocol + '//' + window.location.host + '/'
-
 if (page == 'homepage') {
     var studentIDInputField = document.querySelector('#student-id');
     var passwordInputField = document.querySelector('#password');
@@ -63,21 +61,21 @@ function checkStudentID()
 {
     var data = {
         'studentID': studentIDInputField.value,
-        'password': passwordInputField,
+        'password': passwordInputField.value,
         csrfmiddlewaretoken: csrf_token
     };
             
     $.post('/authentication/', data,
         function(response)
         {
-            var incorrect_pass_msg = document.querySelector('h6#incorrect-passcode-msg');
+            var login_incorrect_msg = document.querySelector('#login-incorrect');
 
             if (response === 'success') {
-                $(incorrect_pass_msg).css('visibility', 'hidden');
-                btnContinue.disabled = false;
+                $(login_incorrect_msg).css('visibility', 'hidden');
+                btnLogin.disabled = false;
             } else {
-                $(incorrect_pass_msg).css('visibility', 'visible');
-                btnContinue.disabled = true;
+                $(login_incorrect_msg).css('visibility', 'visible');
+                btnLogin.disabled = true;
             }
         }
     );
@@ -103,9 +101,10 @@ function pageInit()
         }
     );
 
-    if (page == 'auth-user-school') {
-        passcodeInputField.value = '';
-        btnContinue.disabled = true;
+    if (page == 'homepage') {
+        studentIDInputField.value = '';
+        passwordInputField.value = '';
+        btnLogin.disabled = true;
     }
 }
 
@@ -191,11 +190,11 @@ function pageClicks()
         }
     );
 
-    // Handles click on the 'Continue' button
-    $('#continue-btn').click(
+    // Handles click on the 'Login' button
+    $('#login-btn').click(
         function()
         {
-            confirmUser(btnContinue, globalURL);
+            reloadPage();
         }
     );
 
@@ -203,7 +202,7 @@ function pageClicks()
     $('#finish-voting').click(
         function()
         {
-            var rawURL = globalURL + 'save-votes/';
+            var rawURL = window.location.protocol + '//' + window.location.host + '/' + 'save-votes/';
             var votedCandidates = "";
 
             for (var index = 0; index < 6; index++) { // Check each state and add it to a string if the candidate is voted
@@ -223,11 +222,11 @@ function pageClicks()
 
 function pageKeyPresses()
 {
-    $('#passcode').keydown(
+    $('#student-id, #password').keydown(
         function(event)
         {
             if (event.keyCode == 13) {
-                confirmUser(btnContinue, globalURL);
+                reloadPage();
             }
         }
     );

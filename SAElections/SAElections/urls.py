@@ -22,9 +22,7 @@ admin.autodiscover()
 urlpatterns = [
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^$', 'voting.views.home', name='home'),
-    url(r'^auth-successful/', 'voting.views.auth_successful', name='auth-successful'),
-    url(r'^authentication/$', 'voting.views.check_studentID', name='check-studentID'),
-    url(r'^confirm/$', 'voting.views.confirm_entry', name='confirm-entry'),
-    url(r'^save-votes/(?P<votes>.+)/$', 'voting.views.save_to_db', name='save-to-db'),
+    url(r'^authentication/$', 'voting.views.authentication', name='authentication'),
+    url(r'^save-votes/(?P<votes>.+)/$', 'voting.views.save_votes', name='save-votes'),
     url(r'^admin/', include(admin.site.urls)),
 ] + staticfiles_urlpatterns()

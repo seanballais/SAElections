@@ -158,13 +158,10 @@ String.prototype.capitalizeFirstLetter =
 ;
 
 /**
- * Goes to a link to confirm the user wants to vote
- * @param  HTMLObject  btn_to_check  Button that will be checked if the passcode has been entered correctly already
- * @param  string      globalURL        Base url (e.g. https://www.facebook.com)
+ * Reloads the page
  */
-function confirmUser(btn_to_check, globalURL)
+function reloadPage()
 {
-    if (btn_to_check.disabled == false) {
-        window.location.replace(globalURL + 'confirm/');
-    }
+    var globalURL = window.location.protocol + '//' + window.location.host + '/';
+    window.location.replace(globalURL); // Reload the page to show the voting page
 }
