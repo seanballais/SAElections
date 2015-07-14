@@ -156,12 +156,3 @@ String.prototype.capitalizeFirstLetter =
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
 ;
-
-/**
- * Reloads the page
- */
-function reloadPage()
-{
-    var globalURL = window.location.protocol + '//' + window.location.host + '/';
-    window.location.replace(globalURL); // Reload the page to show the voting page
-}
