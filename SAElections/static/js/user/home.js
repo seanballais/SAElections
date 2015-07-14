@@ -1,4 +1,5 @@
-function getCookie(name) {
+function getCookie(name)
+{
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
         var cookies = document.cookie.split(';');
@@ -25,21 +26,24 @@ function checkStudentID()
         'password': passwordInputField.value,
         'csrfmiddlewaretoken': getCookie('csrftoken')
     };
-            
-    $.post('/authenticate/', data,
-        function(response)
-        {
-            var login_incorrect_msg = document.querySelector('#login-incorrect');
-
-            if (response === 'success') {
-                $(login_incorrect_msg).css('visibility', 'hidden');
-                btnLogin.disabled = false;
-            } else {
-                $(login_incorrect_msg).css('visibility', 'visible');
-                btnLogin.disabled = true;
+    
+    var login_incorrect_msg = document.querySelector('#login-incorrect');
+    if (passwordInputField.value != '') {
+        $.post('/authenticate/', data,
+            function(response)
+            {
+                if (response === 'success') {
+                    $(login_incorrect_msg).css('visibility', 'hidden');
+                    btnLogin.disabled = false;
+                } else {
+                    $(login_incorrect_msg).css('visibility', 'visible');
+                    btnLogin.disabled = true;
+                }
             }
-        }
-    );
+        );
+    } else {
+        $(login_incorrect_msg).css('visibility', 'hidden');
+    }
 }
 
 $(document).ready(
