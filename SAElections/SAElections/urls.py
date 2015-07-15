@@ -22,8 +22,9 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^$', 'director.views.direct', name='home'), # The voting/thank you page is here
     url(r'^/$', 'director.views.direct', name='home'), # and also here
-    url(r'^login/$', 'login.views.user_login', name='login'),
-    url(r'^authenticate/$', 'login.views.auth', name='authenticate'),
+    url(r'^login/$', 'authentication.views.user_login', name='login'),
+    url(r'^logout/$', 'authentication.views.user_logout', name='logout'),
+    url(r'^authenticate/$', 'authentication.views.user_auth', name='authenticate'),
     url(r'^save-votes/(?P<votes>.+)/$', 'voting.views.save_votes', name='save-votes'),
     url(r'^admin/', include(admin.site.urls)),
 ] + staticfiles_urlpatterns()

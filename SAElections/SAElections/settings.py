@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'director',
     'voting',
-    'login',
+    'authentication',
 )
 
 AUTHENTICATION_BACKENDS = (
