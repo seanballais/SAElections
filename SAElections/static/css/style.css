@@ -41,15 +41,15 @@ article {
     margin-top: 0.5%; }
     article > div#no-auth > h1.banner-title {
       font-size: 8.5em; }
-    article > div#no-auth > div#login-form {
+    article > div#no-auth > form#login-form > div#input-section {
       margin: 0 auto;
       margin-top: 2%;
       margin-bottom: 1.5%;
       max-width: 100%;
       width: 320px; }
-      article > div#no-auth > div#login-form > div.form-group {
+      article > div#no-auth > form#login-form > div#input-section > div.form-group {
         margin-bottom: 0; }
-        article > div#no-auth > div#login-form > div.form-group > input#student-id {
+        article > div#no-auth > form#login-form > div#input-section > div.form-group > input#student-id {
           -webkit-border-bottom-left-radius: 0px;
           -webkit-border-bottom-right-radius: 0px;
           -webkit-border-top-left-radius: 7px;
@@ -70,9 +70,9 @@ article {
           border-bottom-right-radius: 0px;
           border-top-left-radius: 7px;
           border-top-right-radius: 7px; }
-      article > div#no-auth > div#login-form > div.input-group {
+      article > div#no-auth > form#login-form > div#input-section > div.input-group {
         margin-top: 0; }
-        article > div#no-auth > div#login-form > div.input-group > input#password {
+        article > div#no-auth > form#login-form > div#input-section > div.input-group > input#password {
           -webkit-border-top-left-radius: 0px;
           -webkit-border-top-right-radius: 0px;
           -webkit-border-bottom-right-radius: 0px;
@@ -93,7 +93,7 @@ article {
           border-top-right-radius: 0px;
           border-bottom-right-radius: 0px;
           border-bottom-left-radius: 7px; }
-        article > div#no-auth > div#login-form > div.input-group > span.input-group-btn > button#login-btn {
+        article > div#no-auth > form#login-form > div#input-section > div.input-group > span.input-group-btn > input#login-btn {
           -webkit-border-top-left-radius: 0px;
           -webkit-border-top-right-radius: 0px;
           -webkit-border-bottom-left-radius: 0px;

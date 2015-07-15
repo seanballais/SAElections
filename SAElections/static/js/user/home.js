@@ -15,61 +15,50 @@ function getCookie(name)
     return cookieValue;
 }
 
-function checkStudentID()
+function auth_check(studentID, password, incorrect_msg, btnLogin)
 {
-    var studentIDInputField = document.querySelector('#student-id');
-    var passwordInputField = document.querySelector('#password');
-    var btnLogin = document.querySelector('#login-btn');
-    
     var data = {
-        'studentID': studentIDInputField.value,
-        'password': passwordInputField.value,
+        'studentID': studentID,
+        'password': password,
         'csrfmiddlewaretoken': getCookie('csrftoken')
     };
-    
-    var login_incorrect_msg = document.querySelector('#login-incorrect');
-    if (passwordInputField.value != '') {
-        $.post('/authenticate/', data,
-            function(response)
-            {
-                if (response === 'success') {
-                    $(login_incorrect_msg).css('visibility', 'hidden');
+    $.post('/authenticate/', data,
+        function(response)
+        {
+            $(incorrect_msg).css('visibility', 'hidden');
+            if (password != '') {
+                if (response == 'success') {
+                    $(incorrect_msg).css('visibility', 'hidden');
                     btnLogin.disabled = false;
                 } else {
-                    $(login_incorrect_msg).css('visibility', 'visible');
+                    $(incorrect_msg).css('visibility', 'visible');
                     btnLogin.disabled = true;
                 }
             }
-        );
-    } else {
-        $(login_incorrect_msg).css('visibility', 'hidden');
-    }
+        }
+    );
 }
 
 $(document).ready(
     function()
     {
+        var studentID = document.querySelector('#student-id');
+        var password = document.querySelector('#password');
         var btnLogin = document.querySelector('#login-btn');
+        var incorrect_msg = document.querySelector('#login-incorrect')
 
-        document.querySelector('#student-id').value = '';
-        document.querySelector('#password').value = '';
+        document.querySelector('#login-form').reset();
         btnLogin.disabled = true;
 
-        $('#login-btn').click(
+        $(password).on('input',
             function()
             {
-                if (btnLogin.disabled == false) {
-                    reloadPage();
-                }
-            }
-        );
-
-        $('#student-id, #password').keydown(
-            function(event)
-            {
-                if (event.keyCode == 13 && btnLogin.disabled == false) {
-                    reloadPage();
-                }
+                auth_check(
+                    studentID.value,
+                    password.value,
+                    incorrect_msg,
+                    btnLogin
+                );
             }
         );
     }

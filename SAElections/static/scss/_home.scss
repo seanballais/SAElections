@@ -31,7 +31,7 @@ article {
 
         > h1.banner-title { font-size: 8.5em; }
 
-        > div#login-form {
+        > form#login-form > div#input-section {
             margin: 0 auto;
             margin-top: 2%;
             margin-bottom: 1.5%;
@@ -77,7 +77,7 @@ article {
                 }
 
                 > span.input-group-btn {
-                    > button#login-btn {
+                    > input#login-btn {
                         @each $vendor-prefix in $prefix-list {
                             #{$vendor-prefix}-border-top-left-radius: 0px;
                             #{$vendor-prefix}-border-top-right-radius: 0px;
