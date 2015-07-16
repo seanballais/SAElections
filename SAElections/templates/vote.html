@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}PSHS-EVC Student Alliance Elections 2015-2016 | Vote now for your new set of officers!{% endblock %}
+
+{% block main %}
+    <article>
+        <div id="has-auth" class="container-fluid">
+            <div id="header" class="row-fluid">
+                <div id="internal-header" class="col-xs-12">
+                    <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
+                    <img id="banner" src="/static/img/global/banner.png" height="80" width="422">
+                    <h4 id="vote-start">Time to vote, {{ user.first_name }}.</h4>
+                    <h5>Click/tap on a photo of a candidate if you want to see him/her as one of the Student Alliance officers for S.Y. 2015 - 2016.</h5>
+                    <noscript><h5>Javascript must be enabled in your browser.</h5></noscript>
+                </div>
+            </div>
+            <div id="voting-area" class="row-fluid">
+                <div id="candidates">
+                    <div id="president" class="row-fluid">
+                        <div id="castillejos" class="candid col-xs-6">
+                            <img id="johan" class="profpic" src="/static/dist/img/home/trans.gif" height="128" width="128">
+                            <h5>Johan Castillejos<br>for President</h5>
+                        </div>
+                        <div id="espina" class="candid col-xs-6">
+                        </div>
+                    </div>
+                    <div id="vice-president" class="row-fluid">
+                        <div id="bismark" class="candid col-xs-6">
+                        </div>
+                        <div id="faller" class="candid col-xs-6">
+                        </div>
+                    </div>
+                    <div id="secretary" class="row-fluid">
+                        <div id="latorre" class="candid col-xs-6">
+                        </div>
+                        <div id="cesista" class="candid col-xs-6">
+                        </div>
+                    </div>
+                    <div id="treasurer" class="row-fluid">
+                        <div id="sevilla" class="candid col-xs-6">
+                        </div>
+                        <div id="kempis" class="candid col-xs-6">
+                        </div>
+                    </div>
+                    <div id="auditor" class="row-fluid">
+                        <div id="limsiaco" class="candid col-xs-6">
+                        </div>
+                        <div id="bayot" class="candid col-xs-6">
+                        </div>
+                    </div>
+                    <div id="pio" class="row-fluid">
+                        <div id="ecaldre" class="candid col-xs-6">
+                        </div>
+                        <div id="radaza" class="candid col-xs-6">
+                        </div>
+                    </div>
+                </div>
+                <div id="voting-button" class="col-xs-12">
+                    <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                        <button id="finish-voting" class="btn btn-warning btn-block"> Finish Voting</button>                        
+                    </div>
+                    <div class="col-sm-6"></div>
+                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
+                        <a href="/logout/" class="btn btn-danger btn-block">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

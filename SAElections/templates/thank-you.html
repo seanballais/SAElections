@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}PSHS-EVC Student Alliance Elections 2015-2016 | Vote now for your new set of officers!{% endblock %}
+
+{% block main %}
+    <article>
+        <div id="has-voted" class="row-fluid">
+            <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
+            <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
+            <h3 class="banner-title">Thanks for voting!</h3>
+            <h4>Final results will be announced at a later date.</h4>
+            <a id="logout" href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-danger btn-block">Logout</a>
+        </div>
+    </article>
+{% endblock %}
