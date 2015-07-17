@@ -1,21 +1,12 @@
-/* Global CSS file for all templates */
-/* Vendor prefixes */
-html,
-body {
-  background: url("/static/img/global/bg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
-
-/* Home CSS file */
+/* CSS file for all templates */
+/** Required files */
 @font-face {
   font-family: 'Graduate';
   font-style: normal;
   font-weight: 400;
   src: local("Graduate"), local("Graduate-Regular"), url(/static/fonts/Graduate.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+  unicode-range: U0-0FF, U131, U152-153, U2C 6, U2DA, U2DC, U2000-206F, U2074, U20AC, U2212, U2215, UE0FF, UEFFD, UF000; }
+
 /* Vendor prefixes */
 /* Extend Bootstrap 3 classes/identifiers */
 .img-responsive {
@@ -26,15 +17,28 @@ body {
   font-family: 'Graduate', serif;
   font-weight: bold; }
 
+/** Page-only definitions */
+/* Global definitions */
+html,
+body {
+  background: url("/static/img/global/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+/* Article definitions */
 article {
   color: #fff;
   /* Set the height and width to 100% */
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  /* Home CSS file */
+  /* Voting page */ }
   article > div#no-auth,
   article > div#has-auth,
-  article > div#has-voted,
-  article > div#pisay-check {
+  article > div#has-voted {
     height: 100%;
     text-align: center; }
   article > div#no-auth {
@@ -130,37 +134,38 @@ article {
       width: 100%; }
     article > div#has-auth > div#voting-area {
       margin: auto;
-      margin-top: 2.5%;
+      margin-top: 4%;
       margin-bottom: 2.5%;
       max-width: 890px; }
-      article > div#has-auth > div#voting-area > div#candidates div {
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-        border-radius: 10px;
-        display: none;
-        margin-bottom: 2%; }
-        article > div#has-auth > div#voting-area > div#candidates div > img.profpic {
-          background: url("/static/img/home/candidates.png");
-          cursor: pointer;
-          margin: 2%;
-          height: 128px;
-          width: 128px; }
-        article > div#has-auth > div#voting-area > div#candidates div > img#johan {
-          background-position: 0 0; }
-        article > div#has-auth > div#voting-area > div#candidates div > img#kobe {
-          background-position: -130px 0; }
-        article > div#has-auth > div#voting-area > div#candidates div > img#jeri {
-          background-position: -260px 0; }
-        article > div#has-auth > div#voting-area > div#candidates div > img#sophia {
-          background-position: -390px 0; }
-        article > div#has-auth > div#voting-area > div#candidates div > img#linette {
-          background-position: -520px 0; }
-        article > div#has-auth > div#voting-area > div#candidates div > img#ronel {
-          background-position: -650px 0; }
+      article > div#has-auth > div#voting-area > div#candidates {
+        margin: auto;
+        max-width: 500px; }
+        article > div#has-auth > div#voting-area > div#candidates > div > div {
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          -o-border-radius: 10px;
+          border-radius: 10px;
+          margin-bottom: 2%; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div > img.profpic {
+            background: url("/static/img/home/candidates.png");
+            cursor: pointer;
+            margin: 2%;
+            height: 128px;
+            width: 128px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div > img#johan {
+            background-position: 0 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div > img#kobe {
+            background-position: -128px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div > img#jeri {
+            background-position: -256px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div > img#sophia {
+            background-position: -384px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div > img#linette {
+            background-position: -512px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div > img#ronel {
+            background-position: -640px 0; }
       article > div#has-auth > div#voting-area > div#voting-button {
-        display: none;
         margin-top: 5%;
         margin-bottom: 2%; }
   article > div#has-voted {
@@ -173,20 +178,13 @@ article {
       max-width: 100%;
       width: 200px; }
 
-footer {
-  margin-top: 2%; }
-  footer > div#advertisement {
-    float: none;
-    margin: auto;
-    max-width: 728px; }
-
+/* Footer definitions */
 footer {
   color: #fff;
-  text-align: center; }
+  text-align: center;
+  margin-top: 2%; }
   footer a:hover {
     color: #1b60dc;
     text-decoration: none; }
   footer a:link {
     color: #545ee3; }
-
-/*# sourceMappingURL=style.css.map */

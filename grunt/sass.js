@@ -4,7 +4,7 @@ module.exports = {
     },
     dist: {
         files: {
-            'SAElections/static/css/style.css': 'SAElections/static/components/scss/style.scss'
+            'SAElections/static/components/css/style.css': 'SAElections/static/components/scss/style.scss'
         }
     }
 }
