@@ -14,7 +14,12 @@ module.exports = {
         tasks: ['htmlhint:build', 'notify:task_html']
     },
     css: {
-        files: ['SAElections/static/components/scss/*.scss'],            
+        files: ['SAElections/static/components/scss/*.scss'],
+        files: [
+            'SAElections/static/components/scss/block-elements/*.scss',
+            'SAElections/static/components/scss/include/*.scss',
+            'SAElections/static/components/scss/page/*.scss'
+        ],
         tasks: ['sass', 'autoprefixer:build', 'cssc:build', 'cssmin:build', 'notify:task_css']
     } 
     /** 

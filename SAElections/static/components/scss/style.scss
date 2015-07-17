@@ -1,21 +1,10 @@
-/* Global CSS file for all templates */
-@import 'vendorprefixes';
+/* CSS file for all templates */
+/** Required files */
+@import 'include/graduate-font';
+@import 'include/vendorprefixes';
+@import 'include/misc-classes';
 
-html,
-body {
-    background: url('/static/img/global/bg.jpg') no-repeat center center fixed;
-    @each $vendor-prefix in $prefix-list {
-        #{$vendor-prefix}-background-size: cover;
-        @if $vendor-prefix == '-o' { background-size: cover; }
-    }
-}
-
-@import 'home';
-
-footer {
-    color: #fff;
-    text-align: center;
-
-    a:hover { color: #1b60dc; text-decoration: none; }
-    a:link { color: #545ee3; }
-}
+/** Page-only definitions */
+@import 'block-elements/top-level';
+@import 'block-elements/article';
+@import 'block-elements/footer';
