@@ -22,12 +22,9 @@
         margin: auto;
         margin-top: 4%;
         margin-bottom: 2.5%;
-        max-width: 890px;
+        max-width: 450px;
 
         > div#candidates {
-            margin: auto;
-            max-width: 500px;
-
             > div > div:first-child ~ div {
                 &:hover {
                     background-color: #fff;
@@ -48,6 +45,7 @@
                 background-color: transparent;
                 color: #fff;
                 margin-bottom: 2%;
+                padding: 2%;
 
                 > img.profpic {
                     background: url('/static/img/home/candidates.png');
@@ -75,7 +73,7 @@
             }
         }
 
-        > div#voting-button {
+        > div#app-buttons {
             margin-top: 5%;
             margin-bottom: 2%;
         }
