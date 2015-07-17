@@ -1,0 +1,11 @@
+> div#has-voted {
+    margin-top: 3%;
+
+    > h3.banner-title { font-size: 4em; }
+    > a#logout {
+        margin: 0 auto;
+        margin-top: 2%;
+        max-width: 100%;
+        width: 200px;
+    }
+}

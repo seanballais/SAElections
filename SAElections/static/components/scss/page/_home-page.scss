@@ -1,0 +1,75 @@
+/* Home CSS file */
+> div#no-auth {
+    margin-top: 0.5%;
+
+    > h1.banner-title { font-size: 8.5em; }
+    
+    > form#login-form > div#input-section {
+        margin: 0 auto;
+        margin-top: 2%;
+        margin-bottom: 1.5%;
+        max-width: 100%;
+        width: 320px;
+
+        $border-radius-px: 7px;
+        > div.form-group {
+            margin-bottom: 0;
+            > input#student-id {
+                @each $vendor-prefix in $prefix-list {
+                    #{$vendor-prefix}-border-bottom-left-radius: 0px;
+                    #{$vendor-prefix}-border-bottom-right-radius: 0px;
+                    #{$vendor-prefix}-border-top-left-radius: $border-radius-px;
+                    #{$vendor-prefix}-border-top-right-radius: $border-radius-px;
+                    @if $vendor-prefix == '-o' {
+                        border-bottom-left-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                        border-top-left-radius: $border-radius-px;
+                        border-top-right-radius: $border-radius-px;
+                    }
+                }
+            }
+        }
+
+        > div.input-group {
+            margin-top: 0;
+
+            > input#password {
+                @each $vendor-prefix in $prefix-list {
+                    #{$vendor-prefix}-border-top-left-radius: 0px;
+                    #{$vendor-prefix}-border-top-right-radius: 0px;
+                    #{$vendor-prefix}-border-bottom-right-radius: 0px;
+                    #{$vendor-prefix}-border-bottom-left-radius: $border-radius-px;
+                    @if $vendor-prefix == '-o' {
+                        border-top-left-radius: 0px;
+                        border-top-right-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                        border-bottom-left-radius: $border-radius-px;
+                    }
+                }
+            }
+
+            > span.input-group-btn {
+                > input#login-btn {
+                    @each $vendor-prefix in $prefix-list {
+                        #{$vendor-prefix}-border-top-left-radius: 0px;
+                        #{$vendor-prefix}-border-top-right-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-left-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-right-radius: $border-radius-px;
+                        @if $vendor-prefix == '-o' {
+                            border-top-left-radius: 0px;
+                            border-top-right-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                            border-bottom-right-radius: $border-radius-px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > h5 {
+        color: #db5252;
+        margin-bottom: 6%;
+        visibility: hidden;
+    }
+}

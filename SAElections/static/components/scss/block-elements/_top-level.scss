@@ -1,0 +1,9 @@
+/* Global definitions */
+html,
+body {
+    background: url('/static/img/global/bg.jpg') no-repeat center center fixed;
+    @each $vendor-prefix in $prefix-list {
+        #{$vendor-prefix}-background-size: cover;
+        @if $vendor-prefix == '-o' { background-size: cover; }
+    }
+}

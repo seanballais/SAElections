@@ -1,0 +1,62 @@
+/* Voting page */
+> div#has-auth {
+    text-align: center;
+
+    > div#header {
+        > div#internal-header {
+            > img#logo {
+                margin-top: 2%;
+                margin-bottom: 0.5%;
+            }
+
+            > img#banner { 
+                margin-bottom: 1%;
+                max-width: 422px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    > div#voting-area {
+        margin: auto;
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+        max-width: 890px;
+
+        > div#candidates {
+            > div {
+                @each $vendor in $prefix-list { 
+                    #{$vendor}-border-radius: 10px;
+                    @if $vendor == '-o' { border-radius: 10px; }
+                }
+                margin-bottom: 2%;
+
+                > div > div {
+                    /**
+                    * First div points to the 
+                    */
+                    > img.profpic {
+                        background: url('/static/img/home/candidates.png');
+                        cursor: pointer;
+                        margin: 2%;
+                        height: 128px;
+                        width: 128px;
+                    }
+    
+                    > img#johan { background-position: 0 0; }
+                    > img#kobe { background-position: -130px 0; }
+                    > img#jeri { background-position: -260px 0; }
+                    > img#sophia { background-position: -390px 0; }
+                    > img#linette { background-position: -520px 0; }
+                    > img#ronel { background-position: -650px 0; }
+                }
+            }
+        }
+
+        > div#voting-button {
+            margin-top: 5%;
+            margin-bottom: 2%;
+        }
+    }
+}

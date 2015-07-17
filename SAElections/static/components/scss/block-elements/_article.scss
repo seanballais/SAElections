@@ -1,0 +1,19 @@
+/* Article definitions */
+article {
+    color: #fff;
+
+    /* Set the height and width to 100% */
+    $property: height width;
+    @each $prop in $property { #{$prop}: 100%; }
+    
+    > div#no-auth,
+    > div#has-auth,
+    > div#has-voted, {
+        height: 100%;
+        text-align: center;
+    }
+
+    @import '../page/home-page';
+    @import '../page/voting-page';
+    @import '../page/thankyou-page';
+}
