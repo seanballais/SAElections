@@ -140,31 +140,55 @@ article {
       article > div#has-auth > div#voting-area > div#candidates {
         margin: auto;
         max-width: 500px; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div {
+        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div {
           -webkit-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
           -moz-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
           -ms-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
           -o-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
           border-radius: 10px;
-          margin-bottom: 2%; }
-          article > div#has-auth > div#voting-area > div#candidates > div > div > img.profpic {
+          transition: all 0.3s ease-in;
+          background-color: transparent;
+          color: #fff;
+          margin-bottom: 2%;
+          /* CHICSER Party */
+          /* Pisay LIFE Party */ }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
+            background-color: #fff;
+            color: #4a4a4a; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img.profpic {
             background: url("/static/img/home/candidates.png");
             cursor: pointer;
             margin: 2%;
             height: 128px;
             width: 128px; }
-          article > div#has-auth > div#voting-area > div#candidates > div > div > img#johan {
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#johan {
             background-position: 0 0; }
-          article > div#has-auth > div#voting-area > div#candidates > div > div > img#kobe {
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#kobe {
             background-position: -128px 0; }
-          article > div#has-auth > div#voting-area > div#candidates > div > div > img#jeri {
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jeri {
             background-position: -256px 0; }
-          article > div#has-auth > div#voting-area > div#candidates > div > div > img#sophia {
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#sophia {
             background-position: -384px 0; }
-          article > div#has-auth > div#voting-area > div#candidates > div > div > img#linette {
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#linette {
             background-position: -512px 0; }
-          article > div#has-auth > div#voting-area > div#candidates > div > div > img#ronel {
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#ronel {
             background-position: -640px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#rysa {
+            background-position: -768px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#nicolas {
+            background-position: -896px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#franz {
+            background-position: -1024px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#joshua {
+            background-position: -1152px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#khristeena {
+            background-position: -1280px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jazzel {
+            background-position: -1408px 0; }
       article > div#has-auth > div#voting-area > div#voting-button {
         margin-top: 5%;
         margin-bottom: 2%; }

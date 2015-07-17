@@ -28,11 +28,25 @@
             margin: auto;
             max-width: 500px;
 
-            > div > div {
-                @each $vendor in $prefix-list { 
-                    #{$vendor}-border-radius: 10px;
-                    @if $vendor == '-o' { border-radius: 10px; }
+            > div > div:first-child ~ div {
+                &:hover {
+                    background-color: #fff;
+                    color: #4a4a4a;
                 }
+
+                $border-radius: 10px;
+                $transition: all .3s ease-in;
+                @each $vendor in $prefix-list { 
+                    #{$vendor}-border-radius: $border-radius;
+                    #{vendor}-transition: $transition;
+                    @if $vendor == '-o' { 
+                        border-radius: 10px;
+                        transition: $transition;
+                    }
+                }
+
+                background-color: transparent;
+                color: #fff;
                 margin-bottom: 2%;
 
                 > img.profpic {
@@ -42,13 +56,22 @@
                     height: 128px;
                     width: 128px;
                 }
-    
+                
+                /* CHICSER Party */    
                 > img#johan { background-position: 0 0; }
                 > img#kobe { background-position: -128px 0; }
                 > img#jeri { background-position: -256px 0; }
                 > img#sophia { background-position: -384px 0; }
                 > img#linette { background-position: -512px 0; }
                 > img#ronel { background-position: -640px 0; }
+
+                /* Pisay LIFE Party */
+                > img#rysa { background-position: -768px 0; }
+                > img#nicolas { background-position: -896px 0; }
+                > img#franz { background-position: -1024px 0; }
+                > img#joshua { background-position: -1152px 0; }
+                > img#khristeena { background-position: -1280px 0; }
+                > img#jazzel { background-position: -1408px 0; }
             }
         }
 
