@@ -16,10 +16,10 @@
             margin-bottom: 0;
             > input#student-id {
                 @each $vendor-prefix in $prefix-list {
-                    #{$vendor-prefix}-border-bottom-left-radius: 0px;
-                    #{$vendor-prefix}-border-bottom-right-radius: 0px;
                     #{$vendor-prefix}-border-top-left-radius: $border-radius-px;
                     #{$vendor-prefix}-border-top-right-radius: $border-radius-px;
+                    #{$vendor-prefix}-border-bottom-left-radius: 0px;
+                    #{$vendor-prefix}-border-bottom-right-radius: 0px;
                     @if $vendor-prefix == '-o' {
                         border-bottom-left-radius: 0px;
                         border-bottom-right-radius: 0px;

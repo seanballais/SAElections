@@ -3,7 +3,7 @@
 {% block title %}PSHS-EVC Student Alliance Elections 2015-2016 | Vote now for your new set of officers!{% endblock %}
 
 {% block main %}
-    <article>
+    <article id="voting-page">
         <div id="has-auth" class="container-fluid">
             <div id="header" class="row-fluid">
                 <div id="internal-header" class="col-xs-12">
@@ -84,12 +84,8 @@
                     </div>
                 </div>
                 <div id="app-buttons" class="col-xs-12">
-                    <div class="col-xs-12">
-                        <button id="finish-voting" class="btn btn-warning btn-block"> Finish Voting</button>                        
-                    </div>
-                    <div class="col-xs-12">
-                        <a href="/logout/" class="btn btn-danger btn-block">Logout</a>
-                    </div>
+                    <button id="vote-button" class="btn btn-warning btn-block"> Finish Voting</button>                        
+                    <button id="logout-button" href="/logout/" class="btn btn-danger btn-block">Logout</button>
                 </div>
             </div>
         </div>

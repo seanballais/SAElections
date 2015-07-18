@@ -25,57 +25,100 @@
         max-width: 450px;
 
         > div#candidates {
-            > div > div:first-child ~ div {
-                &:hover {
-                    background-color: #fff;
-                    color: #4a4a4a;
-                }
+            > div {
+                display: none;
 
-                $border-radius: 10px;
-                $transition: all .3s ease-in;
-                @each $vendor in $prefix-list { 
-                    #{$vendor}-border-radius: $border-radius;
-                    #{vendor}-transition: $transition;
-                    @if $vendor == '-o' { 
-                        border-radius: 10px;
-                        transition: $transition;
+                > div:first-child ~ div {
+                    &:hover {
+                        background-color: #fff;
+                        color: #4a4a4a;
                     }
-                }
 
-                background-color: transparent;
-                color: #fff;
-                margin-bottom: 2%;
-                padding: 2%;
+                    $border-radius: 10px;
+                    $transition: all .3s ease-in;
+                    @each $vendor in $prefix-list { 
+                        #{$vendor}-border-radius: $border-radius;
+                        #{vendor}-transition: $transition;
+                        @if $vendor == '-o' { 
+                            border-radius: 10px;
+                            transition: $transition;
+                        }
+                    }
 
-                > img.profpic {
-                    background: url('/static/img/home/candidates.png');
-                    cursor: pointer;
-                    margin: 2%;
-                    height: 128px;
-                    width: 128px;
-                }
+                    background-color: transparent;
+                    color: #fff;
+                    margin-bottom: 2%;
+                    padding: 2%;
+
+                    > img.profpic {
+                        background: url('/static/img/home/candidates.png');
+                        cursor: pointer;
+                        margin: 2%;
+                        height: 128px;
+                        width: 128px;
+                    }
                 
-                /* CHICSER Party */    
-                > img#johan { background-position: 0 0; }
-                > img#kobe { background-position: -128px 0; }
-                > img#jeri { background-position: -256px 0; }
-                > img#sophia { background-position: -384px 0; }
-                > img#linette { background-position: -512px 0; }
-                > img#ronel { background-position: -640px 0; }
+                    /* CHICSER Party */    
+                    > img#johan { background-position: 0 0; }
+                    > img#kobe { background-position: -128px 0; }
+                    > img#jeri { background-position: -256px 0; }
+                    > img#sophia { background-position: -384px 0; }
+                    > img#linette { background-position: -512px 0; }
+                    > img#ronel { background-position: -640px 0; }
 
-                /* Pisay LIFE Party */
-                > img#rysa { background-position: -768px 0; }
-                > img#nicolas { background-position: -896px 0; }
-                > img#franz { background-position: -1024px 0; }
-                > img#joshua { background-position: -1152px 0; }
-                > img#khristeena { background-position: -1280px 0; }
-                > img#jazzel { background-position: -1408px 0; }
+                    /* Pisay LIFE Party */
+                    > img#rysa { background-position: -768px 0; }
+                    > img#nicolas { background-position: -896px 0; }
+                    > img#franz { background-position: -1024px 0; }
+                    > img#joshua { background-position: -1152px 0; }
+                    > img#khristeena { background-position: -1280px 0; }
+                    > img#jazzel { background-position: -1408px 0; }
+                }
             }
         }
 
         > div#app-buttons {
             margin-top: 5%;
             margin-bottom: 2%;
+
+            > button {
+                display: block;
+                margin: 0 auto;
+
+                @media screen and (max-width: 433px) { width: 100%; }
+                @media screen and (min-width: 433px) { width: 86%; }
+                
+                $border-radius-px: 6px;
+                &#vote-button {
+                    @each $vendor-prefix in $prefix-list {
+                        #{$vendor-prefix}-border-top-left-radius: $border-radius-px;
+                        #{$vendor-prefix}-border-top-right-radius: $border-radius-px;
+                        #{$vendor-prefix}-border-bottom-left-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-right-radius: 0px;
+                        @if $vendor-prefix == '-o' {
+                            border-bottom-left-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                            border-top-left-radius: $border-radius-px;
+                            border-top-right-radius: $border-radius-px;
+                        }
+                    }
+                }
+
+                &#logout-button {
+                    @each $vendor-prefix in $prefix-list {
+                        #{$vendor-prefix}-border-top-left-radius: 0px;
+                        #{$vendor-prefix}-border-top-right-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-left-radius: $border-radius-px;
+                        #{$vendor-prefix}-border-bottom-right-radius: $border-radius-px;
+                        @if $vendor-prefix == '-o' {
+                            border-bottom-left-radius: $border-radius-px;
+                            border-bottom-right-radius: $border-radius-px;
+                            border-top-left-radius: 0px;
+                            border-top-right-radius: 0px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

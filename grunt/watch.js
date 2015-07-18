@@ -6,7 +6,10 @@ module.exports = {
         }
     },
     js: {
-        files: ['SAElections/static/components/js/*.js'],
+        files: [
+            'SAElections/static/components/js/*.js',
+            'SAElections/static/components/js/classes/*.js'
+        ],
         tasks: ['jshint', 'uglify', 'notify:task_js']
     },
     html: {

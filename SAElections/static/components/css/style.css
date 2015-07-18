@@ -54,22 +54,22 @@ article {
       article > div#no-auth > form#login-form > div#input-section > div.form-group {
         margin-bottom: 0; }
         article > div#no-auth > form#login-form > div#input-section > div.form-group > input#student-id {
-          -webkit-border-bottom-left-radius: 0px;
-          -webkit-border-bottom-right-radius: 0px;
           -webkit-border-top-left-radius: 7px;
           -webkit-border-top-right-radius: 7px;
-          -moz-border-bottom-left-radius: 0px;
-          -moz-border-bottom-right-radius: 0px;
+          -webkit-border-bottom-left-radius: 0px;
+          -webkit-border-bottom-right-radius: 0px;
           -moz-border-top-left-radius: 7px;
           -moz-border-top-right-radius: 7px;
-          -ms-border-bottom-left-radius: 0px;
-          -ms-border-bottom-right-radius: 0px;
+          -moz-border-bottom-left-radius: 0px;
+          -moz-border-bottom-right-radius: 0px;
           -ms-border-top-left-radius: 7px;
           -ms-border-top-right-radius: 7px;
-          -o-border-bottom-left-radius: 0px;
-          -o-border-bottom-right-radius: 0px;
+          -ms-border-bottom-left-radius: 0px;
+          -ms-border-bottom-right-radius: 0px;
           -o-border-top-left-radius: 7px;
           -o-border-top-right-radius: 7px;
+          -o-border-bottom-left-radius: 0px;
+          -o-border-bottom-right-radius: 0px;
           border-bottom-left-radius: 0px;
           border-bottom-right-radius: 0px;
           border-top-left-radius: 7px;
@@ -137,59 +137,112 @@ article {
       margin-top: 4%;
       margin-bottom: 2.5%;
       max-width: 450px; }
-      article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div {
-        -webkit-border-radius: 10px;
-        vendor-transition: all 0.3s ease-in;
-        -moz-border-radius: 10px;
-        vendor-transition: all 0.3s ease-in;
-        -ms-border-radius: 10px;
-        vendor-transition: all 0.3s ease-in;
-        -o-border-radius: 10px;
-        vendor-transition: all 0.3s ease-in;
-        border-radius: 10px;
-        transition: all 0.3s ease-in;
-        background-color: transparent;
-        color: #fff;
-        margin-bottom: 2%;
-        padding: 2%;
-        /* CHICSER Party */
-        /* Pisay LIFE Party */ }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
-          background-color: #fff;
-          color: #4a4a4a; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img.profpic {
-          background: url("/static/img/home/candidates.png");
-          cursor: pointer;
-          margin: 2%;
-          height: 128px;
-          width: 128px; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#johan {
-          background-position: 0 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#kobe {
-          background-position: -128px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jeri {
-          background-position: -256px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#sophia {
-          background-position: -384px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#linette {
-          background-position: -512px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#ronel {
-          background-position: -640px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#rysa {
-          background-position: -768px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#nicolas {
-          background-position: -896px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#franz {
-          background-position: -1024px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#joshua {
-          background-position: -1152px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#khristeena {
-          background-position: -1280px 0; }
-        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jazzel {
-          background-position: -1408px 0; }
-      article > div#has-auth > div#voting-area > div#app-button {
+      article > div#has-auth > div#voting-area > div#candidates > div {
+        display: none; }
+        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div {
+          -webkit-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
+          -moz-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
+          -ms-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
+          -o-border-radius: 10px;
+          vendor-transition: all 0.3s ease-in;
+          border-radius: 10px;
+          transition: all 0.3s ease-in;
+          background-color: transparent;
+          color: #fff;
+          margin-bottom: 2%;
+          padding: 2%;
+          /* CHICSER Party */
+          /* Pisay LIFE Party */ }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
+            background-color: #fff;
+            color: #4a4a4a; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img.profpic {
+            background: url("/static/img/home/candidates.png");
+            cursor: pointer;
+            margin: 2%;
+            height: 128px;
+            width: 128px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#johan {
+            background-position: 0 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#kobe {
+            background-position: -128px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jeri {
+            background-position: -256px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#sophia {
+            background-position: -384px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#linette {
+            background-position: -512px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#ronel {
+            background-position: -640px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#rysa {
+            background-position: -768px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#nicolas {
+            background-position: -896px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#franz {
+            background-position: -1024px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#joshua {
+            background-position: -1152px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#khristeena {
+            background-position: -1280px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jazzel {
+            background-position: -1408px 0; }
+      article > div#has-auth > div#voting-area > div#app-buttons {
         margin-top: 5%;
         margin-bottom: 2%; }
+        article > div#has-auth > div#voting-area > div#app-buttons > button {
+          display: block;
+          margin: 0 auto; }
+          @media screen and (max-width: 433px) {
+            article > div#has-auth > div#voting-area > div#app-buttons > button {
+              width: 100%; } }
+          @media screen and (min-width: 433px) {
+            article > div#has-auth > div#voting-area > div#app-buttons > button {
+              width: 86%; } }
+          article > div#has-auth > div#voting-area > div#app-buttons > button#vote-button {
+            -webkit-border-top-left-radius: 6px;
+            -webkit-border-top-right-radius: 6px;
+            -webkit-border-bottom-left-radius: 0px;
+            -webkit-border-bottom-right-radius: 0px;
+            -moz-border-top-left-radius: 6px;
+            -moz-border-top-right-radius: 6px;
+            -moz-border-bottom-left-radius: 0px;
+            -moz-border-bottom-right-radius: 0px;
+            -ms-border-top-left-radius: 6px;
+            -ms-border-top-right-radius: 6px;
+            -ms-border-bottom-left-radius: 0px;
+            -ms-border-bottom-right-radius: 0px;
+            -o-border-top-left-radius: 6px;
+            -o-border-top-right-radius: 6px;
+            -o-border-bottom-left-radius: 0px;
+            -o-border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px; }
+          article > div#has-auth > div#voting-area > div#app-buttons > button#logout-button {
+            -webkit-border-top-left-radius: 0px;
+            -webkit-border-top-right-radius: 0px;
+            -webkit-border-bottom-left-radius: 6px;
+            -webkit-border-bottom-right-radius: 6px;
+            -moz-border-top-left-radius: 0px;
+            -moz-border-top-right-radius: 0px;
+            -moz-border-bottom-left-radius: 6px;
+            -moz-border-bottom-right-radius: 6px;
+            -ms-border-top-left-radius: 0px;
+            -ms-border-top-right-radius: 0px;
+            -ms-border-bottom-left-radius: 6px;
+            -ms-border-bottom-right-radius: 6px;
+            -o-border-top-left-radius: 0px;
+            -o-border-top-right-radius: 0px;
+            -o-border-bottom-left-radius: 6px;
+            -o-border-bottom-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px; }
   article > div#has-voted {
     margin-top: 3%; }
     article > div#has-voted > h3.banner-title {
