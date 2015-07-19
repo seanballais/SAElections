@@ -6,10 +6,7 @@ module.exports = {
         }
     },
     js: {
-        files: [
-            'SAElections/static/components/js/*.js',
-            'SAElections/static/components/js/classes/*.js'
-        ],
+        files: ['SAElections/static/components/js/**/*.js'],
         tasks: ['jshint', 'uglify', 'notify:task_js']
     },
     html: {
@@ -17,12 +14,7 @@ module.exports = {
         tasks: ['htmlhint:build', 'notify:task_html']
     },
     css: {
-        files: ['SAElections/static/components/scss/*.scss'],
-        files: [
-            'SAElections/static/components/scss/block-elements/*.scss',
-            'SAElections/static/components/scss/include/*.scss',
-            'SAElections/static/components/scss/page/*.scss'
-        ],
+        files: ['SAElections/static/components/scss/**/*.scss'],
         tasks: ['sass', 'autoprefixer:build', 'cssc:build', 'cssmin:build', 'notify:task_css']
     } 
     /** 
