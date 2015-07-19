@@ -30,18 +30,13 @@
                 opacity: 0.6;
 
                 > div:first-child ~ div {
-                    &:hover {
-                        background-color: #fff;
-                        color: #4a4a4a;
-                    }
-
                     background-color: transparent;
                     color: #fff;
                     margin-bottom: 2%;
                     padding: 2%;
 
                     $border-radius: 10px;
-                    $transition: background-color .3s ease-in, color .3s ease-in;
+                    $transition: background-color 0.3s ease-in, color 0.3s ease-in;
                     @each $vendor in $prefix-list { 
                         #{$vendor}-border-radius: $border-radius;
                         #{vendor}-transition: $transition;
@@ -57,6 +52,14 @@
                         margin: 2%;
                         height: 128px;
                         width: 128px;
+
+                        $transition: all 0.3s ease 0s;
+                        @each $vendor in $prefix-list {
+                            #{vendor}-transition: $transition;
+                            @if $vendor == '-o' {
+                                transition: $transition;
+                            }
+                        }
                     }
                 
                     /* CHICSER Party */    
@@ -74,6 +77,11 @@
                     > img#joshua { background-position: -1152px 0; }
                     > img#khristeena { background-position: -1280px 0; }
                     > img#jazzel { background-position: -1408px 0; }
+
+                    &:hover {
+                        background-color: #fff;
+                        color: #4a4a4a;
+                    }
                 }
             }
         }
@@ -86,7 +94,14 @@
             > button {
                 display: block;
                 margin: 0 auto;
-                transition: all 0.3s ease 0s;
+
+                $transition: all 0.3s ease 0s;
+                @each $vendor in $prefix-list { 
+                    #{vendor}-transition: $transition;
+                    @if $vendor == '-o' { 
+                        transition: $transition;
+                    }
+                }
 
                 @media screen and (max-width: 433px) { width: 100%; }
                 @media screen and (min-width: 433px) { width: 86%; }

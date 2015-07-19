@@ -157,15 +157,17 @@ article {
           transition: background-color 0.3s ease-in, color 0.3s ease-in;
           /* CHICSER Party */
           /* Pisay LIFE Party */ }
-          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
-            background-color: #fff;
-            color: #4a4a4a; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img.profpic {
             background: url("/static/img/home/candidates.png");
             cursor: pointer;
             margin: 2%;
             height: 128px;
-            width: 128px; }
+            width: 128px;
+            vendor-transition: all 0.3s ease 0s;
+            vendor-transition: all 0.3s ease 0s;
+            vendor-transition: all 0.3s ease 0s;
+            vendor-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#johan {
             background-position: 0 0; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#kobe {
@@ -190,6 +192,9 @@ article {
             background-position: -1280px 0; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jazzel {
             background-position: -1408px 0; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
+            background-color: #fff;
+            color: #4a4a4a; }
       article > div#has-auth > div#voting-area > div#app-buttons {
         margin-top: 5%;
         margin-bottom: 2%;
@@ -197,6 +202,10 @@ article {
         article > div#has-auth > div#voting-area > div#app-buttons > button {
           display: block;
           margin: 0 auto;
+          vendor-transition: all 0.3s ease 0s;
+          vendor-transition: all 0.3s ease 0s;
+          vendor-transition: all 0.3s ease 0s;
+          vendor-transition: all 0.3s ease 0s;
           transition: all 0.3s ease 0s; }
           @media screen and (max-width: 433px) {
             article > div#has-auth > div#voting-area > div#app-buttons > button {
