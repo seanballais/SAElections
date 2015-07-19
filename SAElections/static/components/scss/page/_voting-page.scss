@@ -27,6 +27,7 @@
         > div#candidates {
             > div {
                 display: none;
+                opacity: 0.6;
 
                 > div:first-child ~ div {
                     &:hover {
@@ -34,21 +35,21 @@
                         color: #4a4a4a;
                     }
 
-                    $border-radius: 10px;
-                    $transition: all .3s ease-in;
-                    @each $vendor in $prefix-list { 
-                        #{$vendor}-border-radius: $border-radius;
-                        #{vendor}-transition: $transition;
-                        @if $vendor == '-o' { 
-                            border-radius: 10px;
-                            transition: $transition;
-                        }
-                    }
-
                     background-color: transparent;
                     color: #fff;
                     margin-bottom: 2%;
                     padding: 2%;
+
+                    $border-radius: 10px;
+                    $transition: background-color .3s ease-in, color .3s ease-in;
+                    @each $vendor in $prefix-list { 
+                        #{$vendor}-border-radius: $border-radius;
+                        #{vendor}-transition: $transition;
+                        @if $vendor == '-o' { 
+                            border-radius: $border-radius;
+                            transition: $transition;
+                        }
+                    }
 
                     > img.profpic {
                         background: url('/static/img/home/candidates.png');
@@ -80,10 +81,12 @@
         > div#app-buttons {
             margin-top: 5%;
             margin-bottom: 2%;
+            display: none;
 
             > button {
                 display: block;
                 margin: 0 auto;
+                transition: all 0.3s ease 0s;
 
                 @media screen and (max-width: 433px) { width: 100%; }
                 @media screen and (min-width: 433px) { width: 86%; }

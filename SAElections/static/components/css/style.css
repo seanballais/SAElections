@@ -138,22 +138,23 @@ article {
       margin-bottom: 2.5%;
       max-width: 450px; }
       article > div#has-auth > div#voting-area > div#candidates > div {
-        display: none; }
+        display: none;
+        opacity: 0.6; }
         article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div {
-          -webkit-border-radius: 10px;
-          vendor-transition: all 0.3s ease-in;
-          -moz-border-radius: 10px;
-          vendor-transition: all 0.3s ease-in;
-          -ms-border-radius: 10px;
-          vendor-transition: all 0.3s ease-in;
-          -o-border-radius: 10px;
-          vendor-transition: all 0.3s ease-in;
-          border-radius: 10px;
-          transition: all 0.3s ease-in;
           background-color: transparent;
           color: #fff;
           margin-bottom: 2%;
           padding: 2%;
+          -webkit-border-radius: 10px;
+          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -moz-border-radius: 10px;
+          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -ms-border-radius: 10px;
+          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -o-border-radius: 10px;
+          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          border-radius: 10px;
+          transition: background-color 0.3s ease-in, color 0.3s ease-in;
           /* CHICSER Party */
           /* Pisay LIFE Party */ }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
@@ -191,10 +192,12 @@ article {
             background-position: -1408px 0; }
       article > div#has-auth > div#voting-area > div#app-buttons {
         margin-top: 5%;
-        margin-bottom: 2%; }
+        margin-bottom: 2%;
+        display: none; }
         article > div#has-auth > div#voting-area > div#app-buttons > button {
           display: block;
-          margin: 0 auto; }
+          margin: 0 auto;
+          transition: all 0.3s ease 0s; }
           @media screen and (max-width: 433px) {
             article > div#has-auth > div#voting-area > div#app-buttons > button {
               width: 100%; } }
