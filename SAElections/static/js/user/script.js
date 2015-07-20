@@ -1,5 +1,12 @@
-function Candidate(a, b) {
-    this.firstName = a, this.candidateIndex = b, this.voteState = 0;
+function Candidate(a) {
+    var b = a, c = 0;
+    this.getCandidateIndex = function() {
+        return b;
+    }, this.getVoteState = function() {
+        return c;
+    }, this.setVoteState = function(a) {
+        "voted" === a || a === !0 || 1 == a ? this.voteState = 1 : this.voteState = 0;
+    };
 }
 
 function getCookie(a) {
@@ -28,41 +35,32 @@ function auth_check(a, b, c, d) {
     });
 }
 
-Candidate.prototype.getFirstName = function(a) {
-    return "lower" === a || 0 === a ? this.firstName.charAt(0).toLowerCase() + this.firstName.slice(1) : "upper" === a || 1 === a ? this.firstName.charAt(0).toUpperCase() + this.firstName.slice(1) : this.firstName;
-}, Candidate.prototype.getCandidateIndex = function() {
-    return this.candidateIndex;
-}, Candidate.prototype.getVoteState = function() {
-    return this.voteState;
-}, Candidate.prototype.setVoteState = function(a) {
-    "voted" === a || a === !0 || 1 == a ? this.voteState = 1 : this.voteState = 0;
-};
-
-var candidateJohan = new Candidate("Johan", 0), candidateKobe = new Candidate("Kobe", 1), candidateJeri = new Candidate("Jeri", 2), candidateSophia = new Candidate("Sophia", 3), candidateLinette = new Candidate("Linette", 4), candidateRonel = new Candidate("Ronel", 5), candidateRysa = new Candidate("Rysa", 6), candidateNicolas = new Candidate("Nicolas", 7), candidateFranz = new Candidate("Franz", 8), candidateJoshua = new Candidate("Joshua", 9), candidateKhristeena = new Candidate("Khristeena", 10), candidateJazzel = new Candidate("Jazzel", 11);
-
 $(document).ready(function() {
-    var a = $("article").attr("id");
-    if ("login-page" == a) {
-        var b = document.querySelector("#student-id"), c = document.querySelector("#password"), d = document.querySelector("#login-btn"), e = document.querySelector("#login-incorrect");
-        document.querySelector("#login-form").reset(), d.disabled = !0, $(c).on("input", function() {
-            auth_check(b.value, c.value, e, d);
+    var a = {};
+    a.johan = new Candidate(0), a.kobe = new Candidate(1), a.jeri = new Candidate(2), 
+    a.sophia = new Candidate(3), a.linette = new Candidate(4), a.ronel = new Candidate(5), 
+    a.rysa = new Candidate(6), a.nicolas = new Candidate(7), a.franz = new Candidate(8), 
+    a.joshua = new Candidate(9), a.khristeena = new Candidate(10), a.jazzel = new Candidate(11);
+    var b = $("article").attr("id");
+    if ("login-page" == b) {
+        var c = document.querySelector("#student-id"), d = document.querySelector("#password"), e = document.querySelector("#login-btn"), f = document.querySelector("#login-incorrect");
+        document.querySelector("#login-form").reset(), e.disabled = !0, $(d).on("input", function() {
+            auth_check(c.value, d.value, f, e);
         });
-    } else if ("voting-page" == a) {
-        var f = "div#candidates > div", g = "div#candidates > div > div:first-child ~ div > img";
-        $(f).each(function(a) {
+    } else if ("voting-page" == b) {
+        var g = "div#candidates > div", h = "div#candidates > div > div:first-child ~ div > img";
+        $(g).each(function(a) {
             $(this).delay(1e3 * ++a + 500).fadeIn(1e3), $(this).hover(function() {
                 $(this).fadeTo("slow", 1);
             }, function() {
                 $(this).fadeTo("slow", .6);
             });
-        }), $("div#app-buttons").delay(7500).fadeIn(1e3), $(g).each(function() {
-            var a = window["candidate" + ($(this).attr("id").charAt(0).toUpperCase() + $(this).attr("id").slice(1))];
-            console.log("candidate" + ($(this).attr("id").charAt(0).toUpperCase() + $(this).attr("id").slice(1)));
-            var b = -128 * a.getCandidateIndex();
+        }), $("div#app-buttons").delay(7500).fadeIn(1e3), $(h).each(function() {
+            var b = a[$(this).attr("id")], c = (-128 * b.getCandidateIndex()).toString(), d = "";
             $(this).hover(function() {
-                b += 0 === a.getVoteState() ? " -128" : " -256", $(this).css("background-position", b);
+                d = 0 === b.getVoteState() ? c + "px -128px" : c + "px -256px", $(this).css("background-position", d);
             }, function() {
-                b += 0 === a.getVoteState() ? " 0" : " -128", $(this).css("background-position", b);
+                d = 0 === b.getVoteState() ? c + "px 0" : c + "px -128px", $(this).css("background-position", d);
             });
         });
     }
