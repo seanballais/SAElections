@@ -68,11 +68,10 @@ $(document).ready(function() {
                 if (e.preventDefault(), d = c, 0 === b.getVoteState()) {
                     b.setVoteState("voted"), d += "px -128px";
                     var f = 0;
-                    b.getCandidateIndex() <= 5 ? (console.log("Candidate Index: " + b.getCandidateIndex()), 
-                    f = b.getCandidateIndex() + 6) : b.getCandidateIndex() >= 6 && (console.log("Candidate Index: " + b.getCandidateIndex()), 
-                    f = b.getCandidateIndex() - 6), $.each(a, function(a, b) {
+                    b.getCandidateIndex() <= 5 ? f = b.getCandidateIndex() + 6 : b.getCandidateIndex() >= 6 && (f = b.getCandidateIndex() - 6), 
+                    $.each(a, function(a, b) {
                         if (b.getCandidateIndex() == f && 1 == b.getVoteState()) {
-                            console.log("Spot on!"), b.setVoteState("unvoted");
+                            b.setVoteState("unvoted");
                             var c = "img#" + b.getFirstName("lower"), d = (-128 * f).toString() + "px 0px";
                             $(c).css("background-position", d);
                         }
