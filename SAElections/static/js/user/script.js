@@ -37,6 +37,8 @@ function auth_check(a, b, c, d) {
     });
 }
 
+if ("undefined" == typeof jQuery) throw new Error("This web app requires jQuery.");
+
 $(document).ready(function() {
     var a = {};
     a.johan = new Candidate("Johan", 0), a.kobe = new Candidate("Kobe", 1), a.jeri = new Candidate("Jeri", 2), 
