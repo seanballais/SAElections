@@ -24,6 +24,6 @@ def save_votes(request, votes): # Update records in the database
 
         userObj.save()
     except User.DoesNotExist:
-        raise HttpResponseBadRequest
+        raise HttpResponseBadRequest # Show a 403 page
 
     return HttpResponseRedirect('/')
