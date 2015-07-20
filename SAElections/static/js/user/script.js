@@ -88,11 +88,12 @@ $(document).ready(function() {
             $.each(a, function(a, c) {
                 if (1 == c.getVoteState()) {
                     var d = 0;
-                    c.getCandidateIndex() > 5 && (d = c.getCandidateIndex() - 6), b[d] = c.getFirstName("lower");
+                    d = c.getCandidateIndex() > 5 ? c.getCandidateIndex() - 6 : c.getCandidateIndex(), 
+                    b[d] = c.getFirstName("lower");
                 }
             });
             for (var c = 0; 6 > c; c++) "" === b[c] && (b[c] = "none");
-            for (var d = i + "save-votes/", e = "", f = 0; 6 > f; f++) e += candidatePosition[f] + ",";
+            for (var d = i + "save-votes/", e = "", f = 0; 6 > f; f++) e += b[f] + ",";
             e = e.substring(0, e.length - 1), window.location.replace(d + e + "/");
         }), $("button#logout-button").click(function() {
             window.location.replace(i + "logout/");
