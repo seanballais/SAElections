@@ -1,15 +1,13 @@
-function Candidate(a, b, c) {
-    var d = a, e = b, f = c, g = 0;
+function Candidate(a, b) {
+    var c = a, d = b, e = 0;
     this.getFirstName = function(a) {
-        return "lower" == a ? d.charAt(0).toLowerCase() + d.slice(1) : "upper" == a ? d.charAt(0).toUpperCase() + d.slice(1) : d;
-    }, this.getCandidatePosition = function(a) {
-        return "lower" == a ? e.toLowerCase() : e;
+        return "lower" == a ? c.charAt(0).toLowerCase() + c.slice(1) : "upper" == a ? c.charAt(0).toUpperCase() + c.slice(1) : c;
     }, this.getCandidateIndex = function() {
-        return f;
+        return d;
     }, this.getVoteState = function() {
-        return g;
+        return e;
     }, this.setVoteState = function(a) {
-        g = "voted" === a || a === !0 || 1 == a ? 1 : 0;
+        e = "voted" === a || a === !0 || 1 == a ? 1 : 0;
     };
 }
 
@@ -34,19 +32,18 @@ function auth_check(a, b, c, d) {
         csrfmiddlewaretoken: getCookie("csrftoken")
     };
     $.post("/authenticate/", e, function(a) {
-        $(incorrect_msg).css("visibility", "hidden"), "" !== b && ("success" == a ? ($(c).css("visibility", "hidden"), 
+        $(c).css("visibility", "hidden"), "" !== b && ("success" == a ? ($(c).css("visibility", "hidden"), 
         d.disabled = !1) : ($(c).css("visibility", "visible"), d.disabled = !0));
     });
 }
 
 $(document).ready(function() {
     var a = {};
-    a.johan = new Candidate("Johan", "President", 0), a.kobe = new Candidate("Kobe", "Vice-President", 1), 
-    a.jeri = new Candidate("Jeri", "Secretary", 2), a.sophia = new Candidate("Sophia", "Treasurer", 3), 
-    a.linette = new Candidate("Linette", "Auditor", 4), a.ronel = new Candidate("Ronel", "PIO", 5), 
-    a.rysa = new Candidate("Rysa", "President", 6), a.nicolas = new Candidate("Nicolas", "Vice-President", 7), 
-    a.franz = new Candidate("Franz", "Secretary", 8), a.joshua = new Candidate("Joshua", "Treasurer", 9), 
-    a.khristeena = new Candidate("Khristeena", "Auditor", 10), a.jazzel = new Candidate("Jazzel", "PIO", 11);
+    a.johan = new Candidate("Johan", 0), a.kobe = new Candidate("Kobe", 1), a.jeri = new Candidate("Jeri", 2), 
+    a.sophia = new Candidate("Sophia", 3), a.linette = new Candidate("Linette", 4), 
+    a.ronel = new Candidate("Ronel", 5), a.rysa = new Candidate("Rysa", 6), a.nicolas = new Candidate("Nicolas", 7), 
+    a.franz = new Candidate("Franz", 8), a.joshua = new Candidate("Joshua", 9), a.khristeena = new Candidate("Khristeena", 10), 
+    a.jazzel = new Candidate("Jazzel", 11);
     var b = $("article").attr("id");
     if ("login-page" == b) {
         var c = document.querySelector("#student-id"), d = document.querySelector("#password"), e = document.querySelector("#login-btn"), f = document.querySelector("#login-incorrect");
@@ -74,8 +71,7 @@ $(document).ready(function() {
                     b.getCandidateIndex() <= 5 ? (console.log("Candidate Index: " + b.getCandidateIndex()), 
                     f = b.getCandidateIndex() + 6) : b.getCandidateIndex() >= 6 && (console.log("Candidate Index: " + b.getCandidateIndex()), 
                     f = b.getCandidateIndex() - 6), $.each(a, function(a, b) {
-                        if (console.log("Candidate Index: " + b.getCandidateIndex() + " Opposite Candidate Index: " + f), 
-                        b.getCandidateIndex() == f && 1 == b.getVoteState()) {
+                        if (b.getCandidateIndex() == f && 1 == b.getVoteState()) {
                             console.log("Spot on!"), b.setVoteState("unvoted");
                             var c = "img#" + b.getFirstName("lower"), d = (-128 * f).toString() + "px 0px";
                             $(c).css("background-position", d);
@@ -84,8 +80,21 @@ $(document).ready(function() {
                 } else b.setVoteState("unvoted"), d += "px 0px";
                 $(this).css("background-position", d);
             });
-        }), $("button#vote-button").click(function() {}), $("button#logout-button").click(function() {
-            window.location = "/logout/";
+        });
+        var i = window.location.protocol + "//" + window.location.host + "/";
+        $("button#vote-button").click(function() {
+            var b = [ "", "", "", "", "", "" ];
+            $.each(a, function(a, c) {
+                if (1 == c.getVoteState()) {
+                    var d = 0;
+                    c.getCandidateIndex() > 5 && (d = c.getCandidateIndex() - 6), b[d] = c.getFirstName("lower");
+                }
+            });
+            for (var c = 0; 6 > c; c++) "" === b[c] && (b[c] = "none");
+            for (var d = i + "save-votes/", e = "", f = 0; 6 > f; f++) e += candidatePosition[f] + ",";
+            e = e.substring(0, e.length - 1), window.location.replace(d + e + "/");
+        }), $("button#logout-button").click(function() {
+            window.location.replace(i + "logout/");
         });
     }
 });
