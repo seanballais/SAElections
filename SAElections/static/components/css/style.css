@@ -162,36 +162,31 @@ article {
             cursor: pointer;
             margin: 2%;
             height: 128px;
-            width: 128px;
-            vendor-transition: all 0.3s ease 0s;
-            vendor-transition: all 0.3s ease 0s;
-            vendor-transition: all 0.3s ease 0s;
-            vendor-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s; }
+            width: 128px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#johan {
-            background-position: 0 0; }
+            background-position: 0px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#kobe {
-            background-position: -128px 0; }
+            background-position: -128px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jeri {
-            background-position: -256px 0; }
+            background-position: -256px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#sophia {
-            background-position: -384px 0; }
+            background-position: -384px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#linette {
-            background-position: -512px 0; }
+            background-position: -512px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#ronel {
-            background-position: -640px 0; }
+            background-position: -640px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#rysa {
-            background-position: -768px 0; }
+            background-position: -768px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#nicolas {
-            background-position: -896px 0; }
+            background-position: -896px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#franz {
-            background-position: -1024px 0; }
+            background-position: -1024px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#joshua {
-            background-position: -1152px 0; }
+            background-position: -1152px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#khristeena {
-            background-position: -1280px 0; }
+            background-position: -1280px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jazzel {
-            background-position: -1408px 0; }
+            background-position: -1408px 0px; }
           article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
             background-color: #fff;
             color: #4a4a4a; }

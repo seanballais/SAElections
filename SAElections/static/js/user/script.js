@@ -1,11 +1,13 @@
-function Candidate(a) {
-    var b = a, c = 0;
-    this.getCandidateIndex = function() {
-        return b;
+function Candidate(a, b) {
+    var c = a, d = b, e = 0;
+    this.getFirstName = function(a) {
+        return "lower" == a ? c.charAt(0).toLowerCase() + c.slice(1) : "upper" == a ? c.charAt(0).toUpperCase() + c.slice(1) : c;
+    }, this.getCandidateIndex = function() {
+        return d;
     }, this.getVoteState = function() {
-        return c;
+        return e;
     }, this.setVoteState = function(a) {
-        "voted" === a || a === !0 || 1 == a ? this.voteState = 1 : this.voteState = 0;
+        e = "voted" === a || a === !0 || 1 == a ? 1 : 0;
     };
 }
 
@@ -58,9 +60,14 @@ $(document).ready(function() {
         }), $("div#app-buttons").delay(7500).fadeIn(1e3), $(h).each(function() {
             var b = a[$(this).attr("id")], c = (-128 * b.getCandidateIndex()).toString(), d = "";
             $(this).hover(function() {
-                d = 0 === b.getVoteState() ? c + "px -128px" : c + "px -256px", $(this).css("background-position", d);
+                d = c, d += 0 === b.getVoteState() ? "px -128px" : "px -256px", console.log(b.getVoteState()), 
+                $(this).css("background-position", d);
             }, function() {
-                d = 0 === b.getVoteState() ? c + "px 0" : c + "px -128px", $(this).css("background-position", d);
+                d = c, d += 0 === b.getVoteState() ? "px 0px" : "px -128px", console.log(b.getVoteState()), 
+                $(this).css("background-position", d);
+            }), $(this).click(function(a) {
+                a.preventDefault(), d = c, 0 === b.getVoteState() ? (b.setVoteState("voted"), d += "px -128px") : (b.setVoteState("unvoted"), 
+                d += "px 0px"), console.log(b.getVoteState()), $(this).css("background-position", d);
             });
         });
     }

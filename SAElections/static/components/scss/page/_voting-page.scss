@@ -52,31 +52,23 @@
                         margin: 2%;
                         height: 128px;
                         width: 128px;
-
-                        $transition: all 0.3s ease 0s;
-                        @each $vendor in $prefix-list {
-                            #{vendor}-transition: $transition;
-                            @if $vendor == '-o' {
-                                transition: $transition;
-                            }
-                        }
                     }
                 
                     /* CHICSER Party */    
-                    > img#johan { background-position: 0 0; }
-                    > img#kobe { background-position: -128px 0; }
-                    > img#jeri { background-position: -256px 0; }
-                    > img#sophia { background-position: -384px 0; }
-                    > img#linette { background-position: -512px 0; }
-                    > img#ronel { background-position: -640px 0; }
+                    > img#johan { background-position: 0px 0px; }
+                    > img#kobe { background-position: -128px 0px; }
+                    > img#jeri { background-position: -256px 0px; }
+                    > img#sophia { background-position: -384px 0px; }
+                    > img#linette { background-position: -512px 0px; }
+                    > img#ronel { background-position: -640px 0px; }
 
                     /* Pisay LIFE Party */
-                    > img#rysa { background-position: -768px 0; }
-                    > img#nicolas { background-position: -896px 0; }
-                    > img#franz { background-position: -1024px 0; }
-                    > img#joshua { background-position: -1152px 0; }
-                    > img#khristeena { background-position: -1280px 0; }
-                    > img#jazzel { background-position: -1408px 0; }
+                    > img#rysa { background-position: -768px 0px; }
+                    > img#nicolas { background-position: -896px 0px; }
+                    > img#franz { background-position: -1024px 0px; }
+                    > img#joshua { background-position: -1152px 0px; }
+                    > img#khristeena { background-position: -1280px 0px; }
+                    > img#jazzel { background-position: -1408px 0px; }
 
                     &:hover {
                         background-color: #fff;
