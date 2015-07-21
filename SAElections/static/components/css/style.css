@@ -4,7 +4,7 @@
   font-family: 'Graduate';
   font-style: normal;
   font-weight: 400;
-  src: local("Graduate"), local("Graduate-Regular"), url(/static/fonts/Graduate.woff2) format("woff2");
+  src: local("Graduate"), local("Graduate-Regular"), url(/static/fonts/Graduate.ttf) format("truetype");
   unicode-range: U0-0FF, U131, U152-153, U2C 6, U2DA, U2DC, U2000-206F, U2074, U20AC, U2212, U2215, UE0FF, UEFFD, UF000; }
 
 /* Vendor prefixes */
@@ -14,7 +14,7 @@
 
 /* Classes */
 .banner-title {
-  font-family: 'Graduate', serif;
+  font-family: 'Graduate', 'Helvetica Neue', sans-serif;
   font-weight: bold; }
 
 /** Page-only definitions */
@@ -146,13 +146,13 @@ article {
           margin-bottom: 2%;
           padding: 2%;
           -webkit-border-radius: 10px;
-          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -webkit-transition: background-color 0.3s ease-in, color 0.3s ease-in;
           -moz-border-radius: 10px;
-          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -moz-transition: background-color 0.3s ease-in, color 0.3s ease-in;
           -ms-border-radius: 10px;
-          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -ms-transition: background-color 0.3s ease-in, color 0.3s ease-in;
           -o-border-radius: 10px;
-          vendor-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -o-transition: background-color 0.3s ease-in, color 0.3s ease-in;
           border-radius: 10px;
           transition: background-color 0.3s ease-in, color 0.3s ease-in;
           /* CHICSER Party */
@@ -197,10 +197,10 @@ article {
         article > div#has-auth > div#voting-area > div#app-buttons > button {
           display: block;
           margin: 0 auto;
-          vendor-transition: all 0.3s ease 0s;
-          vendor-transition: all 0.3s ease 0s;
-          vendor-transition: all 0.3s ease 0s;
-          vendor-transition: all 0.3s ease 0s;
+          -webkit-transition: all 0.3s ease 0s;
+          -moz-transition: all 0.3s ease 0s;
+          -ms-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
           transition: all 0.3s ease 0s; }
           @media screen and (max-width: 433px) {
             article > div#has-auth > div#voting-area > div#app-buttons > button {
@@ -268,5 +268,5 @@ footer {
   footer a:hover {
     color: #1b60dc;
     text-decoration: none; }
-  footer a:link {
-    color: #bebebe; }
+  footer a:link, footer a:visited {
+    color: #2a2a2a; }

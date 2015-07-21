@@ -39,7 +39,7 @@
                     $transition: background-color 0.3s ease-in, color 0.3s ease-in;
                     @each $vendor in $prefix-list { 
                         #{$vendor}-border-radius: $border-radius;
-                        #{vendor}-transition: $transition;
+                        #{$vendor}-transition: $transition;
                         @if $vendor == '-o' { 
                             border-radius: $border-radius;
                             transition: $transition;
@@ -89,7 +89,7 @@
 
                 $transition: all 0.3s ease 0s;
                 @each $vendor in $prefix-list { 
-                    #{vendor}-transition: $transition;
+                    #{$vendor}-transition: $transition;
                     @if $vendor == '-o' { 
                         transition: $transition;
                     }
