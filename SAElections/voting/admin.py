@@ -8,8 +8,11 @@ class VoterCreationForm(UserCreationForm):
     section = forms.CharField()
 
     def save(self, commit=True):
-        sectionField = self.cleaned_data.get('section', None)
-        return super(VoterCreationForm, self).save(commit=commit)
+        user = super(VoterCreationForm, self).save(commit=False)
+        user.section = self.cleaned_data['section']
+        if commit:
+            user.save()
+        return user
 
     class Meta:
         model = User
@@ -19,8 +22,11 @@ class VoterChangeForm(UserChangeForm):
     section = forms.CharField()
 
     def save(self, commit=True):
-        section = self.cleaned_data.get('section', None)
-        return super(VoterChangeForm, self).save(commit=commit)
+        user = super(VoterChangeForm, self).save(commit=False)
+        user.section = self.cleaned_data['section']
+        if commit:
+            user.save()
+        return user
 
     class Meta:
         model = User
