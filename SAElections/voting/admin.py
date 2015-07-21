@@ -35,6 +35,7 @@ class VoterChangeForm(UserChangeForm):
 class VoterAdmin(UserAdmin):
     form = VoterChangeForm
     add_form = VoterCreationForm
+    list_filter = UserAdmin.list_filter + ('section',)
 
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
