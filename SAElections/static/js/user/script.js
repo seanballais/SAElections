@@ -48,19 +48,19 @@ $(document).ready(function() {
     a.jazzel = new Candidate("Jazzel", 11);
     var b = $("article").attr("id");
     if ("login-page" == b) {
-        var c = document.querySelector("#student-id"), d = document.querySelector("#password"), e = document.querySelector("#login-btn"), f = document.querySelector("#login-incorrect");
-        document.querySelector("#login-form").reset(), e.disabled = !0, $(d).on("input", function() {
+        var c = document.querySelector("#student-id"), d = document.querySelector("#password"), e = document.querySelector("#login-btn"), f = document.querySelector("#login-incorrect"), g = document.querySelector("#login-form");
+        g.reset(), e.disabled = !0, $(d).on("input", function() {
             auth_check(c.value, d.value, f, e);
         });
     } else if ("voting-page" == b) {
-        var g = "div#candidates > div", h = "div#candidates > div > div:first-child ~ div > img";
-        $(g).each(function(a) {
+        var h = "div#candidates > div", i = "div#candidates > div > div:first-child ~ div > img";
+        $(h).each(function(a) {
             $(this).delay(1e3 * ++a + 500).fadeIn(1e3), $(this).hover(function() {
                 $(this).fadeTo("slow", 1);
             }, function() {
                 $(this).fadeTo("slow", .6);
             });
-        }), $("div#app-buttons").delay(7500).fadeIn(1e3), $(h).each(function() {
+        }), $("div#app-buttons").delay(7500).fadeIn(1e3), $(i).each(function() {
             var b = a[$(this).attr("id")], c = (-128 * b.getCandidateIndex()).toString(), d = "";
             $(this).hover(function() {
                 d = c, d += 0 === b.getVoteState() ? "px -128px" : "px -256px", $(this).css("background-position", d);
@@ -82,7 +82,7 @@ $(document).ready(function() {
                 $(this).css("background-position", d);
             });
         });
-        var i = window.location.protocol + "//" + window.location.host + "/";
+        var j = window.location.protocol + "//" + window.location.host + "/";
         $("button#vote-button").click(function() {
             var b = [ "", "", "", "", "", "" ];
             $.each(a, function(a, c) {
@@ -93,10 +93,10 @@ $(document).ready(function() {
                 }
             });
             for (var c = 0; 6 > c; c++) "" === b[c] && (b[c] = "none");
-            for (var d = i + "save-votes/", e = "", f = 0; 6 > f; f++) e += b[f] + ",";
+            for (var d = j + "save-votes/", e = "", f = 0; 6 > f; f++) e += b[f] + ",";
             e = e.substring(0, e.length - 1), window.location.replace(d + e + "/");
         }), $("button#logout-button").click(function() {
-            window.location.replace(i + "logout/");
+            window.location.replace(j + "logout/");
         });
     }
 });

@@ -27,8 +27,9 @@ $(document).ready(
             var password = document.querySelector('#password');
             var btnLogin = document.querySelector('#login-btn');
             var incorrectMsg = document.querySelector('#login-incorrect');
+            var loginForm = document.querySelector('#login-form');
 
-            document.querySelector('#login-form').reset();
+            loginForm.reset();
             btnLogin.disabled = true;
 
             $(password).on('input',
@@ -180,7 +181,12 @@ $(document).ready(
                 }
             );
 
-            $('button#logout-button').click(function() { window.location.replace(rawURL + 'logout/'); });
+            $('button#logout-button').click(
+                function() 
+                {
+                    window.location.replace(rawURL + 'logout/');
+                }
+            );
         }
     }
 );
