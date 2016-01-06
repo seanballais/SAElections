@@ -1,0 +1,272 @@
+/* CSS file for all templates */
+/** Required files */
+@font-face {
+  font-family: 'Graduate';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Graduate"), local("Graduate-Regular"), url(/static/fonts/Graduate.ttf) format("truetype");
+  unicode-range: U0-0FF, U131, U152-153, U2C 6, U2DA, U2DC, U2000-206F, U2074, U20AC, U2212, U2215, UE0FF, UEFFD, UF000; }
+
+/* Vendor prefixes */
+/* Extend Bootstrap 3 classes/identifiers */
+.img-responsive {
+  margin: 0 auto; }
+
+/* Classes */
+.banner-title {
+  font-family: 'Graduate', 'Helvetica Neue', sans-serif;
+  font-weight: bold; }
+
+/** Page-only definitions */
+/* Global definitions */
+html,
+body {
+  background: url("/static/img/global/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+/* Article definitions */
+article {
+  color: #fff;
+  /* Set the height and width to 100% */
+  height: 100%;
+  width: 100%;
+  /* Home CSS file */
+  /* Voting page */ }
+  article > div#no-auth,
+  article > div#has-auth,
+  article > div#has-voted {
+    height: 100%;
+    text-align: center; }
+  article > div#no-auth {
+    margin-top: 0.5%; }
+    article > div#no-auth > h1.banner-title {
+      font-size: 8.5em; }
+    article > div#no-auth > form#login-form > div#input-section {
+      margin: 0 auto;
+      margin-top: 2%;
+      margin-bottom: 1.5%;
+      max-width: 100%;
+      width: 320px; }
+      article > div#no-auth > form#login-form > div#input-section > div.form-group {
+        margin-bottom: 0; }
+        article > div#no-auth > form#login-form > div#input-section > div.form-group > input#student-id {
+          -webkit-border-top-left-radius: 7px;
+          -webkit-border-top-right-radius: 7px;
+          -webkit-border-bottom-left-radius: 0px;
+          -webkit-border-bottom-right-radius: 0px;
+          -moz-border-top-left-radius: 7px;
+          -moz-border-top-right-radius: 7px;
+          -moz-border-bottom-left-radius: 0px;
+          -moz-border-bottom-right-radius: 0px;
+          -ms-border-top-left-radius: 7px;
+          -ms-border-top-right-radius: 7px;
+          -ms-border-bottom-left-radius: 0px;
+          -ms-border-bottom-right-radius: 0px;
+          -o-border-top-left-radius: 7px;
+          -o-border-top-right-radius: 7px;
+          -o-border-bottom-left-radius: 0px;
+          -o-border-bottom-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 7px;
+          border-top-right-radius: 7px; }
+      article > div#no-auth > form#login-form > div#input-section > div.input-group {
+        margin-top: 0; }
+        article > div#no-auth > form#login-form > div#input-section > div.input-group > input#password {
+          -webkit-border-top-left-radius: 0px;
+          -webkit-border-top-right-radius: 0px;
+          -webkit-border-bottom-right-radius: 0px;
+          -webkit-border-bottom-left-radius: 7px;
+          -moz-border-top-left-radius: 0px;
+          -moz-border-top-right-radius: 0px;
+          -moz-border-bottom-right-radius: 0px;
+          -moz-border-bottom-left-radius: 7px;
+          -ms-border-top-left-radius: 0px;
+          -ms-border-top-right-radius: 0px;
+          -ms-border-bottom-right-radius: 0px;
+          -ms-border-bottom-left-radius: 7px;
+          -o-border-top-left-radius: 0px;
+          -o-border-top-right-radius: 0px;
+          -o-border-bottom-right-radius: 0px;
+          -o-border-bottom-left-radius: 7px;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-bottom-left-radius: 7px; }
+        article > div#no-auth > form#login-form > div#input-section > div.input-group > span.input-group-btn > input#login-btn {
+          -webkit-border-top-left-radius: 0px;
+          -webkit-border-top-right-radius: 0px;
+          -webkit-border-bottom-left-radius: 0px;
+          -webkit-border-bottom-right-radius: 7px;
+          -moz-border-top-left-radius: 0px;
+          -moz-border-top-right-radius: 0px;
+          -moz-border-bottom-left-radius: 0px;
+          -moz-border-bottom-right-radius: 7px;
+          -ms-border-top-left-radius: 0px;
+          -ms-border-top-right-radius: 0px;
+          -ms-border-bottom-left-radius: 0px;
+          -ms-border-bottom-right-radius: 7px;
+          -o-border-top-left-radius: 0px;
+          -o-border-top-right-radius: 0px;
+          -o-border-bottom-left-radius: 0px;
+          -o-border-bottom-right-radius: 7px;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 7px; }
+    article > div#no-auth > h5 {
+      color: #db5252;
+      margin-bottom: 6%;
+      visibility: hidden; }
+  article > div#has-auth {
+    text-align: center; }
+    article > div#has-auth > div#header > div#internal-header > img#logo {
+      margin-top: 2%;
+      margin-bottom: 0.5%; }
+    article > div#has-auth > div#header > div#internal-header > img#banner {
+      margin-bottom: 1%;
+      max-width: 422px;
+      height: 100%;
+      width: 100%; }
+    article > div#has-auth > div#voting-area {
+      margin: auto;
+      margin-top: 4%;
+      margin-bottom: 2.5%;
+      max-width: 450px; }
+      article > div#has-auth > div#voting-area > div#candidates > div {
+        display: none;
+        opacity: 0.6; }
+        article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div {
+          background-color: transparent;
+          color: #fff;
+          margin-bottom: 2%;
+          padding: 2%;
+          -webkit-border-radius: 10px;
+          -webkit-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -moz-border-radius: 10px;
+          -moz-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -ms-border-radius: 10px;
+          -ms-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          -o-border-radius: 10px;
+          -o-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          border-radius: 10px;
+          transition: background-color 0.3s ease-in, color 0.3s ease-in;
+          /* CHICSER Party */
+          /* Pisay LIFE Party */ }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img.profpic {
+            background: url("/static/img/home/candidates.png");
+            cursor: pointer;
+            margin: 2%;
+            height: 128px;
+            width: 128px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#johan {
+            background-position: 0px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#kobe {
+            background-position: -128px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jeri {
+            background-position: -256px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#sophia {
+            background-position: -384px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#linette {
+            background-position: -512px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#ronel {
+            background-position: -640px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#rysa {
+            background-position: -768px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#nicolas {
+            background-position: -896px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#franz {
+            background-position: -1024px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#joshua {
+            background-position: -1152px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#khristeena {
+            background-position: -1280px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div > img#jazzel {
+            background-position: -1408px 0px; }
+          article > div#has-auth > div#voting-area > div#candidates > div > div:first-child ~ div:hover {
+            background-color: #fff;
+            color: #4a4a4a; }
+      article > div#has-auth > div#voting-area > div#app-buttons {
+        margin-top: 5%;
+        margin-bottom: 2%;
+        display: none; }
+        article > div#has-auth > div#voting-area > div#app-buttons > button {
+          display: block;
+          margin: 0 auto;
+          -webkit-transition: all 0.3s ease 0s;
+          -moz-transition: all 0.3s ease 0s;
+          -ms-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
+          transition: all 0.3s ease 0s; }
+          @media screen and (max-width: 433px) {
+            article > div#has-auth > div#voting-area > div#app-buttons > button {
+              width: 100%; } }
+          @media screen and (min-width: 433px) {
+            article > div#has-auth > div#voting-area > div#app-buttons > button {
+              width: 86%; } }
+          article > div#has-auth > div#voting-area > div#app-buttons > button#vote-button {
+            -webkit-border-top-left-radius: 6px;
+            -webkit-border-top-right-radius: 6px;
+            -webkit-border-bottom-left-radius: 0px;
+            -webkit-border-bottom-right-radius: 0px;
+            -moz-border-top-left-radius: 6px;
+            -moz-border-top-right-radius: 6px;
+            -moz-border-bottom-left-radius: 0px;
+            -moz-border-bottom-right-radius: 0px;
+            -ms-border-top-left-radius: 6px;
+            -ms-border-top-right-radius: 6px;
+            -ms-border-bottom-left-radius: 0px;
+            -ms-border-bottom-right-radius: 0px;
+            -o-border-top-left-radius: 6px;
+            -o-border-top-right-radius: 6px;
+            -o-border-bottom-left-radius: 0px;
+            -o-border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px; }
+          article > div#has-auth > div#voting-area > div#app-buttons > button#logout-button {
+            -webkit-border-top-left-radius: 0px;
+            -webkit-border-top-right-radius: 0px;
+            -webkit-border-bottom-left-radius: 6px;
+            -webkit-border-bottom-right-radius: 6px;
+            -moz-border-top-left-radius: 0px;
+            -moz-border-top-right-radius: 0px;
+            -moz-border-bottom-left-radius: 6px;
+            -moz-border-bottom-right-radius: 6px;
+            -ms-border-top-left-radius: 0px;
+            -ms-border-top-right-radius: 0px;
+            -ms-border-bottom-left-radius: 6px;
+            -ms-border-bottom-right-radius: 6px;
+            -o-border-top-left-radius: 0px;
+            -o-border-top-right-radius: 0px;
+            -o-border-bottom-left-radius: 6px;
+            -o-border-bottom-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px; }
+  article > div#has-voted {
+    margin-top: 3%; }
+    article > div#has-voted > h3.banner-title {
+      font-size: 4em; }
+    article > div#has-voted > a#logout {
+      margin: 0 auto;
+      margin-top: 2%;
+      max-width: 100%;
+      width: 200px; }
+
+/* Footer definitions */
+footer {
+  color: #fff;
+  text-align: center;
+  margin-top: 2%; }
+  footer a:hover {
+    color: #1b60dc;
+    text-decoration: none; }
+  footer a:link, footer a:visited {
+    color: #2a2a2a; }

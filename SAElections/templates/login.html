@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}PSHS-EVC Student Alliance Elections 2015-2016 | Vote now for your new set of officers!{% endblock %}
+
+{% block main %}
+    <article id="login-page">
+        <div id="no-auth" class="row-fluid">
+            <img id="logo" class="img-responsive" src="/static/img/global/logo.png" height="128" width="94">
+            <img id="banner" class="img-responsive" src="/static/img/global/banner.png" height="80" width="422">
+            <h1 class="banner-title">Vote now!</h1>
+            <h3>For the next set of PSHS-EVC Student Alliance Officers</h3>
+            <form id="login-form" action="/login/" method="post">
+                {% csrf_token %}         
+                <div id="input-section">
+                    <div class="form-group">
+                        <input id="student-id" type="text" name="studentID" class="form-control" placeholder="Student ID No.">
+                    </div>
+                    <div class="input-group">
+                        <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+                        <span class="input-group-btn">
+                            <input id="login-btn" type="submit" class="btn btn-primary" value="Login">
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <h5 id="login-incorrect">Incorrect Student ID No. or password</h5>
+        </div>
+    </article>
+{% endblock %}

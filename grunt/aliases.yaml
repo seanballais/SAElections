@@ -1,0 +1,50 @@
+default:
+  description: 'Default Task (Dev)'
+  tasks:
+    - 'watch'
+    - 'notify:task_default'
+
+prod:
+  description: 'Prepare files for deployment'
+  tasks:
+    - 'sass'
+    - 'autoprefixer:build'
+    - 'cssc:build'
+    - 'cssmin:build'
+    - 'notify:task_css'
+    - 'htmlhint'
+    - 'notify:task_html'
+    - 'jshint'
+    - 'uglify'
+    - 'notify:task_js'
+    - 'newer:imagemin:build'
+    - 'notify:task_optimize_images'
+    - 'notify:task_prod'
+
+build-css:
+  description: 'Build CSS file(s)'
+  tasks:
+    - 'sass'
+    - 'autoprefixer:build'
+    - 'cssc:build'
+    - 'cssmin:build'
+    - 'notify:task_css'
+
+lint-html:
+  description: 'Lint HTML file(s)'
+  tasks:
+    - 'htmlhint'
+    - 'notify:task_html'
+
+build-js:
+  description: 'Build JS file(s)'
+  tasks:
+    - 'jshint'
+    - 'uglify'
+    - 'notify:task_js'
+
+optimize-images:
+  description: 'Optimize all images'
+  tasks:
+    - 'newer:imagemin:build'
+    - 'notify:task_optimize_images'

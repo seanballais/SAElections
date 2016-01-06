@@ -20,11 +20,11 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
 urlpatterns = [
-    url('', include('django.contrib.auth.urls', namespace='auth')),
-    url(r'^$', 'voting.views.home', name='home'),
-    url(r'^auth-successful/', 'voting.views.auth_successful', name='auth-successful'),
-    url(r'^authentication/$', 'voting.views.check_studentID', name='check-studentID'),
-    url(r'^confirm/$', 'voting.views.confirm_entry', name='confirm-entry'),
-    url(r'^save-votes/(?P<votes>.+)/$', 'voting.views.save_to_db', name='save-to-db'),
+    url(r'^$', 'director.views.direct', name='home'), # The voting/thank you page is here
+    url(r'^/$', 'director.views.direct', name='home'), # and also here
+    url(r'^login/$', 'authentication.views.user_login', name='login'),
+    url(r'^logout/$', 'authentication.views.user_logout', name='logout'),
+    url(r'^authenticate/$', 'authentication.views.user_auth', name='authenticate'),
+    url(r'^save-votes/(?P<votes>.+)/$', 'voting.views.save_votes', name='save-votes'),
     url(r'^admin/', include(admin.site.urls)),
 ] + staticfiles_urlpatterns()

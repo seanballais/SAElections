@@ -1,0 +1,134 @@
+/* Voting page */
+> div#has-auth {
+    text-align: center;
+
+    > div#header {
+        > div#internal-header {
+            > img#logo {
+                margin-top: 2%;
+                margin-bottom: 0.5%;
+            }
+
+            > img#banner { 
+                margin-bottom: 1%;
+                max-width: 422px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    > div#voting-area {
+        margin: auto;
+        margin-top: 4%;
+        margin-bottom: 2.5%;
+        max-width: 450px;
+
+        > div#candidates {
+            > div {
+                display: none;
+                opacity: 0.6;
+
+                > div:first-child ~ div {
+                    background-color: transparent;
+                    color: #fff;
+                    margin-bottom: 2%;
+                    padding: 2%;
+
+                    $border-radius: 10px;
+                    $transition: background-color 0.3s ease-in, color 0.3s ease-in;
+                    @each $vendor in $prefix-list { 
+                        #{$vendor}-border-radius: $border-radius;
+                        #{$vendor}-transition: $transition;
+                        @if $vendor == '-o' { 
+                            border-radius: $border-radius;
+                            transition: $transition;
+                        }
+                    }
+
+                    > img.profpic {
+                        background: url('/static/img/home/candidates.png');
+                        cursor: pointer;
+                        margin: 2%;
+                        height: 128px;
+                        width: 128px;
+                    }
+                
+                    /* CHICSER Party */    
+                    > img#johan { background-position: 0px 0px; }
+                    > img#kobe { background-position: -128px 0px; }
+                    > img#jeri { background-position: -256px 0px; }
+                    > img#sophia { background-position: -384px 0px; }
+                    > img#linette { background-position: -512px 0px; }
+                    > img#ronel { background-position: -640px 0px; }
+
+                    /* Pisay LIFE Party */
+                    > img#rysa { background-position: -768px 0px; }
+                    > img#nicolas { background-position: -896px 0px; }
+                    > img#franz { background-position: -1024px 0px; }
+                    > img#joshua { background-position: -1152px 0px; }
+                    > img#khristeena { background-position: -1280px 0px; }
+                    > img#jazzel { background-position: -1408px 0px; }
+
+                    &:hover {
+                        background-color: #fff;
+                        color: #4a4a4a;
+                    }
+                }
+            }
+        }
+
+        > div#app-buttons {
+            margin-top: 5%;
+            margin-bottom: 2%;
+            display: none;
+
+            > button {
+                display: block;
+                margin: 0 auto;
+
+                $transition: all 0.3s ease 0s;
+                @each $vendor in $prefix-list { 
+                    #{$vendor}-transition: $transition;
+                    @if $vendor == '-o' { 
+                        transition: $transition;
+                    }
+                }
+
+                @media screen and (max-width: 433px) { width: 100%; }
+                @media screen and (min-width: 433px) { width: 86%; }
+                
+                $border-radius-px: 6px;
+                &#vote-button {
+                    @each $vendor-prefix in $prefix-list {
+                        #{$vendor-prefix}-border-top-left-radius: $border-radius-px;
+                        #{$vendor-prefix}-border-top-right-radius: $border-radius-px;
+                        #{$vendor-prefix}-border-bottom-left-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-right-radius: 0px;
+                        @if $vendor-prefix == '-o' {
+                            border-bottom-left-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                            border-top-left-radius: $border-radius-px;
+                            border-top-right-radius: $border-radius-px;
+                        }
+                    }
+                }
+
+                &#logout-button {
+                    @each $vendor-prefix in $prefix-list {
+                        #{$vendor-prefix}-border-top-left-radius: 0px;
+                        #{$vendor-prefix}-border-top-right-radius: 0px;
+                        #{$vendor-prefix}-border-bottom-left-radius: $border-radius-px;
+                        #{$vendor-prefix}-border-bottom-right-radius: $border-radius-px;
+                        @if $vendor-prefix == '-o' {
+                            border-bottom-left-radius: $border-radius-px;
+                            border-bottom-right-radius: $border-radius-px;
+                            border-top-left-radius: 0px;
+                            border-top-right-radius: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
