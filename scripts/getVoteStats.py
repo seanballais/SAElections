@@ -21,11 +21,11 @@ db = sqlite3.connect('SAElections/db.sqlite3')
 cursor = db.cursor()
 
 # Get vote statistics of each candidates
-cursor.execute('''SELECT has_voted, people_voted FROM auth_user''')
+cursor.execute('''SELECT has_voted, people_voted, section FROM auth_user''')
 for row in cursor:
-    if row[0] == True:
+    if row[0] == True and row[2] != 'Admin':
         numberOfVoters += 1
-        logging.info('[{0}] Row No. {1} Data: {2}'.format(currentDateTime, numberOfVoters, row[1].title()))
+        logging.info('[{0}] Row No. {1} Data: {2} Section: {3}'.format(currentDateTime, numberOfVoters, row[1].title(), row[2].title()))
 
         for person in candidates:
             if person in row[1]:
